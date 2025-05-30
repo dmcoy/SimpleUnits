@@ -38,3 +38,19 @@ public enum Length
     /// </summary>
     Miles
 }
+
+public enum Temperature
+{
+    /// <summary>
+    /// Temperature in celsius.
+    /// </summary>
+    Celsius,
+    /// <summary>
+    /// Temperature in Fahrenheit.
+    /// </summary>
+    Fahrenheit,
+    /// <summary>
+    /// Temperature in Kelvin.
+    /// </summary>
+    Kelvin
+}
