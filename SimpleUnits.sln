@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36121.58
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleUnits", "Unit\SimpleUnits.csproj", "{2C3A758A-BDDB-41E8-8FFE-9C3B2EE809AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleUnits", "SimpleUnits\SimpleUnits.csproj", "{2C3A758A-BDDB-41E8-8FFE-9C3B2EE809AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
