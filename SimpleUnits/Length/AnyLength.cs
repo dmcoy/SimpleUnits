@@ -16,14 +16,14 @@ public static class AnyLength
     {
         return unit switch
         {
-            Length.Centimeters => Inches.ToCentimeters(value),
+            Length.Centimeters => Inches.ToMillimeters(value),
             Length.Millimeters => throw new ArgumentException($"Cannot convert the same units"),
-            Length.Meters => Meters.ToCentimeters(value),
-            Length.Kilometers => Kilometers.ToCentimeters(value),
-            Length.Inches => Inches.ToCentimeters(value),
-            Length.Feet => Feet.ToCentimeters(value),
-            Length.Yards => Yards.ToCentimeters(value),
-            Length.Miles => Miles.ToCentimeters(value),
+            Length.Meters => Meters.ToMillimeters(value),
+            Length.Kilometers => Kilometers.ToMillimeters(value),
+            Length.Inches => Inches.ToMillimeters(value),
+            Length.Feet => Feet.ToMillimeters(value),
+            Length.Yards => Yards.ToMillimeters(value),
+            Length.Miles => Miles.ToMillimeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
     }
@@ -39,14 +39,14 @@ public static class AnyLength
     {
         return unit switch
         {
-            Length.Centimeters => Inches.ToCentimeters(value),
+            Length.Centimeters => Inches.ToMillimeters(value),
             Length.Millimeters => throw new ArgumentException($"Cannot convert the same units"),
-            Length.Meters => Meters.ToCentimeters(value),
-            Length.Kilometers => Kilometers.ToCentimeters(value),
-            Length.Inches => Inches.ToCentimeters(value),
-            Length.Feet => Feet.ToCentimeters(value),
-            Length.Yards => Yards.ToCentimeters(value),
-            Length.Miles => Miles.ToCentimeters(value),
+            Length.Meters => Meters.ToMillimeters(value),
+            Length.Kilometers => Kilometers.ToMillimeters(value),
+            Length.Inches => Inches.ToMillimeters(value),
+            Length.Feet => Feet.ToMillimeters(value),
+            Length.Yards => Yards.ToMillimeters(value),
+            Length.Miles => Miles.ToMillimeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
     }
