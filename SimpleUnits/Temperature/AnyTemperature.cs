@@ -1,8 +1,5 @@
 ﻿namespace SimpleUnits.Convert;
 
-using System;
-using SimpleUnits;
-
 /// <summary>
 /// Provides static methods for converting between different units of temperature.
 /// </summary>
