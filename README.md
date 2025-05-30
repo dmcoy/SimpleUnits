@@ -10,6 +10,6 @@ A lightweight static class library for unit conversions in dotnet projects. This
 - [ ] Add Mass Flow conversion methods
 - [ ] Add Pressure conversion methods
 - [ ] Add Speed conversion methods
-- [ ] Add Torque conversion methods
+- [x] Add Torque conversion methods
 - [x] Add Temperature conversion methods
 - [ ] Create Nuget package
