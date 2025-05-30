@@ -39,6 +39,9 @@ public enum Length
     Miles
 }
 
+/// <summary>
+/// Represents temperature measurement units.
+/// </summary>
 public enum Temperature
 {
     /// <summary>
@@ -53,4 +56,27 @@ public enum Temperature
     /// Temperature in Kelvin.
     /// </summary>
     Kelvin
+}
+
+/// <summary>
+/// Represents units of torque measurement.
+/// </summary>
+public enum Torque
+{
+    /// <summary>
+    /// Torque in Newton meters.
+    /// </summary>
+    NewtonMeter,
+    /// <summary>
+    /// Torque in Kilogram force meters.
+    /// </summary>
+    KilogramForceMeter,
+    /// <summary>
+    /// Torque in Foot pounds.
+    /// </summary>
+    FootPound,
+    /// <summary>
+    /// Torque in Inch pounds.
+    /// </summary>
+    InchPound
 }
