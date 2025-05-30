@@ -66,17 +66,17 @@ public enum Torque
     /// <summary>
     /// Torque in Newton meters.
     /// </summary>
-    NewtonMeter,
+    NewtonMeters,
     /// <summary>
     /// Torque in Kilogram force meters.
     /// </summary>
-    KilogramForceMeter,
+    KilogramForceMeters,
     /// <summary>
     /// Torque in Foot pounds.
     /// </summary>
-    FootPound,
+    FootPounds,
     /// <summary>
     /// Torque in Inch pounds.
     /// </summary>
-    InchPound
+    InchPounds
 }
