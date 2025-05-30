@@ -1,6 +1,7 @@
 ﻿namespace SimpleUnits;
 public static class Conversions
 {
+    #region Length
     public const double MillimetersToCentimeters = 0.1;
     public const double MillimetersToMeters = 0.001;
     public const double MillimetersToKilometers = 0.000001;
@@ -64,4 +65,5 @@ public static class Conversions
     public const double MilesToInches = 63360;
     public const double MilesToFeet = 5280;
     public const double MilesToYards = 1760;
+    #endregion
 }
