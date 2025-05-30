@@ -11,5 +11,5 @@ A lightweight static class library for unit conversions in dotnet projects. This
 - [ ] Add Pressure conversion methods
 - [ ] Add Speed conversion methods
 - [ ] Add Torque conversion methods
-- [ ] Add Temperature conversion methods
+- [x] Add Temperature conversion methods
 - [ ] Create Nuget package
