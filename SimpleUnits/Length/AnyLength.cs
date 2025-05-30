@@ -14,7 +14,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already millimeters or unsupported.</exception>
     public static float ToMillimeters(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Centimeters => Inches.ToCentimeters(value),
             Length.Millimeters => throw new ArgumentException($"Cannot convert the same units"),
@@ -26,7 +26,6 @@ public static class AnyLength
             Length.Miles => Miles.ToCentimeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -38,7 +37,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already millimeters or unsupported.</exception>
     public static double ToMillimeters(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Centimeters => Inches.ToCentimeters(value),
             Length.Millimeters => throw new ArgumentException($"Cannot convert the same units"),
@@ -50,7 +49,6 @@ public static class AnyLength
             Length.Miles => Miles.ToCentimeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -62,7 +60,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already centimeters or unsupported.</exception>
     public static float ToCentimeters(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToCentimeters(value),
             Length.Centimeters => throw new ArgumentException($"Cannot convert the same units"),
@@ -74,7 +72,6 @@ public static class AnyLength
             Length.Miles => Miles.ToCentimeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -86,7 +83,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already centimeters or unsupported.</exception>
     public static double ToCentimeters(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToCentimeters(value),
             Length.Centimeters => throw new ArgumentException($"Cannot convert the same units"),
@@ -98,7 +95,6 @@ public static class AnyLength
             Length.Miles => Miles.ToCentimeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -110,7 +106,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already meters or unsupported.</exception>
     public static float ToMeters(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToMeters(value),
             Length.Centimeters => Centimeters.ToMeters(value),
@@ -122,7 +118,6 @@ public static class AnyLength
             Length.Miles => Miles.ToMeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -134,7 +129,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already meters or unsupported.</exception>
     public static double ToMeters(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToMeters(value),
             Length.Centimeters => Centimeters.ToMeters(value),
@@ -146,7 +141,6 @@ public static class AnyLength
             Length.Miles => Miles.ToMeters(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -158,7 +152,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already kilometers or unsupported.</exception>
     public static float ToKilometers(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToKilometers(value),
             Length.Centimeters => Centimeters.ToKilometers(value),
@@ -170,7 +164,6 @@ public static class AnyLength
             Length.Miles => Miles.ToKilometers(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -182,7 +175,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already kilometers or unsupported.</exception>
     public static double ToKilometers(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToKilometers(value),
             Length.Centimeters => Centimeters.ToKilometers(value),
@@ -194,7 +187,6 @@ public static class AnyLength
             Length.Miles => Miles.ToKilometers(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -206,7 +198,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already inches or unsupported.</exception>
     public static float ToInches(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToInches(value),
             Length.Centimeters => Centimeters.ToInches(value),
@@ -218,7 +210,6 @@ public static class AnyLength
             Length.Miles => Miles.ToInches(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -230,7 +221,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already inches or unsupported.</exception>
     public static double ToInches(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToInches(value),
             Length.Centimeters => Centimeters.ToInches(value),
@@ -242,7 +233,6 @@ public static class AnyLength
             Length.Miles => Miles.ToInches(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -254,7 +244,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already feet or unsupported.</exception>
     public static float ToFeet(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToFeet(value),
             Length.Centimeters => Centimeters.ToFeet(value),
@@ -266,7 +256,6 @@ public static class AnyLength
             Length.Miles => Miles.ToFeet(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -278,7 +267,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already feet or unsupported.</exception>
     public static double ToFeet(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToFeet(value),
             Length.Centimeters => Centimeters.ToFeet(value),
@@ -290,7 +279,6 @@ public static class AnyLength
             Length.Miles => Miles.ToFeet(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -302,7 +290,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already yards or unsupported.</exception>
     public static float ToYards(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToYards(value),
             Length.Centimeters => Centimeters.ToYards(value),
@@ -314,7 +302,6 @@ public static class AnyLength
             Length.Miles => Miles.ToYards(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -326,7 +313,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already yards or unsupported.</exception>
     public static double ToYards(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToYards(value),
             Length.Centimeters => Centimeters.ToYards(value),
@@ -338,7 +325,6 @@ public static class AnyLength
             Length.Miles => Miles.ToYards(value),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -350,7 +336,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already miles or unsupported.</exception>
     public static float ToMiles(float value, Length unit)
     {
-        float convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToMiles(value),
             Length.Centimeters => Centimeters.ToMiles(value),
@@ -362,7 +348,6 @@ public static class AnyLength
             Length.Miles => throw new ArgumentException($"Cannot convert the same units"),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 
     /// <summary>
@@ -374,7 +359,7 @@ public static class AnyLength
     /// <exception cref="ArgumentException">Thrown if the unit is already miles or unsupported.</exception>
     public static double ToMiles(double value, Length unit)
     {
-        double convertedValue = unit switch
+        return unit switch
         {
             Length.Millimeters => Millimeters.ToMiles(value),
             Length.Centimeters => Centimeters.ToMiles(value),
@@ -386,6 +371,5 @@ public static class AnyLength
             Length.Miles => throw new ArgumentException($"Cannot convert the same units"),
             _ => throw new ArgumentException($"Unsupported length unit: {unit}")
         };
-        return convertedValue;
     }
 }
