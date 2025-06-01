@@ -17,6 +17,7 @@
     <Title>Simple Units</Title>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <PackageTags>units; unit; convert; conversion; metric; imperial;</PackageTags>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
