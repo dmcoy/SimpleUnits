@@ -243,122 +243,81 @@ public static class Length
     public const double MilesToYards = 1_760;
     #endregion
 
-    #region Units
-    /// <summary>
-    /// Specifies units of length for conversion operations.
-    /// </summary>
-    public enum Unit
-    {
-        /// <summary>
-        /// Length in millimeters.
-        /// </summary>
-        Millimeters,
-        /// <summary>
-        /// Length in centimeters.
-        /// </summary>
-        Centimeters,
-        /// <summary>
-        /// Length in meters.
-        /// </summary>
-        Meters,
-        /// <summary>
-        /// Length in kilometers.
-        /// </summary>
-        Kilometers,
-        /// <summary>
-        /// Length in inches.
-        /// </summary>
-        Inches,
-        /// <summary>
-        /// Length in feet.
-        /// </summary>
-        Feet,
-        /// <summary>
-        /// Length in yards.
-        /// </summary>
-        Yards,
-        /// <summary>
-        /// Length in miles.
-        /// </summary>
-        Miles
-    }
-    #endregion
-
     static Length()
     {
         // Register Length unit
-        UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Length);
+        UnitConverter.RegisterUnit(typeof(LengthUnit), BaseUnit.Length);
 
         // Millimeter conversions
-        UnitConverter.RegisterConversion(Unit.Millimeters, Unit.Centimeters, value => value * MillimetersToCentimeters);
-        UnitConverter.RegisterConversion(Unit.Millimeters, Unit.Meters, value => value * MillimetersToMeters);
-        UnitConverter.RegisterConversion(Unit.Millimeters, Unit.Kilometers, value => value * MillimetersToKilometers);
-        UnitConverter.RegisterConversion(Unit.Millimeters, Unit.Inches, value => value * MillimetersToInches);
-        UnitConverter.RegisterConversion(Unit.Millimeters, Unit.Feet, value => value * MillimetersToFeet);
-        UnitConverter.RegisterConversion(Unit.Millimeters, Unit.Yards, value => value * MillimetersToYards);
-        UnitConverter.RegisterConversion(Unit.Millimeters, Unit.Miles, value => value * MillimetersToMiles);
+        UnitConverter.RegisterConversion(LengthUnit.Millimeters, LengthUnit.Centimeters, value => value * MillimetersToCentimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Millimeters, LengthUnit.Meters, value => value * MillimetersToMeters);
+        UnitConverter.RegisterConversion(LengthUnit.Millimeters, LengthUnit.Kilometers, value => value * MillimetersToKilometers);
+        UnitConverter.RegisterConversion(LengthUnit.Millimeters, LengthUnit.Inches, value => value * MillimetersToInches);
+        UnitConverter.RegisterConversion(LengthUnit.Millimeters, LengthUnit.Feet, value => value * MillimetersToFeet);
+        UnitConverter.RegisterConversion(LengthUnit.Millimeters, LengthUnit.Yards, value => value * MillimetersToYards);
+        UnitConverter.RegisterConversion(LengthUnit.Millimeters, LengthUnit.Miles, value => value * MillimetersToMiles);
 
         // Centimeters conversions
-        UnitConverter.RegisterConversion(Unit.Centimeters, Unit.Millimeters, value => value * CentimetersToMillimeters);
-        UnitConverter.RegisterConversion(Unit.Centimeters, Unit.Meters, value => value * CentimetersToMeters);
-        UnitConverter.RegisterConversion(Unit.Centimeters, Unit.Kilometers, value => value * CentimetersToKilometers);
-        UnitConverter.RegisterConversion(Unit.Centimeters, Unit.Inches, value => value * CentimetersToInches);
-        UnitConverter.RegisterConversion(Unit.Centimeters, Unit.Feet, value => value * CentimetersToFeet);
-        UnitConverter.RegisterConversion(Unit.Centimeters, Unit.Yards, value => value * CentimetersToYards);
-        UnitConverter.RegisterConversion(Unit.Centimeters, Unit.Miles, value => value * CentimetersToMiles);
+        UnitConverter.RegisterConversion(LengthUnit.Centimeters, LengthUnit.Millimeters, value => value * CentimetersToMillimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Centimeters, LengthUnit.Meters, value => value * CentimetersToMeters);
+        UnitConverter.RegisterConversion(LengthUnit.Centimeters, LengthUnit.Kilometers, value => value * CentimetersToKilometers);
+        UnitConverter.RegisterConversion(LengthUnit.Centimeters, LengthUnit.Inches, value => value * CentimetersToInches);
+        UnitConverter.RegisterConversion(LengthUnit.Centimeters, LengthUnit.Feet, value => value * CentimetersToFeet);
+        UnitConverter.RegisterConversion(LengthUnit.Centimeters, LengthUnit.Yards, value => value * CentimetersToYards);
+        UnitConverter.RegisterConversion(LengthUnit.Centimeters, LengthUnit.Miles, value => value * CentimetersToMiles);
         // Meter conversions
-        UnitConverter.RegisterConversion(Unit.Meters, Unit.Millimeters, value => value * MetersToMillimeters);
-        UnitConverter.RegisterConversion(Unit.Meters, Unit.Centimeters, value => value * MetersToCentimeters);
-        UnitConverter.RegisterConversion(Unit.Meters, Unit.Kilometers, value => value * MetersToKilometers);
-        UnitConverter.RegisterConversion(Unit.Meters, Unit.Inches, value => value * MetersToInches);
-        UnitConverter.RegisterConversion(Unit.Meters, Unit.Feet, value => value * MetersToFeet);
-        UnitConverter.RegisterConversion(Unit.Meters, Unit.Yards, value => value * MetersToYards);
-        UnitConverter.RegisterConversion(Unit.Meters, Unit.Miles, value => value * MetersToMiles);
+        UnitConverter.RegisterConversion(LengthUnit.Meters, LengthUnit.Millimeters, value => value * MetersToMillimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Meters, LengthUnit.Centimeters, value => value * MetersToCentimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Meters, LengthUnit.Kilometers, value => value * MetersToKilometers);
+        UnitConverter.RegisterConversion(LengthUnit.Meters, LengthUnit.Inches, value => value * MetersToInches);
+        UnitConverter.RegisterConversion(LengthUnit.Meters, LengthUnit.Feet, value => value * MetersToFeet);
+        UnitConverter.RegisterConversion(LengthUnit.Meters, LengthUnit.Yards, value => value * MetersToYards);
+        UnitConverter.RegisterConversion(LengthUnit.Meters, LengthUnit.Miles, value => value * MetersToMiles);
 
         // Kilometer conversions
-        UnitConverter.RegisterConversion(Unit.Kilometers, Unit.Millimeters, value => value * KilometersToMillimeters);
-        UnitConverter.RegisterConversion(Unit.Kilometers, Unit.Centimeters, value => value * KilometersToCentimeters);
-        UnitConverter.RegisterConversion(Unit.Kilometers, Unit.Meters, value => value * KilometersToMeters);
-        UnitConverter.RegisterConversion(Unit.Kilometers, Unit.Inches, value => value * KilometersToInches);
-        UnitConverter.RegisterConversion(Unit.Kilometers, Unit.Feet, value => value * KilometersToFeet);
-        UnitConverter.RegisterConversion(Unit.Kilometers, Unit.Yards, value => value * KilometersToYards);
-        UnitConverter.RegisterConversion(Unit.Kilometers, Unit.Miles, value => value * KilometersToMiles);
+        UnitConverter.RegisterConversion(LengthUnit.Kilometers, LengthUnit.Millimeters, value => value * KilometersToMillimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Kilometers, LengthUnit.Centimeters, value => value * KilometersToCentimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Kilometers, LengthUnit.Meters, value => value * KilometersToMeters);
+        UnitConverter.RegisterConversion(LengthUnit.Kilometers, LengthUnit.Inches, value => value * KilometersToInches);
+        UnitConverter.RegisterConversion(LengthUnit.Kilometers, LengthUnit.Feet, value => value * KilometersToFeet);
+        UnitConverter.RegisterConversion(LengthUnit.Kilometers, LengthUnit.Yards, value => value * KilometersToYards);
+        UnitConverter.RegisterConversion(LengthUnit.Kilometers, LengthUnit.Miles, value => value * KilometersToMiles);
 
         // Inch conversions
-        UnitConverter.RegisterConversion(Unit.Inches, Unit.Millimeters, value => value * InchesToMillimeters);
-        UnitConverter.RegisterConversion(Unit.Inches, Unit.Centimeters, value => value * InchesToCentimeters);
-        UnitConverter.RegisterConversion(Unit.Inches, Unit.Meters, value => value * InchesToMeters);
-        UnitConverter.RegisterConversion(Unit.Inches, Unit.Kilometers, value => value * InchesToKilometers);
-        UnitConverter.RegisterConversion(Unit.Inches, Unit.Feet, value => value % FeetToInches == 0 ? Math.Round(value * InchesToFeet) : value * InchesToFeet);
-        UnitConverter.RegisterConversion(Unit.Inches, Unit.Yards, value => value % YardsToInches == 0 ? Math.Round(value * InchesToYards) : value * InchesToYards);
-        UnitConverter.RegisterConversion(Unit.Inches, Unit.Miles, value => value % MilesToInches == 0 ? Math.Round(value * InchesToMiles) : value * InchesToMiles);
+        UnitConverter.RegisterConversion(LengthUnit.Inches, LengthUnit.Millimeters, value => value * InchesToMillimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Inches, LengthUnit.Centimeters, value => value * InchesToCentimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Inches, LengthUnit.Meters, value => value * InchesToMeters);
+        UnitConverter.RegisterConversion(LengthUnit.Inches, LengthUnit.Kilometers, value => value * InchesToKilometers);
+        UnitConverter.RegisterConversion(LengthUnit.Inches, LengthUnit.Feet, value => value % FeetToInches == 0 ? Math.Round(value * InchesToFeet) : value * InchesToFeet);
+        UnitConverter.RegisterConversion(LengthUnit.Inches, LengthUnit.Yards, value => value % YardsToInches == 0 ? Math.Round(value * InchesToYards) : value * InchesToYards);
+        UnitConverter.RegisterConversion(LengthUnit.Inches, LengthUnit.Miles, value => value % MilesToInches == 0 ? Math.Round(value * InchesToMiles) : value * InchesToMiles);
 
         // Feet conversions
-        UnitConverter.RegisterConversion(Unit.Feet, Unit.Millimeters, value => value * FeetToMillimeters);
-        UnitConverter.RegisterConversion(Unit.Feet, Unit.Centimeters, value => value * FeetToCentimeters);
-        UnitConverter.RegisterConversion(Unit.Feet, Unit.Meters, value => value * FeetToMeters);
-        UnitConverter.RegisterConversion(Unit.Feet, Unit.Kilometers, value => value * FeetToKilometers);
-        UnitConverter.RegisterConversion(Unit.Feet, Unit.Inches, value => value * FeetToInches);
-        UnitConverter.RegisterConversion(Unit.Feet, Unit.Yards, value => value % YardsToFeet == 0 ? Math.Round(value * FeetToYards) : value * FeetToYards);
-        UnitConverter.RegisterConversion(Unit.Feet, Unit.Miles, value => value % MilesToFeet == 0 ? Math.Round(value * FeetToMiles) : value * FeetToMiles);
+        UnitConverter.RegisterConversion(LengthUnit.Feet, LengthUnit.Millimeters, value => value * FeetToMillimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Feet, LengthUnit.Centimeters, value => value * FeetToCentimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Feet, LengthUnit.Meters, value => value * FeetToMeters);
+        UnitConverter.RegisterConversion(LengthUnit.Feet, LengthUnit.Kilometers, value => value * FeetToKilometers);
+        UnitConverter.RegisterConversion(LengthUnit.Feet, LengthUnit.Inches, value => value * FeetToInches);
+        UnitConverter.RegisterConversion(LengthUnit.Feet, LengthUnit.Yards, value => value % YardsToFeet == 0 ? Math.Round(value * FeetToYards) : value * FeetToYards);
+        UnitConverter.RegisterConversion(LengthUnit.Feet, LengthUnit.Miles, value => value % MilesToFeet == 0 ? Math.Round(value * FeetToMiles) : value * FeetToMiles);
 
         // Yard conversions
-        UnitConverter.RegisterConversion(Unit.Yards, Unit.Millimeters, value => value * YardsToMillimeters);
-        UnitConverter.RegisterConversion(Unit.Yards, Unit.Centimeters, value => value * YardsToCentimeters);
-        UnitConverter.RegisterConversion(Unit.Yards, Unit.Meters, value => value * YardsToMeters);
-        UnitConverter.RegisterConversion(Unit.Yards, Unit.Kilometers, value => value * YardsToKilometers);
-        UnitConverter.RegisterConversion(Unit.Yards, Unit.Inches, value => value * YardsToInches);
-        UnitConverter.RegisterConversion(Unit.Yards, Unit.Feet, value => value * YardsToFeet);
-        UnitConverter.RegisterConversion(Unit.Yards, Unit.Miles, value => value % MilesToYards == 0 ? Math.Round(value * YardsToMiles) : value * YardsToMiles);
+        UnitConverter.RegisterConversion(LengthUnit.Yards, LengthUnit.Millimeters, value => value * YardsToMillimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Yards, LengthUnit.Centimeters, value => value * YardsToCentimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Yards, LengthUnit.Meters, value => value * YardsToMeters);
+        UnitConverter.RegisterConversion(LengthUnit.Yards, LengthUnit.Kilometers, value => value * YardsToKilometers);
+        UnitConverter.RegisterConversion(LengthUnit.Yards, LengthUnit.Inches, value => value * YardsToInches);
+        UnitConverter.RegisterConversion(LengthUnit.Yards, LengthUnit.Feet, value => value * YardsToFeet);
+        UnitConverter.RegisterConversion(LengthUnit.Yards, LengthUnit.Miles, value => value % MilesToYards == 0 ? Math.Round(value * YardsToMiles) : value * YardsToMiles);
 
         // Miles
-        UnitConverter.RegisterConversion(Unit.Miles, Unit.Millimeters, value => value * MilesToMillimeters);
-        UnitConverter.RegisterConversion(Unit.Miles, Unit.Centimeters, value => value * MilesToCentimeters);
-        UnitConverter.RegisterConversion(Unit.Miles, Unit.Meters, value => value * MilesToMeters);
-        UnitConverter.RegisterConversion(Unit.Miles, Unit.Kilometers, value => value * MilesToKilometers);
-        UnitConverter.RegisterConversion(Unit.Miles, Unit.Inches, value => value * MilesToInches);
-        UnitConverter.RegisterConversion(Unit.Miles, Unit.Feet, value => value * MilesToFeet);
-        UnitConverter.RegisterConversion(Unit.Miles, Unit.Yards, value => value * MilesToYards);
+        UnitConverter.RegisterConversion(LengthUnit.Miles, LengthUnit.Millimeters, value => value * MilesToMillimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Miles, LengthUnit.Centimeters, value => value * MilesToCentimeters);
+        UnitConverter.RegisterConversion(LengthUnit.Miles, LengthUnit.Meters, value => value * MilesToMeters);
+        UnitConverter.RegisterConversion(LengthUnit.Miles, LengthUnit.Kilometers, value => value * MilesToKilometers);
+        UnitConverter.RegisterConversion(LengthUnit.Miles, LengthUnit.Inches, value => value * MilesToInches);
+        UnitConverter.RegisterConversion(LengthUnit.Miles, LengthUnit.Feet, value => value * MilesToFeet);
+        UnitConverter.RegisterConversion(LengthUnit.Miles, LengthUnit.Yards, value => value * MilesToYards);
     }
 
     /// <summary>
@@ -371,9 +330,47 @@ public static class Length
     /// <exception cref="ArgumentException">
     /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
     /// </exception>
-    public static double Convert(double value, Unit from, Unit to)
+    public static double Convert(double value, LengthUnit from, LengthUnit to)
     {
         return UnitConverter.Convert(value, from, to);
     }
 }
 
+/// <summary>
+/// Specifies units of length for conversion operations.
+/// </summary>
+public enum LengthUnit
+{
+    /// <summary>
+    /// Length in millimeters.
+    /// </summary>
+    Millimeters,
+    /// <summary>
+    /// Length in centimeters.
+    /// </summary>
+    Centimeters,
+    /// <summary>
+    /// Length in meters.
+    /// </summary>
+    Meters,
+    /// <summary>
+    /// Length in kilometers.
+    /// </summary>
+    Kilometers,
+    /// <summary>
+    /// Length in inches.
+    /// </summary>
+    Inches,
+    /// <summary>
+    /// Length in feet.
+    /// </summary>
+    Feet,
+    /// <summary>
+    /// Length in yards.
+    /// </summary>
+    Yards,
+    /// <summary>
+    /// Length in miles.
+    /// </summary>
+    Miles
+}
