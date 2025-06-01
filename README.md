@@ -25,3 +25,18 @@ float bar = Pressure.Convert(psi, PressureUnit.Psi, PressureUnit.Bar);
 double inchesToFeet = Length.InchesToFeet;
 double feet = 12 * inchesToFeet;
 ```
+
+### US Standard conversion factors
+Some US Standard conversions such as converting inches to feet uses a conversion factor that will not produce a whole number. For example converting 12 inches to feet will not equal 1 when using the conversion factor. Using the Convert method takes this into account and produces the correct output.
+
+For example
+``` csharp
+// Converting inches to feet using conversion factor
+double inches = 12;
+double feet = inches * Length.InchesToFeet;
+// will output 0.9999960000000001
+
+// Converting inches to feet using convert method
+feet = Length.Convert(inches, LengthUnit.Inches, LenghtUnit.Feet);
+// will output 1
+```
