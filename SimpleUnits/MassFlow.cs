@@ -5,85 +5,178 @@
 /// </summary>
 public static class MassFlow
 {
-    #region Conversion Factors
     /// <summary>
-    /// Conversion factor from kilogram per hour (kg/h) to pound per hour (lb/h).
+    /// Static constructor to register mass flow units and conversions with the <see cref="UnitConverter"/>.
     /// </summary>
-    public const double Kgh_to_Lbh = 2.204_586;
-    /// <summary>
-    /// Conversion factor from kilogram per hour (kg/h) to kilogram per second (kg/s).
-    /// </summary>
-    public const double Kgh_to_Kgs = 0.000_278;
-    /// <summary>
-    /// Conversion factor from kilogram per hour (kg/h) to ton per hour (t/h).
-    /// </summary>
-    public const double Kgh_to_Th = 0.001;
-
-    /// <summary>
-    /// Conversion factor from pound per hour (lb/h) to kilogram per hour (kg/h).
-    /// </summary>
-    public const double Lbh_to_Kgh = 0.453_6;
-    /// <summary>
-    /// Conversion factor from pound per hour (lb/h) to kilogram per second (kg/s).
-    /// </summary>
-    public const double Lbh_to_Kgs = 0.000_126;
-    /// <summary>
-    /// Conversion factor from pound per hour (lb/h) to ton per hour (t/h).
-    /// </summary>
-    public const double Lbh_to_Th = 0.000_454;
-
-    /// <summary>
-    /// Conversion factor from kilogram per second (kg/s) to kilogram per hour (kg/h).
-    /// </summary>
-    public const double Kgs_to_Kgh = 3_600;
-    /// <summary>
-    /// Conversion factor from kilogram per second (kg/s) to pound per hour (lb/h).
-    /// </summary>
-    public const double Kgs_to_Lbh = 7_936.508;
-    /// <summary>
-    /// Conversion factor from kilogram per second (kg/s) to ton per hour (t/h).
-    /// </summary>
-    public const double Kgs_to_Th = 3.6;
-
-    /// <summary>
-    /// Conversion factor from ton per hour (t/h) to kilogram per hour (kg/h).
-    /// </summary>
-    public const double Th_to_Kgh = 1_000;
-    /// <summary>
-    /// Conversion factor from ton per hour (t/h) to pound per hour (lb/h).
-    /// </summary>
-    public const double Th_to_Lbh = 2_204.586;
-    /// <summary>
-    /// Conversion factor from ton per hour (t/h) to kilogram per second (kg/s).
-    /// </summary>
-    public const double Th_to_Kgs = 0.277_778;
-    #endregion
-
     static MassFlow()
     {
         // Register MassFlow unit
         UnitConverter.RegisterUnit(typeof(MassFlowUnit), BaseUnit.MassFlow);
 
         // kg/h conversions
-        UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Lbh, value => value * Kgh_to_Lbh);
-        UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Kgs, value => value * Kgh_to_Kgs);
-        UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Th, value => value * Kgh_to_Th);
+        UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Lbh, KghToLbh);
+        UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Kgs, KghToKgs);
+        UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Th, KghToTh);
 
         // lb/h conversions
-        UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Kgh, value => value * Lbh_to_Kgh);
-        UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Kgs, value => value * Lbh_to_Kgs);
-        UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Th, value => value * Lbh_to_Th);
+        UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Kgh, LbhToKgh);
+        UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Kgs, LbhToKgs);
+        UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Th, LbhToTh);
 
         // kg/s conversions
-        UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Kgh, value => value * Kgs_to_Kgh);
-        UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Lbh, value => value * Kgs_to_Lbh);
-        UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Th, value => value * Kgs_to_Th);
+        UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Kgh, KgsToKgh);
+        UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Lbh, KgsToLbh);
+        UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Th, KgsToTh);
 
         // t/h conversions
-        UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Kgh, value => value * Th_to_Kgh);
-        UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Lbh, value => value * Th_to_Lbh);
-        UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Kgs, value => value * Th_to_Kgs);
+        UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Kgh, ThToKgh);
+        UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Lbh, ThToLbh);
+        UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Kgs, ThToKgs);
     }
+
+    #region Conversion Factors
+    /// <summary>
+    /// Collection of conversion factors
+    /// </summary>
+    public struct Factor
+    {
+        /// <summary>
+        /// Conversion factor from kilogram per hour (kg/h) to pound per hour (lb/h).
+        /// </summary>
+        public const double KghToLbh = 2.204_586;
+        /// <summary>
+        /// Conversion factor from kilogram per hour (kg/h) to kilogram per second (kg/s).
+        /// </summary>
+        public const double KghToKgs = 0.000_278;
+        /// <summary>
+        /// Conversion factor from kilogram per hour (kg/h) to ton per hour (t/h).
+        /// </summary>
+        public const double KghToTh = 0.001;
+
+        /// <summary>
+        /// Conversion factor from pound per hour (lb/h) to kilogram per hour (kg/h).
+        /// </summary>
+        public const double LbhToKgh = 0.453_6;
+        /// <summary>
+        /// Conversion factor from pound per hour (lb/h) to kilogram per second (kg/s).
+        /// </summary>
+        public const double LbhToKgs = 0.000_126;
+        /// <summary>
+        /// Conversion factor from pound per hour (lb/h) to ton per hour (t/h).
+        /// </summary>
+        public const double LbhToTh = 0.000_454;
+
+        /// <summary>
+        /// Conversion factor from kilogram per second (kg/s) to kilogram per hour (kg/h).
+        /// </summary>
+        public const double KgsToKgh = 3_600;
+        /// <summary>
+        /// Conversion factor from kilogram per second (kg/s) to pound per hour (lb/h).
+        /// </summary>
+        public const double KgsToLbh = 7_936.508;
+        /// <summary>
+        /// Conversion factor from kilogram per second (kg/s) to ton per hour (t/h).
+        /// </summary>
+        public const double KgsToTh = 3.6;
+
+        /// <summary>
+        /// Conversion factor from ton per hour (t/h) to kilogram per hour (kg/h).
+        /// </summary>
+        public const double ThToKgh = 1_000;
+        /// <summary>
+        /// Conversion factor from ton per hour (t/h) to pound per hour (lb/h).
+        /// </summary>
+        public const double ThToLbh = 2_204.586;
+        /// <summary>
+        /// Conversion factor from ton per hour (t/h) to kilogram per second (kg/s).
+        /// </summary>
+        public const double ThToKgs = 0.277_778;
+    }
+    #endregion
+
+    /// <summary>
+    /// Converts a value from kilogram per hour (kg/h) to pound per hour (lb/h).
+    /// </summary>
+    /// <param name="value">The value in kilogram per hour.</param>
+    /// <returns>The equivalent value in pound per hour.</returns>
+    public static double KghToLbh(double value) => value * Factor.KghToLbh;
+
+    /// <summary>
+    /// Converts a value from kilogram per hour (kg/h) to kilogram per second (kg/s).
+    /// </summary>
+    /// <param name="value">The value in kilogram per hour.</param>
+    /// <returns>The equivalent value in kilogram per second.</returns>
+    public static double KghToKgs(double value) => value * Factor.KghToKgs;
+
+    /// <summary>
+    /// Converts a value from kilogram per hour (kg/h) to ton per hour (t/h).
+    /// </summary>
+    /// <param name="value">The value in kilogram per hour.</param>
+    /// <returns>The equivalent value in ton per hour.</returns>
+    public static double KghToTh(double value) => value * Factor.KghToTh;
+
+    /// <summary>
+    /// Converts a value from pound per hour (lb/h) to kilogram per hour (kg/h).
+    /// </summary>
+    /// <param name="value">The value in pound per hour.</param>
+    /// <returns>The equivalent value in kilogram per hour.</returns>
+    public static double LbhToKgh(double value) => value * Factor.LbhToKgh;
+
+    /// <summary>
+    /// Converts a value from pound per hour (lb/h) to kilogram per second (kg/s).
+    /// </summary>
+    /// <param name="value">The value in pound per hour.</param>
+    /// <returns>The equivalent value in kilogram per second.</returns>
+    public static double LbhToKgs(double value) => value * Factor.LbhToKgs;
+
+    /// <summary>
+    /// Converts a value from pound per hour (lb/h) to ton per hour (t/h).
+    /// </summary>
+    /// <param name="value">The value in pound per hour.</param>
+    /// <returns>The equivalent value in ton per hour.</returns>
+    public static double LbhToTh(double value) => value * Factor.LbhToTh;
+
+    /// <summary>
+    /// Converts a value from kilogram per second (kg/s) to kilogram per hour (kg/h).
+    /// </summary>
+    /// <param name="value">The value in kilogram per second.</param>
+    /// <returns>The equivalent value in kilogram per hour.</returns>
+    public static double KgsToKgh(double value) => value * Factor.KgsToKgh;
+
+    /// <summary>
+    /// Converts a value from kilogram per second (kg/s) to pound per hour (lb/h).
+    /// </summary>
+    /// <param name="value">The value in kilogram per second.</param>
+    /// <returns>The equivalent value in pound per hour.</returns>
+    public static double KgsToLbh(double value) => value * Factor.KgsToLbh;
+
+    /// <summary>
+    /// Converts a value from kilogram per second (kg/s) to ton per hour (t/h).
+    /// </summary>
+    /// <param name="value">The value in kilogram per second.</param>
+    /// <returns>The equivalent value in ton per hour.</returns>
+    public static double KgsToTh(double value) => value * Factor.KgsToTh;
+
+    /// <summary>
+    /// Converts a value from ton per hour (t/h) to kilogram per hour (kg/h).
+    /// </summary>
+    /// <param name="value">The value in ton per hour.</param>
+    /// <returns>The equivalent value in kilogram per hour.</returns>
+    public static double ThToKgh(double value) => value * Factor.ThToKgh;
+
+    /// <summary>
+    /// Converts a value from ton per hour (t/h) to pound per hour (lb/h).
+    /// </summary>
+    /// <param name="value">The value in ton per hour.</param>
+    /// <returns>The equivalent value in pound per hour.</returns>
+    public static double ThToLbh(double value) => value * Factor.ThToLbh;
+
+    /// <summary>
+    /// Converts a value from ton per hour (t/h) to kilogram per second (kg/s).
+    /// </summary>
+    /// <param name="value">The value in ton per hour.</param>
+    /// <returns>The equivalent value in kilogram per second.</returns>
+    public static double ThToKgs(double value) => value * Factor.ThToKgs;
 
     /// <summary>
     /// Converts a value from one mass flow unit to another.
