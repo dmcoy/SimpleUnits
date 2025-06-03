@@ -5,181 +5,370 @@
 /// </summary>
 public static class Speed
 {
-    #region Conversion Factors
     /// <summary>
-    /// Conversion factor from meter per second (m/s) to meter per minute (m/min).
+    /// Static constructor to register speed units and conversions with the <see cref="UnitConverter"/>.
     /// </summary>
-    public const double Ms_to_Mmin = 59.988;
-    /// <summary>
-    /// Conversion factor from meter per second (m/s) to kilometer per hour (km/h).
-    /// </summary>
-    public const double Ms_to_Kmh = 3.599712;
-    /// <summary>
-    /// Conversion factor from meter per second (m/s) to foot per second (ft/s).
-    /// </summary>
-    public const double Ms_to_Fts = 3.28084;
-    /// <summary>
-    /// Conversion factor from meter per second (m/s) to foot per minute (ft/min).
-    /// </summary>
-    public const double Ms_to_Ftmin = 196.8504;
-    /// <summary>
-    /// Conversion factor from meter per second (m/s) to mile per hour (mi/h).
-    /// </summary>
-    public const double Ms_to_Mih = 2.237136;
-
-    /// <summary>
-    /// Conversion factor from meter per minute (m/min) to meter per second (m/s).
-    /// </summary>
-    public const double Mmin_to_Ms = 0.01667;
-    /// <summary>
-    /// Conversion factor from meter per minute (m/min) to kilometer per hour (km/h).
-    /// </summary>
-    public const double Mmin_to_Kmh = 0.060007;
-    /// <summary>
-    /// Conversion factor from meter per minute (m/min) to foot per second (ft/s).
-    /// </summary>
-    public const double Mmin_to_Fts = 0.054692;
-    /// <summary>
-    /// Conversion factor from meter per minute (m/min) to foot per minute (ft/min).
-    /// </summary>
-    public const double Mmin_to_Ftmin = 3.281496;
-    /// <summary>
-    /// Conversion factor from meter per minute (m/min) to mile per hour (mi/h).
-    /// </summary>
-    public const double Mmin_to_Mih = 0.037293;
-
-    /// <summary>
-    /// Conversion factor from kilometer per hour (km/h) to meter per second (m/s).
-    /// </summary>
-    public const double Kmh_to_Ms = 0.2778;
-    /// <summary>
-    /// Conversion factor from kilometer per hour (km/h) to meter per minute (m/min).
-    /// </summary>
-    public const double Kmh_to_Mmin = 16.66467;
-    /// <summary>
-    /// Conversion factor from kilometer per hour (km/h) to foot per second (ft/s).
-    /// </summary>
-    public const double Kmh_to_Fts = 0.911417;
-    /// <summary>
-    /// Conversion factor from kilometer per hour (km/h) to foot per minute (ft/min).
-    /// </summary>
-    public const double Kmh_to_Ftmin = 54.68504;
-    /// <summary>
-    /// Conversion factor from kilometer per hour (km/h) to mile per hour (mi/h).
-    /// </summary>
-    public const double Kmh_to_Mih = 0.621477;
-
-    /// <summary>
-    /// Conversion factor from foot per second (ft/s) to meter per second (m/s).
-    /// </summary>
-    public const double Fts_to_Ms = 0.3048;
-    /// <summary>
-    /// Conversion factor from foot per second (ft/s) to meter per minute (m/min).
-    /// </summary>
-    public const double Fts_to_Mmin = 18.28434;
-    /// <summary>
-    /// Conversion factor from foot per second (ft/s) to kilometer per hour (km/h).
-    /// </summary>
-    public const double Fts_to_Kmh = 1.097192;
-    /// <summary>
-    /// Conversion factor from foot per second (ft/s) to foot per minute (ft/min).
-    /// </summary>
-    public const double Fts_to_Ftmin = 60;
-    /// <summary>
-    /// Conversion factor from foot per second (ft/s) to mile per hour (mi/h).
-    /// </summary>
-    public const double Fts_to_Mih = 0.681879;
-
-    /// <summary>
-    /// Conversion factor from foot per minute (ft/min) to meter per second (m/s).
-    /// </summary>
-    public const double Ftmin_to_Ms = 0.00508;
-    /// <summary>
-    /// Conversion factor from foot per minute (ft/min) to meter per minute (m/min).
-    /// </summary>
-    public const double Ftmin_to_Mmin = 0.304739;
-    /// <summary>
-    /// Conversion factor from foot per minute (ft/min) to kilometer per hour (km/h).
-    /// </summary>
-    public const double Ftmin_to_Kmh = 0.018287;
-    /// <summary>
-    /// Conversion factor from foot per minute (ft/min) to foot per second (ft/s).
-    /// </summary>
-    public const double Ftmin_to_Fts = 0.016667;
-    /// <summary>
-    /// Conversion factor from foot per minute (ft/min) to mile per hour (mi/h).
-    /// </summary>
-    public const double Ftmin_to_Mih = 0.011365;
-
-    /// <summary>
-    /// Conversion factor from mile per hour (mi/h) to meter per second (m/s).
-    /// </summary>
-    public const double Mih_to_Ms = 0.447;
-    /// <summary>
-    /// Conversion factor from mile per hour (mi/h) to meter per minute (m/min).
-    /// </summary>
-    public const double Mih_to_Mmin = 26.81464;
-    /// <summary>
-    /// Conversion factor from mile per hour (mi/h) to kilometer per hour (km/h).
-    /// </summary>
-    public const double Mih_to_Kmh = 1.609071;
-    /// <summary>
-    /// Conversion factor from mile per hour (mi/h) to foot per second (ft/s).
-    /// </summary>
-    public const double Mih_to_Fts = 1.466535;
-    /// <summary>
-    /// Conversion factor from mile per hour (mi/h) to foot per minute (ft/min).
-    /// </summary>
-    public const double Mih_to_Ftmin = 87.99213;
-    #endregion
-
     static Speed()
     {
         // Register Speed unit
         UnitConverter.RegisterUnit(typeof(SpeedUnit), BaseUnit.Speed);
 
         // m/s conversions
-        UnitConverter.RegisterConversion(SpeedUnit.Ms, SpeedUnit.Mmin, value => value * Ms_to_Mmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Ms, SpeedUnit.Kmh, value => value * Ms_to_Kmh);
-        UnitConverter.RegisterConversion(SpeedUnit.Ms, SpeedUnit.Fts, value => value * Ms_to_Fts);
-        UnitConverter.RegisterConversion(SpeedUnit.Ms, SpeedUnit.Ftmin, value => value * Ms_to_Ftmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Ms, SpeedUnit.Mih, value => value * Ms_to_Mih);
+        UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Mmin, MsecToMmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Kmh, MsecToKmh);
+        UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Ftsec, MsecToFtsec);
+        UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Ftmin, MsecToFtmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Mph, MsecToMph);
 
         // m/min conversions
-        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Ms, value => value * Mmin_to_Ms);
-        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Kmh, value => value * Mmin_to_Kmh);
-        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Fts, value => value * Mmin_to_Fts);
-        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Ftmin, value => value * Mmin_to_Ftmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Mih, value => value * Mmin_to_Mih);
+        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Msec, MminToMs);
+        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Kmh, MminToKmh);
+        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Ftsec, MminToFtsec);
+        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Ftmin, MminToFtmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Mph, MminToMph);
 
         // km/h conversions
-        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Ms, value => value * Kmh_to_Ms);
-        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Mmin, value => value * Kmh_to_Mmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Fts, value => value * Kmh_to_Fts);
-        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Ftmin, value => value * Kmh_to_Ftmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Mih, value => value * Kmh_to_Mih);
+        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Msec, KmhToMs);
+        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Mmin, KmhToMmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Ftsec, KmhToFtsec);
+        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Ftmin, KmhToFtmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Mph, KmhToMph);
 
         // ft/s conversions
-        UnitConverter.RegisterConversion(SpeedUnit.Fts, SpeedUnit.Ms, value => value * Fts_to_Ms);
-        UnitConverter.RegisterConversion(SpeedUnit.Fts, SpeedUnit.Mmin, value => value * Fts_to_Mmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Fts, SpeedUnit.Kmh, value => value * Fts_to_Kmh);
-        UnitConverter.RegisterConversion(SpeedUnit.Fts, SpeedUnit.Ftmin, value => value * Fts_to_Ftmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Fts, SpeedUnit.Mih, value => value * Fts_to_Mih);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Msec, FtsecToMs);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Mmin, FtsecToMmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Kmh, FtsecToKmh);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Ftmin, FtsecToFtmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Mph, FtsecToMph);
 
         // ft/min conversions
-        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Ms, value => value * Ftmin_to_Ms);
-        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Mmin, value => value * Ftmin_to_Mmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Kmh, value => value * Ftmin_to_Kmh);
-        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Fts, value => value * Ftmin_to_Fts);
-        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Mih, value => value * Ftmin_to_Mih);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Msec, FtminToMs);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Mmin, FtminToMmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Kmh, FtminToKmh);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Ftsec, FtminToFtsec);
+        UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Mph, FtminToMph);
 
         // mi/h conversions
-        UnitConverter.RegisterConversion(SpeedUnit.Mih, SpeedUnit.Ms, value => value * Mih_to_Ms);
-        UnitConverter.RegisterConversion(SpeedUnit.Mih, SpeedUnit.Mmin, value => value * Mih_to_Mmin);
-        UnitConverter.RegisterConversion(SpeedUnit.Mih, SpeedUnit.Kmh, value => value * Mih_to_Kmh);
-        UnitConverter.RegisterConversion(SpeedUnit.Mih, SpeedUnit.Fts, value => value * Mih_to_Fts);
-        UnitConverter.RegisterConversion(SpeedUnit.Mih, SpeedUnit.Ftmin, value => value * Mih_to_Ftmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Msec, MphToMs);
+        UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Mmin, MphToMmin);
+        UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Kmh, MphToKmh);
+        UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Ftsec, MphToFtsec);
+        UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Ftmin, MphToFtmin);
     }
+
+    #region Conversion Factors
+    /// <summary>
+    /// Collection of conversion factors for speed units.
+    /// </summary>
+    public struct Factor
+    {
+        /// <summary>
+        /// Conversion factor from meter per second (m/s) to meter per minute (m/min).
+        /// </summary>
+        public const double MsecToMmin = 59.988;
+
+        /// <summary>
+        /// Conversion factor from meter per second (m/s) to kilometer per hour (km/h).
+        /// </summary>
+        public const double MsecToKmh = 3.599_712;
+
+        /// <summary>
+        /// Conversion factor from meter per second (m/s) to foot per second (ft/s).
+        /// </summary>
+        public const double MsecToFtsec = 3.280_84;
+
+        /// <summary>
+        /// Conversion factor from meter per second (m/s) to foot per minute (ft/min).
+        /// </summary>
+        public const double MsecToFtmin = 196.850_4;
+
+        /// <summary>
+        /// Conversion factor from meter per second (m/s) to mile per hour (mph).
+        /// </summary>
+        public const double MsecToMph = 2.237_136;
+
+        /// <summary>
+        /// Conversion factor from meter per minute (m/min) to meter per second (m/s).
+        /// </summary>
+        public const double MminToMs = 0.016_67;
+
+        /// <summary>
+        /// Conversion factor from meter per minute (m/min) to kilometer per hour (km/h).
+        /// </summary>
+        public const double MminToKmh = 0.060_007;
+
+        /// <summary>
+        /// Conversion factor from meter per minute (m/min) to foot per second (ft/s).
+        /// </summary>
+        public const double MminToFtsec = 0.054_692;
+
+        /// <summary>
+        /// Conversion factor from meter per minute (m/min) to foot per minute (ft/min).
+        /// </summary>
+        public const double MminToFtmin = 3.281_496;
+
+        /// <summary>
+        /// Conversion factor from meter per minute (m/min) to mile per hour (mph).
+        /// </summary>
+        public const double MminToMph = 0.037_293;
+
+        /// <summary>
+        /// Conversion factor from kilometer per hour (km/h) to meter per second (m/s).
+        /// </summary>
+        public const double KmhToMs = 0.277_8;
+
+        /// <summary>
+        /// Conversion factor from kilometer per hour (km/h) to meter per minute (m/min).
+        /// </summary>
+        public const double KmhToMmin = 16.664_67;
+
+        /// <summary>
+        /// Conversion factor from kilometer per hour (km/h) to foot per second (ft/s).
+        /// </summary>
+        public const double KmhToFtsec = 0.911_417;
+
+        /// <summary>
+        /// Conversion factor from kilometer per hour (km/h) to foot per minute (ft/min).
+        /// </summary>
+        public const double KmhToFtmin = 54.685_04;
+
+        /// <summary>
+        /// Conversion factor from kilometer per hour (km/h) to mile per hour (mph).
+        /// </summary>
+        public const double KmhToMph = 0.621_477;
+
+        /// <summary>
+        /// Conversion factor from foot per second (ft/s) to meter per second (m/s).
+        /// </summary>
+        public const double FtsecToMs = 0.304_8;
+
+        /// <summary>
+        /// Conversion factor from foot per second (ft/s) to meter per minute (m/min).
+        /// </summary>
+        public const double FtsecToMmin = 18.284_34;
+
+        /// <summary>
+        /// Conversion factor from foot per second (ft/s) to kilometer per hour (km/h).
+        /// </summary>
+        public const double FtsecToKmh = 1.097_192;
+
+        /// <summary>
+        /// Conversion factor from foot per second (ft/s) to foot per minute (ft/min).
+        /// </summary>
+        public const double FtsecToFtmin = 60;
+
+        /// <summary>
+        /// Conversion factor from foot per second (ft/s) to mile per hour (mph).
+        /// </summary>
+        public const double FtsecToMph = 0.681_879;
+
+        /// <summary>
+        /// Conversion factor from foot per minute (ft/min) to meter per second (m/s).
+        /// </summary>
+        public const double FtminToMs = 0.005_08;
+
+        /// <summary>
+        /// Conversion factor from foot per minute (ft/min) to meter per minute (m/min).
+        /// </summary>
+        public const double FtminToMmin = 0.304_739;
+
+        /// <summary>
+        /// Conversion factor from foot per minute (ft/min) to kilometer per hour (km/h).
+        /// </summary>
+        public const double FtminToKmh = 0.018_287;
+
+        /// <summary>
+        /// Conversion factor from foot per minute (ft/min) to foot per second (ft/s).
+        /// </summary>
+        public const double FtminToFtsec = 0.016_667;
+
+        /// <summary>
+        /// Conversion factor from foot per minute (ft/min) to mile per hour (mph).
+        /// </summary>
+        public const double FtminToMph = 0.011_365;
+
+        /// <summary>
+        /// Conversion factor from mile per hour (mph) to meter per second (m/s).
+        /// </summary>
+        public const double MphToMs = 0.447;
+
+        /// <summary>
+        /// Conversion factor from mile per hour (mph) to meter per minute (m/min).
+        /// </summary>
+        public const double MphToMmin = 26.814_64;
+
+        /// <summary>
+        /// Conversion factor from mile per hour (mph) to kilometer per hour (km/h).
+        /// </summary>
+        public const double MphToKmh = 1.609_071;
+
+        /// <summary>
+        /// Conversion factor from mile per hour (mph) to foot per second (ft/s).
+        /// </summary>
+        public const double MphToFtsec = 1.466_535;
+
+        /// <summary>
+        /// Conversion factor from mile per hour (mph) to foot per minute (ft/min).
+        /// </summary>
+        public const double MphToFtmin = 87.992_13;
+    }
+    #endregion
+
+    // m/s conversions
+    /// <summary>
+    /// Converts meter per second (m/s) to meter per minute (m/min).
+    /// </summary>
+    public static double MsecToMmin(double value) => value * Factor.MsecToMmin;
+
+    /// <summary>
+    /// Converts meter per second (m/s) to kilometer per hour (km/h).
+    /// </summary>
+    public static double MsecToKmh(double value) => value * Factor.MsecToKmh;
+
+    /// <summary>
+    /// Converts meter per second (m/s) to foot per second (ft/s).
+    /// </summary>
+    public static double MsecToFtsec(double value) => value * Factor.MsecToFtsec;
+
+    /// <summary>
+    /// Converts meter per second (m/s) to foot per minute (ft/min).
+    /// </summary>
+    public static double MsecToFtmin(double value) => value * Factor.MsecToFtmin;
+
+    /// <summary>
+    /// Converts meter per second (m/s) to mile per hour (mph).
+    /// </summary>
+    public static double MsecToMph(double value) => value * Factor.MsecToMph;
+
+    // m/min conversions
+    /// <summary>
+    /// Converts meter per minute (m/min) to meter per second (m/s).
+    /// </summary>
+    public static double MminToMs(double value) => value * Factor.MminToMs;
+
+    /// <summary>
+    /// Converts meter per minute (m/min) to kilometer per hour (km/h).
+    /// </summary>
+    public static double MminToKmh(double value) => value * Factor.MminToKmh;
+
+    /// <summary>
+    /// Converts meter per minute (m/min) to foot per second (ft/s).
+    /// </summary>
+    public static double MminToFtsec(double value) => value * Factor.MminToFtsec;
+
+    /// <summary>
+    /// Converts meter per minute (m/min) to foot per minute (ft/min).
+    /// </summary>
+    public static double MminToFtmin(double value) => value * Factor.MminToFtmin;
+
+    /// <summary>
+    /// Converts meter per minute (m/min) to mile per hour (mph).
+    /// </summary>
+    public static double MminToMph(double value) => value * Factor.MminToMph;
+
+    // km/h conversions
+    /// <summary
+    /// >Converts kilometer per hour (km/h) to meter per second (m/s).
+    /// </summary>
+    public static double KmhToMs(double value) => value * Factor.KmhToMs;
+
+    /// <summary>
+    /// Converts kilometer per hour (km/h) to meter per minute (m/min).
+    /// </summary>
+    public static double KmhToMmin(double value) => value * Factor.KmhToMmin;
+
+    /// <summary>
+    /// Converts kilometer per hour (km/h) to foot per second (ft/s).
+    /// </summary>
+    public static double KmhToFtsec(double value) => value * Factor.KmhToFtsec;
+
+    /// <summary>
+    /// Converts kilometer per hour (km/h) to foot per minute (ft/min).
+    /// </summary>
+    public static double KmhToFtmin(double value) => value * Factor.KmhToFtmin;
+
+    /// <summary>
+    /// Converts kilometer per hour (km/h) to mile per hour (mph).
+    /// </summary>
+    public static double KmhToMph(double value) => value * Factor.KmhToMph;
+
+    // ft/s conversions
+    /// <summary>
+    /// Converts foot per second (ft/s) to meter per second (m/s).
+    /// </summary>
+    public static double FtsecToMs(double value) => value * Factor.FtsecToMs;
+
+    /// <summary>
+    /// Converts foot per second (ft/s) to meter per minute (m/min).
+    /// </summary>
+    public static double FtsecToMmin(double value) => value * Factor.FtsecToMmin;
+
+    /// <summary>
+    /// Converts foot per second (ft/s) to kilometer per hour (km/h).
+    /// </summary>
+    public static double FtsecToKmh(double value) => value * Factor.FtsecToKmh;
+
+    /// <summary>
+    /// Converts foot per second (ft/s) to foot per minute (ft/min).
+    /// </summary>
+    public static double FtsecToFtmin(double value) => value * Factor.FtsecToFtmin;
+
+    /// <summary>
+    /// Converts foot per second (ft/s) to mile per hour (mph).
+    /// </summary>
+    public static double FtsecToMph(double value) => value * Factor.FtsecToMph;
+
+    // ft/min conversions
+    /// <summary>
+    /// Converts foot per minute (ft/min) to meter per second (m/s).
+    /// </summary>
+    public static double FtminToMs(double value) => value * Factor.FtminToMs;
+
+    /// <summary>
+    /// Converts foot per minute (ft/min) to meter per minute (m/min).
+    /// </summary>
+    public static double FtminToMmin(double value) => value * Factor.FtminToMmin;
+
+    /// <summary>
+    /// Converts foot per minute (ft/min) to kilometer per hour (km/h).
+    /// </summary>
+    public static double FtminToKmh(double value) => value * Factor.FtminToKmh;
+
+    /// <summary>
+    /// Converts foot per minute (ft/min) to foot per second (ft/s).
+    /// </summary>
+    public static double FtminToFtsec(double value) => value * Factor.FtminToFtsec;
+
+    /// <summary>
+    /// Converts foot per minute (ft/min) to mile per hour (mph).
+    /// </summary>
+    public static double FtminToMph(double value) => value * Factor.FtminToMph;
+
+    // mi/h conversions
+    /// <summary>
+    /// Converts mile per hour (mph) to meter per second (m/s).
+    /// </summary>
+    public static double MphToMs(double value) => value * Factor.MphToMs;
+
+    /// <summary>
+    /// Converts mile per hour (mph) to meter per minute (m/min).
+    /// </summary>
+    public static double MphToMmin(double value) => value * Factor.MphToMmin;
+
+    /// <summary>
+    /// Converts mile per hour (mph) to kilometer per hour (km/h).
+    /// </summary>
+    public static double MphToKmh(double value) => value * Factor.MphToKmh;
+
+    /// <summary>
+    /// Converts mile per hour (mph) to foot per second (ft/s).
+    /// </summary>
+    public static double MphToFtsec(double value) => value * Factor.MphToFtsec;
+
+    /// <summary>
+    /// Converts mile per hour (mph) to foot per minute (ft/min).
+    /// </summary>
+    public static double MphToFtmin(double value) => value * Factor.MphToFtmin;
 
     /// <summary>
     /// Converts a value from one speed unit to another.
@@ -220,7 +409,7 @@ public enum SpeedUnit
     /// <summary>
     /// Meter per second (m/s).
     /// </summary>
-    Ms,
+    Msec,
     /// <summary>
     /// Meter per minute (m/min).
     /// </summary>
@@ -232,13 +421,13 @@ public enum SpeedUnit
     /// <summary>
     /// Foot per second (ft/s).
     /// </summary>
-    Fts,
+    Ftsec,
     /// <summary>
     /// Foot per minute (ft/min).
     /// </summary>
     Ftmin,
     /// <summary>
-    /// Mile per hour (mi/h).
+    /// Mile per hour (mph).
     /// </summary>
-    Mih
+    Mph
 }
