@@ -28,14 +28,14 @@ public static class Temperature
     /// </summary>
     /// <param name="c">The temperature in degrees Celsius.</param>
     /// <returns>The equivalent temperature in degrees Fahrenheit.</returns>
-    private static double CtoF(double c) => (c * 9.0 / 5.0) + 32.0;
+    public static double CtoF(double c) => (c * 9.0 / 5.0) + 32.0;
 
     /// <summary>
     /// Converts a temperature from Celsius to Kelvin.
     /// </summary>
     /// <param name="c">The temperature in degrees Celsius.</param>
     /// <returns>The equivalent temperature in Kelvin.</returns>
-    private static double CtoK(double c) => c + 273.15;
+    public static double CtoK(double c) => c + 273.15;
 
 
     /// <summary>
@@ -43,28 +43,28 @@ public static class Temperature
     /// </summary>
     /// <param name="f">The temperature in degrees Fahrenheit.</param>
     /// <returns>The equivalent temperature in degrees Celsius.</returns>
-    private static double FtoC(double f) => (f - 32.0) * 5.0 / 9.0;
+    public static double FtoC(double f) => (f - 32.0) * 5.0 / 9.0;
 
     /// <summary>
     /// Converts a temperature from Fahrenheit to Kelvin.
     /// </summary>
     /// <param name="f">The temperature in degrees Fahrenheit.</param>
     /// <returns>The equivalent temperature in Kelvin.</returns>
-    private static double FtoK(double f) => (f - 32.0) * 5.0 / 9.0 + 273.15;
+    public static double FtoK(double f) => (f - 32.0) * 5.0 / 9.0 + 273.15;
 
     /// <summary>
     /// Converts a temperature from Kelvin to Celsius.
     /// </summary>
     /// <param name="k">The temperature in Kelvin.</param>
     /// <returns>The equivalent temperature in degrees Celsius.</returns>
-    private static double KtoC(double k) => k - 273.15;
+    public static double KtoC(double k) => k - 273.15;
 
     /// <summary>
     /// Converts a temperature from Kelvin to Fahrenheit.
     /// </summary>
     /// <param name="k">The temperature in Kelvin.</param>
     /// <returns>The equivalent temperature in degrees Fahrenheit.</returns>
-    private static double KtoF(double k) => (k - 273.15) * 9.0 / 5.0 + 32.0;
+    public static double KtoF(double k) => (k - 273.15) * 9.0 / 5.0 + 32.0;
 
     /// <summary>
     /// Converts a value from one temperature unit to another.
