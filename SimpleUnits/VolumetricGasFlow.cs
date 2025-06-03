@@ -5,52 +5,100 @@
 /// </summary>
 public static class VolumetricGasFlow
 {
-    #region Conversion Factors
     /// <summary>
-    /// Conversion factor from normal meter cube per hour (Nm³/hr) to standard cubic feet per hour (scfh).
+    /// Static constructor to register volumetric gas flow units and conversions with the <see cref="UnitConverter"/>.
     /// </summary>
-    public const double Nm3hr_to_Scfh = 35.31073;
-    /// <summary>
-    /// Conversion factor from normal meter cube per hour (Nm³/hr) to standard cubic feet per minute (scfm).
-    /// </summary>
-    public const double Nm3hr_to_Scfm = 0.588582;
-
-    /// <summary>
-    /// Conversion factor from standard cubic feet per hour (scfh) to normal meter cube per hour (Nm³/hr).
-    /// </summary>
-    public const double Scfh_to_Nm3hr = 0.02832;
-    /// <summary>
-    /// Conversion factor from standard cubic feet per hour (scfh) to standard cubic feet per minute (scfm).
-    /// </summary>
-    public const double Scfh_to_Scfm = 0.016669;
-
-    /// <summary>
-    /// Conversion factor from standard cubic feet per minute (scfm) to normal meter cube per hour (Nm³/hr).
-    /// </summary>
-    public const double Scfm_to_Nm3hr = 1.699;
-    /// <summary>
-    /// Conversion factor from standard cubic feet per minute (scfm) to standard cubic feet per hour (scfh).
-    /// </summary>
-    public const double Scfm_to_Scfh = 59.99294;
-    #endregion
-
     static VolumetricGasFlow()
     {
         // Register VolumetricGasFlow unit
         UnitConverter.RegisterUnit(typeof(VolumetricGasFlowUnit), BaseUnit.VolumetricGasFlow);
 
         // Nm³/hr conversions
-        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Nm3hr, VolumetricGasFlowUnit.Scfh, value => value * Nm3hr_to_Scfh);
-        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Nm3hr, VolumetricGasFlowUnit.Scfm, value => value * Nm3hr_to_Scfm);
+        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Nm3hr, VolumetricGasFlowUnit.Scfh, Nm3hrToScfh);
+        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Nm3hr, VolumetricGasFlowUnit.Scfm, Nm3hrToScfm);
 
         // scfh conversions
-        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfh, VolumetricGasFlowUnit.Nm3hr, value => value * Scfh_to_Nm3hr);
-        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfh, VolumetricGasFlowUnit.Scfm, value => value * Scfh_to_Scfm);
+        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfh, VolumetricGasFlowUnit.Nm3hr, ScfhToNm3hr);
+        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfh, VolumetricGasFlowUnit.Scfm, ScfhToScfm);
 
         // scfm conversions
-        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfm, VolumetricGasFlowUnit.Nm3hr, value => value * Scfm_to_Nm3hr);
-        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfm, VolumetricGasFlowUnit.Scfh, value => value * Scfm_to_Scfh);
+        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfm, VolumetricGasFlowUnit.Nm3hr, ScfmToNm3hr);
+        UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfm, VolumetricGasFlowUnit.Scfh, ScfmToScfh);
     }
+
+    #region Conversion Factors
+    /// <summary>
+    /// Collection of conversion factors for volumetric gas flow units.
+    /// </summary>
+    public struct Factor
+    {
+        /// <summary>
+        /// Conversion factor from normal meter cube per hour (Nm³/hr) to standard cubic feet per hour (scfh).
+        /// </summary>
+        public const double Nm3hrToScfh = 35.310_73;
+
+        /// <summary>
+        /// Conversion factor from normal meter cube per hour (Nm³/hr) to standard cubic feet per minute (scfm).
+        /// </summary>
+        public const double Nm3hrToScfm = 0.588_582;
+
+        /// <summary>
+        /// Conversion factor from standard cubic feet per hour (scfh) to normal meter cube per hour (Nm³/hr).
+        /// </summary>
+        public const double ScfhToNm3hr = 0.028_32;
+
+        /// <summary>
+        /// Conversion factor from standard cubic feet per hour (scfh) to standard cubic feet per minute (scfm).
+        /// </summary>
+        public const double ScfhToScfm = 0.016_669;
+
+        /// <summary>
+        /// Conversion factor from standard cubic feet per minute (scfm) to normal meter cube per hour (Nm³/hr).
+        /// </summary>
+        public const double ScfmToNm3hr = 1.699;
+
+        /// <summary>
+        /// Conversion factor from standard cubic feet per minute (scfm) to standard cubic feet per hour (scfh).
+        /// </summary>
+        public const double ScfmToScfh = 59.992_94;
+    }
+    #endregion
+
+    // Nm³/hr conversions
+
+    /// <summary>
+    /// Converts normal meter cube per hour (Nm³/hr) to standard cubic feet per hour (scfh).
+    /// </summary>
+    public static double Nm3hrToScfh(double value) => value * Factor.Nm3hrToScfh;
+
+    /// <summary>
+    /// Converts normal meter cube per hour (Nm³/hr) to standard cubic feet per minute (scfm).
+    /// </summary>
+    public static double Nm3hrToScfm(double value) => value * Factor.Nm3hrToScfm;
+
+    // scfh conversions
+
+    /// <summary>
+    /// Converts standard cubic feet per hour (scfh) to normal meter cube per hour (Nm³/hr).
+    /// </summary>
+    public static double ScfhToNm3hr(double value) => value * Factor.ScfhToNm3hr;
+
+    /// <summary>
+    /// Converts standard cubic feet per hour (scfh) to standard cubic feet per minute (scfm).
+    /// </summary>
+    public static double ScfhToScfm(double value) => value * Factor.ScfhToScfm;
+
+    // scfm conversions
+
+    /// <summary>
+    /// Converts standard cubic feet per minute (scfm) to normal meter cube per hour (Nm³/hr).
+    /// </summary>
+    public static double ScfmToNm3hr(double value) => value * Factor.ScfmToNm3hr;
+
+    /// <summary>
+    /// Converts standard cubic feet per minute (scfm) to standard cubic feet per hour (scfh).
+    /// </summary>
+    public static double ScfmToScfh(double value) => value * Factor.ScfmToScfh;
 
     /// <summary>
     /// Converts a value from one volumetric gas flow unit to another.
