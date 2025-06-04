@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
 	<PackageId>SimpleUnits</PackageId>
 	<Version>1.0.0</Version>
 	<Authors>dmcoy</Authors>
@@ -10,14 +10,12 @@
 	<RepositoryUrl>https://github.com/dmcoy/SimpleUnits</RepositoryUrl>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Nullable>enable</Nullable>
     <PackageProjectUrl>https://github.com/dmcoy/SimpleUnits</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Title>Simple Units</Title>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <PackageTags>units; unit; convert; conversion; metric; imperial;</PackageTags>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
