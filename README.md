@@ -27,7 +27,7 @@ double ftlbToNm = Torque.FtlbToNm(815);
 Otherwise, each class contains a convert method, which lets you plug in which units you want to convert from and to using a unit enum available for each unit type. This is helpful in cases where you may want to dynamically pass in different arguments for your own use case.
 ``` csharp
 // Converting bar to psi
-double barToPsi = Pressure.Convert(9.7, PressureUnit.Psi, PressureUnit.Bar);
+double barToPsi = Pressure.Convert(9.7, Pressure.Unit.Psi, Pressure.Unit.Bar);
 
 // Converting kilometers to miles
 double kmToMi = Length.Convert(71, Length.Unit.Km, Length.Unit.Mi);
