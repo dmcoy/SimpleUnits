@@ -7,36 +7,69 @@ namespace SimpleUnits
     /// </summary>
     public static class MassFlow
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of mass flow measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Kilogram per hour (kg/h).
+            /// </summary>
+            Kgh,
+            /// <summary>
+            /// Pound per hour (lb/h).
+            /// </summary>
+            Lbh,
+            /// <summary>
+            /// Kilogram per second (kg/s).
+            /// </summary>
+            Kgs,
+            /// <summary>
+            /// Ton per hour (t/h).
+            /// </summary>
+            Th
+        }
+
+        #endregion
+
+        #region Unit Registration
+
         /// <summary>
         /// Static constructor to register mass flow units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static MassFlow()
         {
             // Register MassFlow unit
-            UnitConverter.RegisterUnit(typeof(MassFlowUnit), BaseUnit.MassFlow);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.MassFlow);
 
             // kg/h conversions
-            UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Lbh, KghToLbh);
-            UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Kgs, KghToKgs);
-            UnitConverter.RegisterConversion(MassFlowUnit.Kgh, MassFlowUnit.Th, KghToTh);
+            UnitConverter.RegisterConversion(Unit.Kgh, Unit.Lbh, KghToLbh);
+            UnitConverter.RegisterConversion(Unit.Kgh, Unit.Kgs, KghToKgs);
+            UnitConverter.RegisterConversion(Unit.Kgh, Unit.Th, KghToTh);
 
             // lb/h conversions
-            UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Kgh, LbhToKgh);
-            UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Kgs, LbhToKgs);
-            UnitConverter.RegisterConversion(MassFlowUnit.Lbh, MassFlowUnit.Th, LbhToTh);
+            UnitConverter.RegisterConversion(Unit.Lbh, Unit.Kgh, LbhToKgh);
+            UnitConverter.RegisterConversion(Unit.Lbh, Unit.Kgs, LbhToKgs);
+            UnitConverter.RegisterConversion(Unit.Lbh, Unit.Th, LbhToTh);
 
             // kg/s conversions
-            UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Kgh, KgsToKgh);
-            UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Lbh, KgsToLbh);
-            UnitConverter.RegisterConversion(MassFlowUnit.Kgs, MassFlowUnit.Th, KgsToTh);
+            UnitConverter.RegisterConversion(Unit.Kgs, Unit.Kgh, KgsToKgh);
+            UnitConverter.RegisterConversion(Unit.Kgs, Unit.Lbh, KgsToLbh);
+            UnitConverter.RegisterConversion(Unit.Kgs, Unit.Th, KgsToTh);
 
             // t/h conversions
-            UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Kgh, ThToKgh);
-            UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Lbh, ThToLbh);
-            UnitConverter.RegisterConversion(MassFlowUnit.Th, MassFlowUnit.Kgs, ThToKgs);
+            UnitConverter.RegisterConversion(Unit.Th, Unit.Kgh, ThToKgh);
+            UnitConverter.RegisterConversion(Unit.Th, Unit.Lbh, ThToLbh);
+            UnitConverter.RegisterConversion(Unit.Th, Unit.Kgs, ThToKgs);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors
         /// </summary>
@@ -94,6 +127,7 @@ namespace SimpleUnits
             /// </summary>
             public const double ThToKgs = 0.277_778;
         }
+
         #endregion
 
         /// <summary>
@@ -159,6 +193,8 @@ namespace SimpleUnits
         /// <returns>The equivalent value in ton per hour.</returns>
         public static double KgsToTh(double value) => value * Factor.KgsToTh;
 
+        #region Ton per Hour Conversions
+
         /// <summary>
         /// Converts a value from ton per hour (t/h) to kilogram per hour (kg/h).
         /// </summary>
@@ -180,6 +216,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in kilogram per second.</returns>
         public static double ThToKgs(double value) => value * Factor.ThToKgs;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one mass flow unit to another.
         /// </summary>
@@ -190,10 +230,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, MassFlowUnit from, MassFlowUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one mass flow unit to another.
@@ -205,32 +242,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, MassFlowUnit from, MassFlowUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of mass flow measurement.
-    /// </summary>
-    public enum MassFlowUnit
-    {
-        /// <summary>
-        /// Kilogram per hour (kg/h).
-        /// </summary>
-        Kgh,
-        /// <summary>
-        /// Pound per hour (lb/h).
-        /// </summary>
-        Lbh,
-        /// <summary>
-        /// Kilogram per second (kg/s).
-        /// </summary>
-        Kgs,
-        /// <summary>
-        /// Ton per hour (t/h).
-        /// </summary>
-        Th
+        #endregion
     }
 }

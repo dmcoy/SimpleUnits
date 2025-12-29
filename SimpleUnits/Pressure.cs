@@ -7,86 +7,134 @@ namespace SimpleUnits
     /// </summary>
     public static class Pressure
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of pressure measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Bar.
+            /// </summary>
+            Bar,
+            /// <summary>
+            /// Pounds per square inch (psi).
+            /// </summary>
+            Psi,
+            /// <summary>
+            /// Pascal (Pa).
+            /// </summary>
+            Pa,
+            /// <summary>
+            /// KiloPascal (KPa).
+            /// </summary>
+            KPa,
+            /// <summary>
+            /// MegaPascal (MPa).
+            /// </summary>
+            MPa,
+            /// <summary>
+            /// Kilogram-force per square centimeter (Kgf/cm²).
+            /// </summary>
+            Kgf_cm_2,
+            /// <summary>
+            /// Millimeters of mercury (mmHg).
+            /// </summary>
+            MmHg,
+            /// <summary>
+            /// Standard Atmosphere (atm).
+            /// </summary>
+            Atm
+        }
+
+        #endregion
+
+        #region Unit Registration
+
         /// <summary>
         /// Static constructor to register pressure units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static Pressure()
         {
             // Register Pressure unit
-            UnitConverter.RegisterUnit(typeof(PressureUnit), BaseUnit.Pressure);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Pressure);
 
             // Bar conversions
-            UnitConverter.RegisterConversion(PressureUnit.Bar, PressureUnit.Psi, BarToPsi);
-            UnitConverter.RegisterConversion(PressureUnit.Bar, PressureUnit.Pa, BarToPa);
-            UnitConverter.RegisterConversion(PressureUnit.Bar, PressureUnit.KPa, BarToKPa);
-            UnitConverter.RegisterConversion(PressureUnit.Bar, PressureUnit.MPa, BarToMPa);
-            UnitConverter.RegisterConversion(PressureUnit.Bar, PressureUnit.Kgf_cm_2, BarToKgfCm2);
-            UnitConverter.RegisterConversion(PressureUnit.Bar, PressureUnit.MmHg, BarToMmHg);
-            UnitConverter.RegisterConversion(PressureUnit.Bar, PressureUnit.Atm, BarToAtm);
+            UnitConverter.RegisterConversion(Unit.Bar, Unit.Psi, BarToPsi);
+            UnitConverter.RegisterConversion(Unit.Bar, Unit.Pa, BarToPa);
+            UnitConverter.RegisterConversion(Unit.Bar, Unit.KPa, BarToKPa);
+            UnitConverter.RegisterConversion(Unit.Bar, Unit.MPa, BarToMPa);
+            UnitConverter.RegisterConversion(Unit.Bar, Unit.Kgf_cm_2, BarToKgfCm2);
+            UnitConverter.RegisterConversion(Unit.Bar, Unit.MmHg, BarToMmHg);
+            UnitConverter.RegisterConversion(Unit.Bar, Unit.Atm, BarToAtm);
 
             // psi conversions
-            UnitConverter.RegisterConversion(PressureUnit.Psi, PressureUnit.Bar, PsiToBar);
-            UnitConverter.RegisterConversion(PressureUnit.Psi, PressureUnit.Pa, PsiToPa);
-            UnitConverter.RegisterConversion(PressureUnit.Psi, PressureUnit.KPa, PsiToKPa);
-            UnitConverter.RegisterConversion(PressureUnit.Psi, PressureUnit.MPa, PsiToMPa);
-            UnitConverter.RegisterConversion(PressureUnit.Psi, PressureUnit.Kgf_cm_2, PsiToKgfCm2);
-            UnitConverter.RegisterConversion(PressureUnit.Psi, PressureUnit.MmHg, PsiToMmHg);
-            UnitConverter.RegisterConversion(PressureUnit.Psi, PressureUnit.Atm, PsiToAtm);
+            UnitConverter.RegisterConversion(Unit.Psi, Unit.Bar, PsiToBar);
+            UnitConverter.RegisterConversion(Unit.Psi, Unit.Pa, PsiToPa);
+            UnitConverter.RegisterConversion(Unit.Psi, Unit.KPa, PsiToKPa);
+            UnitConverter.RegisterConversion(Unit.Psi, Unit.MPa, PsiToMPa);
+            UnitConverter.RegisterConversion(Unit.Psi, Unit.Kgf_cm_2, PsiToKgfCm2);
+            UnitConverter.RegisterConversion(Unit.Psi, Unit.MmHg, PsiToMmHg);
+            UnitConverter.RegisterConversion(Unit.Psi, Unit.Atm, PsiToAtm);
 
             // Pa conversions
-            UnitConverter.RegisterConversion(PressureUnit.Pa, PressureUnit.Bar, PaToBar);
-            UnitConverter.RegisterConversion(PressureUnit.Pa, PressureUnit.Psi, PaToPsi);
-            UnitConverter.RegisterConversion(PressureUnit.Pa, PressureUnit.KPa, PaToKPa);
-            UnitConverter.RegisterConversion(PressureUnit.Pa, PressureUnit.MPa, PaToMPa);
-            UnitConverter.RegisterConversion(PressureUnit.Pa, PressureUnit.Kgf_cm_2, PaToKgfCm2);
-            UnitConverter.RegisterConversion(PressureUnit.Pa, PressureUnit.MmHg, PaToMmHg);
-            UnitConverter.RegisterConversion(PressureUnit.Pa, PressureUnit.Atm, PaToAtm);
+            UnitConverter.RegisterConversion(Unit.Pa, Unit.Bar, PaToBar);
+            UnitConverter.RegisterConversion(Unit.Pa, Unit.Psi, PaToPsi);
+            UnitConverter.RegisterConversion(Unit.Pa, Unit.KPa, PaToKPa);
+            UnitConverter.RegisterConversion(Unit.Pa, Unit.MPa, PaToMPa);
+            UnitConverter.RegisterConversion(Unit.Pa, Unit.Kgf_cm_2, PaToKgfCm2);
+            UnitConverter.RegisterConversion(Unit.Pa, Unit.MmHg, PaToMmHg);
+            UnitConverter.RegisterConversion(Unit.Pa, Unit.Atm, PaToAtm);
 
             // KPa conversions
-            UnitConverter.RegisterConversion(PressureUnit.KPa, PressureUnit.Bar, KPaToBar);
-            UnitConverter.RegisterConversion(PressureUnit.KPa, PressureUnit.Psi, KPaToPsi);
-            UnitConverter.RegisterConversion(PressureUnit.KPa, PressureUnit.Pa, KPaToPa);
-            UnitConverter.RegisterConversion(PressureUnit.KPa, PressureUnit.MPa, KPaToMPa);
-            UnitConverter.RegisterConversion(PressureUnit.KPa, PressureUnit.Kgf_cm_2, KPaToKgfCm2);
-            UnitConverter.RegisterConversion(PressureUnit.KPa, PressureUnit.MmHg, KPaToMmHg);
-            UnitConverter.RegisterConversion(PressureUnit.KPa, PressureUnit.Atm, KPaToAtm);
+            UnitConverter.RegisterConversion(Unit.KPa, Unit.Bar, KPaToBar);
+            UnitConverter.RegisterConversion(Unit.KPa, Unit.Psi, KPaToPsi);
+            UnitConverter.RegisterConversion(Unit.KPa, Unit.Pa, KPaToPa);
+            UnitConverter.RegisterConversion(Unit.KPa, Unit.MPa, KPaToMPa);
+            UnitConverter.RegisterConversion(Unit.KPa, Unit.Kgf_cm_2, KPaToKgfCm2);
+            UnitConverter.RegisterConversion(Unit.KPa, Unit.MmHg, KPaToMmHg);
+            UnitConverter.RegisterConversion(Unit.KPa, Unit.Atm, KPaToAtm);
 
             // MPa conversions
-            UnitConverter.RegisterConversion(PressureUnit.MPa, PressureUnit.Bar, MPaToBar);
-            UnitConverter.RegisterConversion(PressureUnit.MPa, PressureUnit.Psi, MPaToPsi);
-            UnitConverter.RegisterConversion(PressureUnit.MPa, PressureUnit.Pa, MPaToPa);
-            UnitConverter.RegisterConversion(PressureUnit.MPa, PressureUnit.KPa, MPaToKPa);
-            UnitConverter.RegisterConversion(PressureUnit.MPa, PressureUnit.Kgf_cm_2, MPaToKgfCm2);
-            UnitConverter.RegisterConversion(PressureUnit.MPa, PressureUnit.MmHg, MPaToMmHg);
-            UnitConverter.RegisterConversion(PressureUnit.MPa, PressureUnit.Atm, MPaToAtm);
+            UnitConverter.RegisterConversion(Unit.MPa, Unit.Bar, MPaToBar);
+            UnitConverter.RegisterConversion(Unit.MPa, Unit.Psi, MPaToPsi);
+            UnitConverter.RegisterConversion(Unit.MPa, Unit.Pa, MPaToPa);
+            UnitConverter.RegisterConversion(Unit.MPa, Unit.KPa, MPaToKPa);
+            UnitConverter.RegisterConversion(Unit.MPa, Unit.Kgf_cm_2, MPaToKgfCm2);
+            UnitConverter.RegisterConversion(Unit.MPa, Unit.MmHg, MPaToMmHg);
+            UnitConverter.RegisterConversion(Unit.MPa, Unit.Atm, MPaToAtm);
 
             // Kgf/cm² conversions
-            UnitConverter.RegisterConversion(PressureUnit.Kgf_cm_2, PressureUnit.Bar, KgfCm2ToBar);
-            UnitConverter.RegisterConversion(PressureUnit.Kgf_cm_2, PressureUnit.Psi, KgfCm2ToPsi);
-            UnitConverter.RegisterConversion(PressureUnit.Kgf_cm_2, PressureUnit.Pa, KgfCm2ToPa);
-            UnitConverter.RegisterConversion(PressureUnit.Kgf_cm_2, PressureUnit.KPa, KgfCm2ToKPa);
-            UnitConverter.RegisterConversion(PressureUnit.Kgf_cm_2, PressureUnit.MPa, KgfCm2ToMPa);
-            UnitConverter.RegisterConversion(PressureUnit.Kgf_cm_2, PressureUnit.MmHg, KgfCm2ToMmHg);
-            UnitConverter.RegisterConversion(PressureUnit.Kgf_cm_2, PressureUnit.Atm, KgfCm2ToAtm);
+            UnitConverter.RegisterConversion(Unit.Kgf_cm_2, Unit.Bar, KgfCm2ToBar);
+            UnitConverter.RegisterConversion(Unit.Kgf_cm_2, Unit.Psi, KgfCm2ToPsi);
+            UnitConverter.RegisterConversion(Unit.Kgf_cm_2, Unit.Pa, KgfCm2ToPa);
+            UnitConverter.RegisterConversion(Unit.Kgf_cm_2, Unit.KPa, KgfCm2ToKPa);
+            UnitConverter.RegisterConversion(Unit.Kgf_cm_2, Unit.MPa, KgfCm2ToMPa);
+            UnitConverter.RegisterConversion(Unit.Kgf_cm_2, Unit.MmHg, KgfCm2ToMmHg);
+            UnitConverter.RegisterConversion(Unit.Kgf_cm_2, Unit.Atm, KgfCm2ToAtm);
 
             // mmHg conversions
-            UnitConverter.RegisterConversion(PressureUnit.MmHg, PressureUnit.Bar, MmHgToBar);
-            UnitConverter.RegisterConversion(PressureUnit.MmHg, PressureUnit.Psi, MmHgToPsi);
-            UnitConverter.RegisterConversion(PressureUnit.MmHg, PressureUnit.Pa, MmHgToPa);
-            UnitConverter.RegisterConversion(PressureUnit.MmHg, PressureUnit.KPa, MmHgToKPa);
-            UnitConverter.RegisterConversion(PressureUnit.MmHg, PressureUnit.MPa, MmHgToMPa);
-            UnitConverter.RegisterConversion(PressureUnit.MmHg, PressureUnit.Kgf_cm_2, MmHgToKgfCm2);
-            UnitConverter.RegisterConversion(PressureUnit.MmHg, PressureUnit.Atm, MmHgToAtm);
+            UnitConverter.RegisterConversion(Unit.MmHg, Unit.Bar, MmHgToBar);
+            UnitConverter.RegisterConversion(Unit.MmHg, Unit.Psi, MmHgToPsi);
+            UnitConverter.RegisterConversion(Unit.MmHg, Unit.Pa, MmHgToPa);
+            UnitConverter.RegisterConversion(Unit.MmHg, Unit.KPa, MmHgToKPa);
+            UnitConverter.RegisterConversion(Unit.MmHg, Unit.MPa, MmHgToMPa);
+            UnitConverter.RegisterConversion(Unit.MmHg, Unit.Kgf_cm_2, MmHgToKgfCm2);
+            UnitConverter.RegisterConversion(Unit.MmHg, Unit.Atm, MmHgToAtm);
 
             // atm conversions
-            UnitConverter.RegisterConversion(PressureUnit.Atm, PressureUnit.Bar, AtmToBar);
-            UnitConverter.RegisterConversion(PressureUnit.Atm, PressureUnit.Psi, AtmToPsi);
-            UnitConverter.RegisterConversion(PressureUnit.Atm, PressureUnit.Pa, AtmToPa);
-            UnitConverter.RegisterConversion(PressureUnit.Atm, PressureUnit.KPa, AtmToKPa);
-            UnitConverter.RegisterConversion(PressureUnit.Atm, PressureUnit.MPa, AtmToMPa);
-            UnitConverter.RegisterConversion(PressureUnit.Atm, PressureUnit.Kgf_cm_2, AtmToKgfCm2);
-            UnitConverter.RegisterConversion(PressureUnit.Atm, PressureUnit.MmHg, AtmToMmHg);
+            UnitConverter.RegisterConversion(Unit.Atm, Unit.Bar, AtmToBar);
+            UnitConverter.RegisterConversion(Unit.Atm, Unit.Psi, AtmToPsi);
+            UnitConverter.RegisterConversion(Unit.Atm, Unit.Pa, AtmToPa);
+            UnitConverter.RegisterConversion(Unit.Atm, Unit.KPa, AtmToKPa);
+            UnitConverter.RegisterConversion(Unit.Atm, Unit.MPa, AtmToMPa);
+            UnitConverter.RegisterConversion(Unit.Atm, Unit.Kgf_cm_2, AtmToKgfCm2);
+            UnitConverter.RegisterConversion(Unit.Atm, Unit.MmHg, AtmToMmHg);
         }
+
+        #endregion
 
         #region Conversion Factors
         /// <summary>
@@ -328,6 +376,8 @@ namespace SimpleUnits
         }
         #endregion
 
+        #region Bar Conversions
+
         /// <summary>
         /// Converts a value in Bar to Pounds per square inch (psi).
         /// </summary>
@@ -371,7 +421,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Pa.</returns>
         public static double BarToPa(double value) => value * Factor.BarToPa;
 
-        // Psi conversions
+        #endregion
+
+        #region Psi Conversions
 
         /// <summary>
         /// Converts a value in Pounds per square inch (psi) to Bar.
@@ -416,7 +468,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Pa.</returns>
         public static double PsiToPa(double value) => value * Factor.PsiToPa;
 
-        // KPa conversions
+        #endregion
+
+        #region KiloPascal Conversions
 
         /// <summary>
         /// Converts a value in KiloPascal (kPa) to Bar.
@@ -461,7 +515,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Pa.</returns>
         public static double KPaToPa(double value) => value * Factor.KPaToPa;
 
-        // MPa conversions
+        #endregion
+
+        #region MegaPascal Conversions
 
         /// <summary>
         /// Converts a value in MegaPascal (MPa) to Bar.
@@ -506,7 +562,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Pa.</returns>
         public static double MPaToPa(double value) => value * Factor.MPaToPa;
 
-        // Kgf/cm² conversions
+        #endregion
+
+        #region Kgf/cm² Conversions
 
         /// <summary>
         /// Converts a value in Kilogram-force per square centimeter (Kgf/cm²) to Bar.
@@ -551,7 +609,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Pa.</returns>
         public static double KgfCm2ToPa(double value) => value * Factor.KgfCm2ToPa;
 
-        // mmHg conversions
+        #endregion
+
+        #region Millimeters of Mercury Conversions
 
         /// <summary>
         /// Converts a value in Millimeters of mercury (mmHg) to Bar.
@@ -596,7 +656,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Pa.</returns>
         public static double MmHgToPa(double value) => value * Factor.MmHgToPa;
 
-        // atm conversions
+        #endregion
+
+        #region Atmosphere Conversions
 
         /// <summary>
         /// Converts a value in Standard Atmosphere (atm) to Bar.
@@ -641,7 +703,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Pa.</returns>
         public static double AtmToPa(double value) => value * Factor.AtmToPa;
 
-        // Pa conversions
+        #endregion
+
+        #region Pascal Conversions
 
         /// <summary>
         /// Converts a value in Pascal (Pa) to Bar.
@@ -686,6 +750,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in atm.</returns>
         public static double PaToAtm(double value) => value * Factor.PaToAtm;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one pressure unit to another.
         /// </summary>
@@ -696,10 +764,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, PressureUnit from, PressureUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one pressure unit to another.
@@ -711,48 +776,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, PressureUnit from, PressureUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of pressure measurement.
-    /// </summary>
-    public enum PressureUnit
-    {
-        /// <summary>
-        /// Bar.
-        /// </summary>
-        Bar,
-        /// <summary>
-        /// Pounds per square inch (psi).
-        /// </summary>
-        Psi,
-        /// <summary>
-        /// Pascal (Pa).
-        /// </summary>
-        Pa,
-        /// <summary>
-        /// KiloPascal (KPa).
-        /// </summary>
-        KPa,
-        /// <summary>
-        /// MegaPascal (MPa).
-        /// </summary>
-        MPa,
-        /// <summary>
-        /// Kilogram-force per square centimeter (Kgf/cm²).
-        /// </summary>
-        Kgf_cm_2,
-        /// <summary>
-        /// Millimeters of mercury (mmHg).
-        /// </summary>
-        MmHg,
-        /// <summary>
-        /// Standard Atmosphere (atm).
-        /// </summary>
-        Atm
+        #endregion
     }
 }

@@ -7,58 +7,99 @@ namespace SimpleUnits
     /// </summary>
     public static class Speed
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of speed measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Meter per second (m/s).
+            /// </summary>
+            Msec,
+            /// <summary>
+            /// Meter per minute (m/min).
+            /// </summary>
+            Mmin,
+            /// <summary>
+            /// Kilometer per hour (km/h).
+            /// </summary>
+            Kmh,
+            /// <summary>
+            /// Foot per second (ft/s).
+            /// </summary>
+            Ftsec,
+            /// <summary>
+            /// Foot per minute (ft/min).
+            /// </summary>
+            Ftmin,
+            /// <summary>
+            /// Mile per hour (mph).
+            /// </summary>
+            Mph
+        }
+
+        #endregion
+
+        #region Unit Registration
+
         /// <summary>
         /// Static constructor to register speed units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static Speed()
         {
             // Register Speed unit
-            UnitConverter.RegisterUnit(typeof(SpeedUnit), BaseUnit.Speed);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Speed);
 
             // m/s conversions
-            UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Mmin, MsecToMmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Kmh, MsecToKmh);
-            UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Ftsec, MsecToFtsec);
-            UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Ftmin, MsecToFtmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Msec, SpeedUnit.Mph, MsecToMph);
+            UnitConverter.RegisterConversion(Unit.Msec, Unit.Mmin, MsecToMmin);
+            UnitConverter.RegisterConversion(Unit.Msec, Unit.Kmh, MsecToKmh);
+            UnitConverter.RegisterConversion(Unit.Msec, Unit.Ftsec, MsecToFtsec);
+            UnitConverter.RegisterConversion(Unit.Msec, Unit.Ftmin, MsecToFtmin);
+            UnitConverter.RegisterConversion(Unit.Msec, Unit.Mph, MsecToMph);
 
             // m/min conversions
-            UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Msec, MminToMs);
-            UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Kmh, MminToKmh);
-            UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Ftsec, MminToFtsec);
-            UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Ftmin, MminToFtmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Mmin, SpeedUnit.Mph, MminToMph);
+            UnitConverter.RegisterConversion(Unit.Mmin, Unit.Msec, MminToMs);
+            UnitConverter.RegisterConversion(Unit.Mmin, Unit.Kmh, MminToKmh);
+            UnitConverter.RegisterConversion(Unit.Mmin, Unit.Ftsec, MminToFtsec);
+            UnitConverter.RegisterConversion(Unit.Mmin, Unit.Ftmin, MminToFtmin);
+            UnitConverter.RegisterConversion(Unit.Mmin, Unit.Mph, MminToMph);
 
             // km/h conversions
-            UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Msec, KmhToMs);
-            UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Mmin, KmhToMmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Ftsec, KmhToFtsec);
-            UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Ftmin, KmhToFtmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Kmh, SpeedUnit.Mph, KmhToMph);
+            UnitConverter.RegisterConversion(Unit.Kmh, Unit.Msec, KmhToMs);
+            UnitConverter.RegisterConversion(Unit.Kmh, Unit.Mmin, KmhToMmin);
+            UnitConverter.RegisterConversion(Unit.Kmh, Unit.Ftsec, KmhToFtsec);
+            UnitConverter.RegisterConversion(Unit.Kmh, Unit.Ftmin, KmhToFtmin);
+            UnitConverter.RegisterConversion(Unit.Kmh, Unit.Mph, KmhToMph);
 
             // ft/s conversions
-            UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Msec, FtsecToMs);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Mmin, FtsecToMmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Kmh, FtsecToKmh);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Ftmin, FtsecToFtmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftsec, SpeedUnit.Mph, FtsecToMph);
+            UnitConverter.RegisterConversion(Unit.Ftsec, Unit.Msec, FtsecToMs);
+            UnitConverter.RegisterConversion(Unit.Ftsec, Unit.Mmin, FtsecToMmin);
+            UnitConverter.RegisterConversion(Unit.Ftsec, Unit.Kmh, FtsecToKmh);
+            UnitConverter.RegisterConversion(Unit.Ftsec, Unit.Ftmin, FtsecToFtmin);
+            UnitConverter.RegisterConversion(Unit.Ftsec, Unit.Mph, FtsecToMph);
 
             // ft/min conversions
-            UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Msec, FtminToMs);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Mmin, FtminToMmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Kmh, FtminToKmh);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Ftsec, FtminToFtsec);
-            UnitConverter.RegisterConversion(SpeedUnit.Ftmin, SpeedUnit.Mph, FtminToMph);
+            UnitConverter.RegisterConversion(Unit.Ftmin, Unit.Msec, FtminToMs);
+            UnitConverter.RegisterConversion(Unit.Ftmin, Unit.Mmin, FtminToMmin);
+            UnitConverter.RegisterConversion(Unit.Ftmin, Unit.Kmh, FtminToKmh);
+            UnitConverter.RegisterConversion(Unit.Ftmin, Unit.Ftsec, FtminToFtsec);
+            UnitConverter.RegisterConversion(Unit.Ftmin, Unit.Mph, FtminToMph);
 
             // mi/h conversions
-            UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Msec, MphToMs);
-            UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Mmin, MphToMmin);
-            UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Kmh, MphToKmh);
-            UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Ftsec, MphToFtsec);
-            UnitConverter.RegisterConversion(SpeedUnit.Mph, SpeedUnit.Ftmin, MphToFtmin);
+            UnitConverter.RegisterConversion(Unit.Mph, Unit.Msec, MphToMs);
+            UnitConverter.RegisterConversion(Unit.Mph, Unit.Mmin, MphToMmin);
+            UnitConverter.RegisterConversion(Unit.Mph, Unit.Kmh, MphToKmh);
+            UnitConverter.RegisterConversion(Unit.Mph, Unit.Ftsec, MphToFtsec);
+            UnitConverter.RegisterConversion(Unit.Mph, Unit.Ftmin, MphToFtmin);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for speed units.
         /// </summary>
@@ -214,9 +255,11 @@ namespace SimpleUnits
             /// </summary>
             public const double MphToFtmin = 87.992_13;
         }
+
         #endregion
 
-        // m/s conversions
+        #region m/s Conversions
+
         /// <summary>
         /// Converts meter per second (m/s) to meter per minute (m/min).
         /// </summary>
@@ -242,7 +285,10 @@ namespace SimpleUnits
         /// </summary>
         public static double MsecToMph(double value) => value * Factor.MsecToMph;
 
-        // m/min conversions
+        #endregion
+
+        #region m/min Conversions
+
         /// <summary>
         /// Converts meter per minute (m/min) to meter per second (m/s).
         /// </summary>
@@ -268,7 +314,10 @@ namespace SimpleUnits
         /// </summary>
         public static double MminToMph(double value) => value * Factor.MminToMph;
 
-        // km/h conversions
+        #endregion
+
+        #region km/h Conversions
+
         /// <summary
         /// >Converts kilometer per hour (km/h) to meter per second (m/s).
         /// </summary>
@@ -294,7 +343,10 @@ namespace SimpleUnits
         /// </summary>
         public static double KmhToMph(double value) => value * Factor.KmhToMph;
 
-        // ft/s conversions
+        #endregion
+
+        #region ft/s Conversions
+
         /// <summary>
         /// Converts foot per second (ft/s) to meter per second (m/s).
         /// </summary>
@@ -320,7 +372,10 @@ namespace SimpleUnits
         /// </summary>
         public static double FtsecToMph(double value) => value * Factor.FtsecToMph;
 
-        // ft/min conversions
+        #endregion
+
+        #region  ft/min Conversions
+
         /// <summary>
         /// Converts foot per minute (ft/min) to meter per second (m/s).
         /// </summary>
@@ -346,7 +401,10 @@ namespace SimpleUnits
         /// </summary>
         public static double FtminToMph(double value) => value * Factor.FtminToMph;
 
-        // mi/h conversions
+        #endregion
+
+        #region Mph Conversions
+
         /// <summary>
         /// Converts mile per hour (mph) to meter per second (m/s).
         /// </summary>
@@ -372,6 +430,10 @@ namespace SimpleUnits
         /// </summary>
         public static double MphToFtmin(double value) => value * Factor.MphToFtmin;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one speed unit to another.
         /// </summary>
@@ -382,10 +444,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, SpeedUnit from, SpeedUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one speed unit to another.
@@ -397,40 +456,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, SpeedUnit from, SpeedUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of speed measurement.
-    /// </summary>
-    public enum SpeedUnit
-    {
-        /// <summary>
-        /// Meter per second (m/s).
-        /// </summary>
-        Msec,
-        /// <summary>
-        /// Meter per minute (m/min).
-        /// </summary>
-        Mmin,
-        /// <summary>
-        /// Kilometer per hour (km/h).
-        /// </summary>
-        Kmh,
-        /// <summary>
-        /// Foot per second (ft/s).
-        /// </summary>
-        Ftsec,
-        /// <summary>
-        /// Foot per minute (ft/min).
-        /// </summary>
-        Ftmin,
-        /// <summary>
-        /// Mile per hour (mph).
-        /// </summary>
-        Mph
+        #endregion
     }
 }

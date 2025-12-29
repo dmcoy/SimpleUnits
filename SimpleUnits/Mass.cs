@@ -7,72 +7,117 @@ namespace SimpleUnits
     /// </summary>
     public static class Mass
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of mass measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Grams (g).
+            /// </summary>
+            G,
+            /// <summary>
+            /// Kilograms (kg).
+            /// </summary>
+            Kg,
+            /// <summary>
+            /// Metric tonnes (tonne).
+            /// </summary>
+            Tonne,
+            /// <summary>
+            /// Short ton (shton).
+            /// </summary>
+            Shton,
+            /// <summary>
+            /// Long ton (Lton).
+            /// </summary>
+            Lton,
+            /// <summary>
+            /// Pounds (lb).
+            /// </summary>
+            Lb,
+            /// <summary>
+            /// Ounces (oz).
+            /// </summary>
+            Oz
+        }
+
+        #endregion
+
+        #region Unit Converter Registration
+
         /// <summary>
         /// Static constructor to register mass units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static Mass()
         {
             // Register Mass unit
-            UnitConverter.RegisterUnit(typeof(MassUnit), BaseUnit.Mass);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Mass);
 
             // g conversions
-            UnitConverter.RegisterConversion(MassUnit.G, MassUnit.Kg, GToKg);
-            UnitConverter.RegisterConversion(MassUnit.G, MassUnit.Tonne, GToTonne);
-            UnitConverter.RegisterConversion(MassUnit.G, MassUnit.Shton, GToShton);
-            UnitConverter.RegisterConversion(MassUnit.G, MassUnit.Lton, GToLton);
-            UnitConverter.RegisterConversion(MassUnit.G, MassUnit.Lb, GToLb);
-            UnitConverter.RegisterConversion(MassUnit.G, MassUnit.Oz, GToOz);
+            UnitConverter.RegisterConversion(Unit.G, Unit.Kg, GToKg);
+            UnitConverter.RegisterConversion(Unit.G, Unit.Tonne, GToTonne);
+            UnitConverter.RegisterConversion(Unit.G, Unit.Shton, GToShton);
+            UnitConverter.RegisterConversion(Unit.G, Unit.Lton, GToLton);
+            UnitConverter.RegisterConversion(Unit.G, Unit.Lb, GToLb);
+            UnitConverter.RegisterConversion(Unit.G, Unit.Oz, GToOz);
 
             // kg conversions
-            UnitConverter.RegisterConversion(MassUnit.Kg, MassUnit.G, KgToG);
-            UnitConverter.RegisterConversion(MassUnit.Kg, MassUnit.Tonne, KgToTonne);
-            UnitConverter.RegisterConversion(MassUnit.Kg, MassUnit.Shton, KgToShton);
-            UnitConverter.RegisterConversion(MassUnit.Kg, MassUnit.Lton, KgToLton);
-            UnitConverter.RegisterConversion(MassUnit.Kg, MassUnit.Lb, KgToLb);
-            UnitConverter.RegisterConversion(MassUnit.Kg, MassUnit.Oz, KgToOz);
+            UnitConverter.RegisterConversion(Unit.Kg, Unit.G, KgToG);
+            UnitConverter.RegisterConversion(Unit.Kg, Unit.Tonne, KgToTonne);
+            UnitConverter.RegisterConversion(Unit.Kg, Unit.Shton, KgToShton);
+            UnitConverter.RegisterConversion(Unit.Kg, Unit.Lton, KgToLton);
+            UnitConverter.RegisterConversion(Unit.Kg, Unit.Lb, KgToLb);
+            UnitConverter.RegisterConversion(Unit.Kg, Unit.Oz, KgToOz);
 
             // tonne conversions
-            UnitConverter.RegisterConversion(MassUnit.Tonne, MassUnit.G, TonneToG);
-            UnitConverter.RegisterConversion(MassUnit.Tonne, MassUnit.Kg, TonneToKg);
-            UnitConverter.RegisterConversion(MassUnit.Tonne, MassUnit.Shton, TonneToShton);
-            UnitConverter.RegisterConversion(MassUnit.Tonne, MassUnit.Lton, TonneToLton);
-            UnitConverter.RegisterConversion(MassUnit.Tonne, MassUnit.Lb, TonneToLb);
-            UnitConverter.RegisterConversion(MassUnit.Tonne, MassUnit.Oz, TonneToOz);
+            UnitConverter.RegisterConversion(Unit.Tonne, Unit.G, TonneToG);
+            UnitConverter.RegisterConversion(Unit.Tonne, Unit.Kg, TonneToKg);
+            UnitConverter.RegisterConversion(Unit.Tonne, Unit.Shton, TonneToShton);
+            UnitConverter.RegisterConversion(Unit.Tonne, Unit.Lton, TonneToLton);
+            UnitConverter.RegisterConversion(Unit.Tonne, Unit.Lb, TonneToLb);
+            UnitConverter.RegisterConversion(Unit.Tonne, Unit.Oz, TonneToOz);
 
             // short ton conversions
-            UnitConverter.RegisterConversion(MassUnit.Shton, MassUnit.G, ShtonToG);
-            UnitConverter.RegisterConversion(MassUnit.Shton, MassUnit.Kg, ShtonToKg);
-            UnitConverter.RegisterConversion(MassUnit.Shton, MassUnit.Tonne, ShtonToTonne);
-            UnitConverter.RegisterConversion(MassUnit.Shton, MassUnit.Lton, ShtonToLton);
-            UnitConverter.RegisterConversion(MassUnit.Shton, MassUnit.Lb, ShtonToLb);
-            UnitConverter.RegisterConversion(MassUnit.Shton, MassUnit.Oz, ShtonToOz);
+            UnitConverter.RegisterConversion(Unit.Shton, Unit.G, ShtonToG);
+            UnitConverter.RegisterConversion(Unit.Shton, Unit.Kg, ShtonToKg);
+            UnitConverter.RegisterConversion(Unit.Shton, Unit.Tonne, ShtonToTonne);
+            UnitConverter.RegisterConversion(Unit.Shton, Unit.Lton, ShtonToLton);
+            UnitConverter.RegisterConversion(Unit.Shton, Unit.Lb, ShtonToLb);
+            UnitConverter.RegisterConversion(Unit.Shton, Unit.Oz, ShtonToOz);
 
             // long ton conversions
-            UnitConverter.RegisterConversion(MassUnit.Lton, MassUnit.G, LtonToG);
-            UnitConverter.RegisterConversion(MassUnit.Lton, MassUnit.Kg, LtonToKg);
-            UnitConverter.RegisterConversion(MassUnit.Lton, MassUnit.Tonne, LtonToTonne);
-            UnitConverter.RegisterConversion(MassUnit.Lton, MassUnit.Shton, LtonToShton);
-            UnitConverter.RegisterConversion(MassUnit.Lton, MassUnit.Lb, LtonToLb);
-            UnitConverter.RegisterConversion(MassUnit.Lton, MassUnit.Oz, LtonToOz);
+            UnitConverter.RegisterConversion(Unit.Lton, Unit.G, LtonToG);
+            UnitConverter.RegisterConversion(Unit.Lton, Unit.Kg, LtonToKg);
+            UnitConverter.RegisterConversion(Unit.Lton, Unit.Tonne, LtonToTonne);
+            UnitConverter.RegisterConversion(Unit.Lton, Unit.Shton, LtonToShton);
+            UnitConverter.RegisterConversion(Unit.Lton, Unit.Lb, LtonToLb);
+            UnitConverter.RegisterConversion(Unit.Lton, Unit.Oz, LtonToOz);
 
             // lb conversions
-            UnitConverter.RegisterConversion(MassUnit.Lb, MassUnit.G, LbToG);
-            UnitConverter.RegisterConversion(MassUnit.Lb, MassUnit.Kg, LbToKg);
-            UnitConverter.RegisterConversion(MassUnit.Lb, MassUnit.Tonne, LbToTonne);
-            UnitConverter.RegisterConversion(MassUnit.Lb, MassUnit.Shton, LbToShton);
-            UnitConverter.RegisterConversion(MassUnit.Lb, MassUnit.Lton, LbToLton);
-            UnitConverter.RegisterConversion(MassUnit.Lb, MassUnit.Oz, LbToOz);
+            UnitConverter.RegisterConversion(Unit.Lb, Unit.G, LbToG);
+            UnitConverter.RegisterConversion(Unit.Lb, Unit.Kg, LbToKg);
+            UnitConverter.RegisterConversion(Unit.Lb, Unit.Tonne, LbToTonne);
+            UnitConverter.RegisterConversion(Unit.Lb, Unit.Shton, LbToShton);
+            UnitConverter.RegisterConversion(Unit.Lb, Unit.Lton, LbToLton);
+            UnitConverter.RegisterConversion(Unit.Lb, Unit.Oz, LbToOz);
 
             // oz conversions
-            UnitConverter.RegisterConversion(MassUnit.Oz, MassUnit.G, OzToG);
-            UnitConverter.RegisterConversion(MassUnit.Oz, MassUnit.Kg, OzToKg);
-            UnitConverter.RegisterConversion(MassUnit.Oz, MassUnit.Tonne, OzToTonne);
-            UnitConverter.RegisterConversion(MassUnit.Oz, MassUnit.Shton, OzToShton);
-            UnitConverter.RegisterConversion(MassUnit.Oz, MassUnit.Lton, OzToLton);
-            UnitConverter.RegisterConversion(MassUnit.Oz, MassUnit.Lb, OzToLb);
+            UnitConverter.RegisterConversion(Unit.Oz, Unit.G, OzToG);
+            UnitConverter.RegisterConversion(Unit.Oz, Unit.Kg, OzToKg);
+            UnitConverter.RegisterConversion(Unit.Oz, Unit.Tonne, OzToTonne);
+            UnitConverter.RegisterConversion(Unit.Oz, Unit.Shton, OzToShton);
+            UnitConverter.RegisterConversion(Unit.Oz, Unit.Lton, OzToLton);
+            UnitConverter.RegisterConversion(Unit.Oz, Unit.Lb, OzToLb);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for mass units.
         /// </summary>
@@ -255,103 +300,161 @@ namespace SimpleUnits
         }
         #endregion
 
-        // g conversions
+        #region Gram Conversions
+
         /// <summary>Converts grams (g) to kilograms (kg).</summary>
         public static double GToKg(double value) => value * Factor.GToKg;
+
         /// <summary>Converts grams (g) to metric tonnes (tonne).</summary>
         public static double GToTonne(double value) => value * Factor.GToTonne;
+
         /// <summary>Converts grams (g) to short tons (shton).</summary>
         public static double GToShton(double value) => value * Factor.GToShton;
+
         /// <summary>Converts grams (g) to long tons (Lton).</summary>
         public static double GToLton(double value) => value * Factor.GToLton;
+
         /// <summary>Converts grams (g) to pounds (lb).</summary>
         public static double GToLb(double value) => value * Factor.GToLb;
+
         /// <summary>Converts grams (g) to ounces (oz).</summary>
         public static double GToOz(double value) => value * Factor.GToOz;
 
-        // kg conversions
+        #endregion
+
+        #region Kilogram Conversions
+
         /// <summary>Converts kilograms (kg) to grams (g).</summary>
         public static double KgToG(double value) => value * Factor.KgToG;
+
         /// <summary>Converts kilograms (kg) to metric tonnes (tonne).</summary>
         public static double KgToTonne(double value) => value * Factor.KgToTonne;
+
         /// <summary>Converts kilograms (kg) to short tons (shton).</summary>
         public static double KgToShton(double value) => value * Factor.KgToShton;
+
         /// <summary>Converts kilograms (kg) to long tons (Lton).</summary>
         public static double KgToLton(double value) => value * Factor.KgToLton;
+
         /// <summary>Converts kilograms (kg) to pounds (lb).</summary>
         public static double KgToLb(double value) => value * Factor.KgToLb;
+
         /// <summary>Converts kilograms (kg) to ounces (oz).</summary>
         public static double KgToOz(double value) => value * Factor.KgToOz;
 
-        // tonne conversions
+        #endregion
+
+        #region Tonne Conversions
+
         /// <summary>Converts metric tonnes (tonne) to grams (g).</summary>
         public static double TonneToG(double value) => value * Factor.TonneToG;
+
         /// <summary>Converts metric tonnes (tonne) to kilograms (kg).</summary>
         public static double TonneToKg(double value) => value * Factor.TonneToKg;
+
         /// <summary>Converts metric tonnes (tonne) to short tons (shton).</summary>
         public static double TonneToShton(double value) => value * Factor.TonneToShton;
+
         /// <summary>Converts metric tonnes (tonne) to long tons (Lton).</summary>
         public static double TonneToLton(double value) => value * Factor.TonneToLton;
+
         /// <summary>Converts metric tonnes (tonne) to pounds (lb).</summary>
         public static double TonneToLb(double value) => value * Factor.TonneToLb;
+
         /// <summary>Converts metric tonnes (tonne) to ounces (oz).</summary>
         public static double TonneToOz(double value) => value * Factor.TonneToOz;
 
-        // short ton conversions
+        #endregion
+
+        #region Short Ton Conversions
+
         /// <summary>Converts short tons (shton) to grams (g).</summary>
         public static double ShtonToG(double value) => value * Factor.ShtonToG;
+
         /// <summary>Converts short tons (shton) to kilograms (kg).</summary>
         public static double ShtonToKg(double value) => value * Factor.ShtonToKg;
+
         /// <summary>Converts short tons (shton) to metric tonnes (tonne).</summary>
         public static double ShtonToTonne(double value) => value * Factor.ShtonToTonne;
+
         /// <summary>Converts short tons (shton) to long tons (Lton).</summary>
         public static double ShtonToLton(double value) => value * Factor.ShtonToLton;
+
         /// <summary>Converts short tons (shton) to pounds (lb).</summary>
         public static double ShtonToLb(double value) => value * Factor.ShtonToLb;
+
         /// <summary>Converts short tons (shton) to ounces (oz).</summary>
         public static double ShtonToOz(double value) => value * Factor.ShtonToOz;
 
-        // long ton conversions
+        #endregion
+
+        #region Long Ton Conversions
+
         /// <summary>Converts long tons (Lton) to grams (g).</summary>
         public static double LtonToG(double value) => value * Factor.LtonToG;
+
         /// <summary>Converts long tons (Lton) to kilograms (kg).</summary>
         public static double LtonToKg(double value) => value * Factor.LtonToKg;
+
         /// <summary>Converts long tons (Lton) to metric tonnes (tonne).</summary>
         public static double LtonToTonne(double value) => value * Factor.LtonToTonne;
+
         /// <summary>Converts long tons (Lton) to short tons (shton).</summary>
         public static double LtonToShton(double value) => value * Factor.LtonToShton;
+
         /// <summary>Converts long tons (Lton) to pounds (lb).</summary>
         public static double LtonToLb(double value) => value * Factor.LtonToLb;
+
         /// <summary>Converts long tons (Lton) to ounces (oz).</summary>
         public static double LtonToOz(double value) => value * Factor.LtonToOz;
 
-        // lb conversions
+        #endregion
+
+        #region Pound Conversions
+
         /// <summary>Converts pounds (lb) to grams (g).</summary>
         public static double LbToG(double value) => value * Factor.LbToG;
+
         /// <summary>Converts pounds (lb) to kilograms (kg).</summary>
         public static double LbToKg(double value) => value * Factor.LbToKg;
+
         /// <summary>Converts pounds (lb) to metric tonnes (tonne).</summary>
         public static double LbToTonne(double value) => value * Factor.LbToTonne;
+
         /// <summary>Converts pounds (lb) to short tons (shton).</summary>
         public static double LbToShton(double value) => value * Factor.LbToShton;
+
         /// <summary>Converts pounds (lb) to long tons (Lton).</summary>
         public static double LbToLton(double value) => value * Factor.LbToLton;
+
         /// <summary>Converts pounds (lb) to ounces (oz).</summary>
         public static double LbToOz(double value) => value * Factor.LbToOz;
 
-        // oz conversions
+        #endregion
+
+        #region Ounce Conversions
+
         /// <summary>Converts ounces (oz) to grams (g).</summary>
         public static double OzToG(double value) => value * Factor.OzToG;
+
         /// <summary>Converts ounces (oz) to kilograms (kg).</summary>
         public static double OzToKg(double value) => value * Factor.OzToKg;
+
         /// <summary>Converts ounces (oz) to metric tonnes (tonne).</summary>
         public static double OzToTonne(double value) => value * Factor.OzToTonne;
+
         /// <summary>Converts ounces (oz) to short tons (shton).</summary>
         public static double OzToShton(double value) => value * Factor.OzToShton;
+
         /// <summary>Converts ounces (oz) to long tons (Lton).</summary>
         public static double OzToLton(double value) => value * Factor.OzToLton;
+
         /// <summary>Converts ounces (oz) to pounds (lb).</summary>
         public static double OzToLb(double value) => value * Factor.OzToLb;
+
+        #endregion
+
+        #region Unit Converter
 
         /// <summary>
         /// Converts a value from one mass unit to another.
@@ -363,10 +466,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, MassUnit from, MassUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one mass unit to another.
@@ -378,44 +478,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, MassUnit from, MassUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of mass measurement.
-    /// </summary>
-    public enum MassUnit
-    {
-        /// <summary>
-        /// Grams (g).
-        /// </summary>
-        G,
-        /// <summary>
-        /// Kilograms (kg).
-        /// </summary>
-        Kg,
-        /// <summary>
-        /// Metric tonnes (tonne).
-        /// </summary>
-        Tonne,
-        /// <summary>
-        /// Short ton (shton).
-        /// </summary>
-        Shton,
-        /// <summary>
-        /// Long ton (Lton).
-        /// </summary>
-        Lton,
-        /// <summary>
-        /// Pounds (lb).
-        /// </summary>
-        Lb,
-        /// <summary>
-        /// Ounces (oz).
-        /// </summary>
-        Oz
+        #endregion
     }
 }

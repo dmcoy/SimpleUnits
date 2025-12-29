@@ -12,6 +12,7 @@ namespace SimpleUnits
     /// </remarks>
     internal static class UnitConverter
     {
+
         private readonly static Dictionary<(Enum, Enum), Func<double, double>> _conversions = new Dictionary<(Enum, Enum), Func<double, double>>();
         private readonly static Dictionary<Type, BaseUnit> _unitTypeToBaseUnit = new Dictionary<Type, BaseUnit>();
 
@@ -105,10 +106,25 @@ namespace SimpleUnits
         /// <returns><c>true</c> if both units have the same base unit; otherwise, <c>false</c>.</returns>
         private static bool BaseUnitsMatch(Enum fromUnit, Enum toUnit)
         {
-            var fromBaseUnit = _unitTypeToBaseUnit[fromUnit.GetType()];
-            var toBaseUnit = _unitTypeToBaseUnit[toUnit.GetType()];
+            BaseUnit fromBaseUnit = _unitTypeToBaseUnit[fromUnit.GetType()];
+            BaseUnit toBaseUnit = _unitTypeToBaseUnit[toUnit.GetType()];
             return fromBaseUnit == toBaseUnit;
         }
     }
 
+    internal enum BaseUnit
+    {
+        Area,
+        Density,
+        Length,
+        Mass,
+        MassFlow,
+        Pressure,
+        Speed,
+        Temperature,
+        Torque,
+        Volume,
+        VolumetricGasFlow,
+        VolumetricLiquidFlow
+    }
 }

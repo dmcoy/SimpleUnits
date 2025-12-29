@@ -7,72 +7,117 @@ namespace SimpleUnits
     /// </summary>
     public static class VolumetricLiquidFlow
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of volumetric liquid flow measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Liter per second (L/sec).
+            /// </summary>
+            Lsec,
+            /// <summary>
+            /// Liter per minute (L/min).
+            /// </summary>
+            Lmin,
+            /// <summary>
+            /// Meter cube per hour (m³/hr).
+            /// </summary>
+            M3hr,
+            /// <summary>
+            /// Foot cube per minute (ft³/min).
+            /// </summary>
+            Ft3min,
+            /// <summary>
+            /// Foot cube per hour (ft³/hr).
+            /// </summary>
+            Ft3hr,
+            /// <summary>
+            /// US gallons per minute (gal/min).
+            /// </summary>
+            Galmin,
+            /// <summary>
+            /// US barrels (oil) per day (US brl/d).
+            /// </summary>
+            Brld
+        }
+
+        #endregion
+
+        #region Unit Registration
+
         /// <summary>
         /// Static constructor to register volumetric liquid flow units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static VolumetricLiquidFlow()
         {
             // Register VolumetricLiquidFlow unit
-            UnitConverter.RegisterUnit(typeof(VolumetricLiquidFlowUnit), BaseUnit.VolumetricLiquidFlow);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.VolumetricLiquidFlow);
 
             // L/sec conversions
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lsec, VolumetricLiquidFlowUnit.Lmin, LsecToLmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lsec, VolumetricLiquidFlowUnit.M3hr, LsecToM3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lsec, VolumetricLiquidFlowUnit.Ft3min, LsecToFt3min);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lsec, VolumetricLiquidFlowUnit.Ft3hr, LsecToFt3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lsec, VolumetricLiquidFlowUnit.Galmin, LsecToGalmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lsec, VolumetricLiquidFlowUnit.Brld, LsecToBrld);
+            UnitConverter.RegisterConversion(Unit.Lsec, Unit.Lmin, LsecToLmin);
+            UnitConverter.RegisterConversion(Unit.Lsec, Unit.M3hr, LsecToM3hr);
+            UnitConverter.RegisterConversion(Unit.Lsec, Unit.Ft3min, LsecToFt3min);
+            UnitConverter.RegisterConversion(Unit.Lsec, Unit.Ft3hr, LsecToFt3hr);
+            UnitConverter.RegisterConversion(Unit.Lsec, Unit.Galmin, LsecToGalmin);
+            UnitConverter.RegisterConversion(Unit.Lsec, Unit.Brld, LsecToBrld);
 
             // L/min conversions
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lmin, VolumetricLiquidFlowUnit.Lsec, LminToLsec);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lmin, VolumetricLiquidFlowUnit.M3hr, LminToM3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lmin, VolumetricLiquidFlowUnit.Ft3min, LminToFt3min);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lmin, VolumetricLiquidFlowUnit.Ft3hr, LminToFt3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lmin, VolumetricLiquidFlowUnit.Galmin, LminToGalmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Lmin, VolumetricLiquidFlowUnit.Brld, LminToBrld);
+            UnitConverter.RegisterConversion(Unit.Lmin, Unit.Lsec, LminToLsec);
+            UnitConverter.RegisterConversion(Unit.Lmin, Unit.M3hr, LminToM3hr);
+            UnitConverter.RegisterConversion(Unit.Lmin, Unit.Ft3min, LminToFt3min);
+            UnitConverter.RegisterConversion(Unit.Lmin, Unit.Ft3hr, LminToFt3hr);
+            UnitConverter.RegisterConversion(Unit.Lmin, Unit.Galmin, LminToGalmin);
+            UnitConverter.RegisterConversion(Unit.Lmin, Unit.Brld, LminToBrld);
 
             // m³/hr conversions
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.M3hr, VolumetricLiquidFlowUnit.Lsec, M3hrToLsec);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.M3hr, VolumetricLiquidFlowUnit.Lmin, M3hrToLmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.M3hr, VolumetricLiquidFlowUnit.Ft3min, M3hrToFt3min);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.M3hr, VolumetricLiquidFlowUnit.Ft3hr, M3hrToFt3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.M3hr, VolumetricLiquidFlowUnit.Galmin, M3hrToGalmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.M3hr, VolumetricLiquidFlowUnit.Brld, M3hrToBrld);
+            UnitConverter.RegisterConversion(Unit.M3hr, Unit.Lsec, M3hrToLsec);
+            UnitConverter.RegisterConversion(Unit.M3hr, Unit.Lmin, M3hrToLmin);
+            UnitConverter.RegisterConversion(Unit.M3hr, Unit.Ft3min, M3hrToFt3min);
+            UnitConverter.RegisterConversion(Unit.M3hr, Unit.Ft3hr, M3hrToFt3hr);
+            UnitConverter.RegisterConversion(Unit.M3hr, Unit.Galmin, M3hrToGalmin);
+            UnitConverter.RegisterConversion(Unit.M3hr, Unit.Brld, M3hrToBrld);
 
             // ft³/min conversions
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3min, VolumetricLiquidFlowUnit.Lsec, Ft3minToLsec);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3min, VolumetricLiquidFlowUnit.Lmin, Ft3minToLmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3min, VolumetricLiquidFlowUnit.M3hr, Ft3minToM3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3min, VolumetricLiquidFlowUnit.Ft3hr, Ft3minToFt3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3min, VolumetricLiquidFlowUnit.Galmin, Ft3minToGalmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3min, VolumetricLiquidFlowUnit.Brld, Ft3minToBrld);
+            UnitConverter.RegisterConversion(Unit.Ft3min, Unit.Lsec, Ft3minToLsec);
+            UnitConverter.RegisterConversion(Unit.Ft3min, Unit.Lmin, Ft3minToLmin);
+            UnitConverter.RegisterConversion(Unit.Ft3min, Unit.M3hr, Ft3minToM3hr);
+            UnitConverter.RegisterConversion(Unit.Ft3min, Unit.Ft3hr, Ft3minToFt3hr);
+            UnitConverter.RegisterConversion(Unit.Ft3min, Unit.Galmin, Ft3minToGalmin);
+            UnitConverter.RegisterConversion(Unit.Ft3min, Unit.Brld, Ft3minToBrld);
 
             // ft³/hr conversions
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3hr, VolumetricLiquidFlowUnit.Lsec, Ft3hrToLsec);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3hr, VolumetricLiquidFlowUnit.Lmin, Ft3hrToLmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3hr, VolumetricLiquidFlowUnit.M3hr, Ft3hrToM3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3hr, VolumetricLiquidFlowUnit.Ft3min, Ft3hrToFt3min);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3hr, VolumetricLiquidFlowUnit.Galmin, Ft3hrToGalmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Ft3hr, VolumetricLiquidFlowUnit.Brld, Ft3hrToBrld);
+            UnitConverter.RegisterConversion(Unit.Ft3hr, Unit.Lsec, Ft3hrToLsec);
+            UnitConverter.RegisterConversion(Unit.Ft3hr, Unit.Lmin, Ft3hrToLmin);
+            UnitConverter.RegisterConversion(Unit.Ft3hr, Unit.M3hr, Ft3hrToM3hr);
+            UnitConverter.RegisterConversion(Unit.Ft3hr, Unit.Ft3min, Ft3hrToFt3min);
+            UnitConverter.RegisterConversion(Unit.Ft3hr, Unit.Galmin, Ft3hrToGalmin);
+            UnitConverter.RegisterConversion(Unit.Ft3hr, Unit.Brld, Ft3hrToBrld);
 
             // gal/min conversions
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Galmin, VolumetricLiquidFlowUnit.Lsec, GalminToLsec);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Galmin, VolumetricLiquidFlowUnit.Lmin, GalminToLmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Galmin, VolumetricLiquidFlowUnit.M3hr, GalminToM3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Galmin, VolumetricLiquidFlowUnit.Ft3min, GalminToFt3min);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Galmin, VolumetricLiquidFlowUnit.Ft3hr, GalminToFt3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Galmin, VolumetricLiquidFlowUnit.Brld, GalminToBrld);
+            UnitConverter.RegisterConversion(Unit.Galmin, Unit.Lsec, GalminToLsec);
+            UnitConverter.RegisterConversion(Unit.Galmin, Unit.Lmin, GalminToLmin);
+            UnitConverter.RegisterConversion(Unit.Galmin, Unit.M3hr, GalminToM3hr);
+            UnitConverter.RegisterConversion(Unit.Galmin, Unit.Ft3min, GalminToFt3min);
+            UnitConverter.RegisterConversion(Unit.Galmin, Unit.Ft3hr, GalminToFt3hr);
+            UnitConverter.RegisterConversion(Unit.Galmin, Unit.Brld, GalminToBrld);
 
             // US brl/d conversions
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Brld, VolumetricLiquidFlowUnit.Lsec, BrldToLsec);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Brld, VolumetricLiquidFlowUnit.Lmin, BrldToLmin);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Brld, VolumetricLiquidFlowUnit.M3hr, BrldToM3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Brld, VolumetricLiquidFlowUnit.Ft3min, BrldToFt3min);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Brld, VolumetricLiquidFlowUnit.Ft3hr, BrldToFt3hr);
-            UnitConverter.RegisterConversion(VolumetricLiquidFlowUnit.Brld, VolumetricLiquidFlowUnit.Galmin, BrldToGalmin);
+            UnitConverter.RegisterConversion(Unit.Brld, Unit.Lsec, BrldToLsec);
+            UnitConverter.RegisterConversion(Unit.Brld, Unit.Lmin, BrldToLmin);
+            UnitConverter.RegisterConversion(Unit.Brld, Unit.M3hr, BrldToM3hr);
+            UnitConverter.RegisterConversion(Unit.Brld, Unit.Ft3min, BrldToFt3min);
+            UnitConverter.RegisterConversion(Unit.Brld, Unit.Ft3hr, BrldToFt3hr);
+            UnitConverter.RegisterConversion(Unit.Brld, Unit.Galmin, BrldToGalmin);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for volumetric liquid flow units.
         /// </summary>
@@ -253,7 +298,10 @@ namespace SimpleUnits
             /// </summary>
             public const double BrldToGalmin = 0.029_165;
         }
+
         #endregion
+
+        #region Liters Per Second Conversions
 
         /// <summary>
         /// Converts a value in liters per second (L/sec) to liters per minute (L/min).
@@ -297,6 +345,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US barrels per day.</returns>
         public static double LsecToBrld(double value) => value * Factor.LsecToBrld;
 
+        #endregion
+
+        #region Liters Per Minute Conversions
+
         /// <summary>
         /// Converts a value in liters per minute (L/min) to liters per second (L/sec).
         /// </summary>
@@ -338,6 +390,10 @@ namespace SimpleUnits
         /// <param name="value">The value in liters per minute.</param>
         /// <returns>The equivalent value in US barrels per day.</returns>
         public static double LminToBrld(double value) => value * Factor.LminToBrld;
+
+        #endregion
+
+        #region Meters Per Hour Conversions
 
         /// <summary>
         /// Converts a value in cubic meters per hour (m³/hr) to liters per second (L/sec).
@@ -381,6 +437,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US barrels per day.</returns>
         public static double M3hrToBrld(double value) => value * Factor.M3hrToBrld;
 
+        #endregion
+
+        #region Cubic Feet Per Minute Conversions
+
         /// <summary>
         /// Converts a value in cubic feet per minute (ft³/min) to liters per second (L/sec).
         /// </summary>
@@ -422,6 +482,10 @@ namespace SimpleUnits
         /// <param name="value">The value in cubic feet per minute.</param>
         /// <returns>The equivalent value in US barrels per day.</returns>
         public static double Ft3minToBrld(double value) => value * Factor.Ft3minToBrld;
+
+        #endregion
+
+        #region Cubic Feet Per Hour Conversions
 
         /// <summary>
         /// Converts a value in cubic feet per hour (ft³/hr) to liters per second (L/sec).
@@ -465,6 +529,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US barrels per day.</returns>
         public static double Ft3hrToBrld(double value) => value * Factor.Ft3hrToBrld;
 
+        #endregion
+
+        #region US Gallon Conversions
+
         /// <summary>
         /// Converts a value in US gallons per minute (gal/min) to liters per second (L/sec).
         /// </summary>
@@ -507,6 +575,9 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US barrels per day.</returns>
         public static double GalminToBrld(double value) => value * Factor.GalminToBrld;
 
+        #endregion
+
+        #region US Barrel Conversions
 
         /// <summary>
         /// Converts a value in US barrels per day (US brl/d) to liters per second (L/sec).
@@ -550,6 +621,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US gallons per minute.</returns>
         public static double BrldToGalmin(double value) => value * Factor.BrldToGalmin;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one volumetric liquid flow unit to another.
         /// </summary>
@@ -560,10 +635,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, VolumetricLiquidFlowUnit from, VolumetricLiquidFlowUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one volumetric liquid flow unit to another.
@@ -575,44 +647,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, VolumetricLiquidFlowUnit from, VolumetricLiquidFlowUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of volumetric liquid flow measurement.
-    /// </summary>
-    public enum VolumetricLiquidFlowUnit
-    {
-        /// <summary>
-        /// Liter per second (L/sec).
-        /// </summary>
-        Lsec,
-        /// <summary>
-        /// Liter per minute (L/min).
-        /// </summary>
-        Lmin,
-        /// <summary>
-        /// Meter cube per hour (m³/hr).
-        /// </summary>
-        M3hr,
-        /// <summary>
-        /// Foot cube per minute (ft³/min).
-        /// </summary>
-        Ft3min,
-        /// <summary>
-        /// Foot cube per hour (ft³/hr).
-        /// </summary>
-        Ft3hr,
-        /// <summary>
-        /// US gallons per minute (gal/min).
-        /// </summary>
-        Galmin,
-        /// <summary>
-        /// US barrels (oil) per day (US brl/d).
-        /// </summary>
-        Brld
+        #endregion
     }
 }

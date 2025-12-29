@@ -7,36 +7,69 @@ namespace SimpleUnits
     /// </summary>
     public static class Density
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of density measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Gram per milliliter (g/ml).
+            /// </summary>
+            Gml,
+            /// <summary>
+            /// Kilogram per cubic meter (kg/m³).
+            /// </summary>
+            Kgm3,
+            /// <summary>
+            /// Pound per cubic foot (lb/ft³).
+            /// </summary>
+            Lbft3,
+            /// <summary>
+            /// Pound per cubic inch (lb/in³).
+            /// </summary>
+            Lbin3
+        }
+
+        #endregion
+
+        #region Unit Registration
+
         /// <summary>
         /// Static constructor to register density units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static Density()
         {
             // Register Density unit
-            UnitConverter.RegisterUnit(typeof(DensityUnit), BaseUnit.Density);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Density);
 
             // g/ml conversions
-            UnitConverter.RegisterConversion(DensityUnit.Gml, DensityUnit.Kgm3, GmlToKgm3);
-            UnitConverter.RegisterConversion(DensityUnit.Gml, DensityUnit.Lbft3, GmlToLbft3);
-            UnitConverter.RegisterConversion(DensityUnit.Gml, DensityUnit.Lbin3, GmlToLbin3);
+            UnitConverter.RegisterConversion(Unit.Gml, Unit.Kgm3, GmlToKgm3);
+            UnitConverter.RegisterConversion(Unit.Gml, Unit.Lbft3, GmlToLbft3);
+            UnitConverter.RegisterConversion(Unit.Gml, Unit.Lbin3, GmlToLbin3);
 
             // kg/m³ conversions
-            UnitConverter.RegisterConversion(DensityUnit.Kgm3, DensityUnit.Gml, Kgm3ToGml);
-            UnitConverter.RegisterConversion(DensityUnit.Kgm3, DensityUnit.Lbft3, Kgm3ToLbft3);
-            UnitConverter.RegisterConversion(DensityUnit.Kgm3, DensityUnit.Lbin3, Kgm3ToLbin3);
+            UnitConverter.RegisterConversion(Unit.Kgm3, Unit.Gml, Kgm3ToGml);
+            UnitConverter.RegisterConversion(Unit.Kgm3, Unit.Lbft3, Kgm3ToLbft3);
+            UnitConverter.RegisterConversion(Unit.Kgm3, Unit.Lbin3, Kgm3ToLbin3);
 
             // lb/ft³ conversions
-            UnitConverter.RegisterConversion(DensityUnit.Lbft3, DensityUnit.Gml, Lbft3ToGml);
-            UnitConverter.RegisterConversion(DensityUnit.Lbft3, DensityUnit.Kgm3, Lbft3ToKgm3);
-            UnitConverter.RegisterConversion(DensityUnit.Lbft3, DensityUnit.Lbin3, Lbft3ToLbin3);
+            UnitConverter.RegisterConversion(Unit.Lbft3, Unit.Gml, Lbft3ToGml);
+            UnitConverter.RegisterConversion(Unit.Lbft3, Unit.Kgm3, Lbft3ToKgm3);
+            UnitConverter.RegisterConversion(Unit.Lbft3, Unit.Lbin3, Lbft3ToLbin3);
 
             // lb/in³ conversions
-            UnitConverter.RegisterConversion(DensityUnit.Lbin3, DensityUnit.Gml, Lbin3ToGml);
-            UnitConverter.RegisterConversion(DensityUnit.Lbin3, DensityUnit.Kgm3, Lbin3ToKgm3);
-            UnitConverter.RegisterConversion(DensityUnit.Lbin3, DensityUnit.Lbft3, Lbin3ToLbft3);
+            UnitConverter.RegisterConversion(Unit.Lbin3, Unit.Gml, Lbin3ToGml);
+            UnitConverter.RegisterConversion(Unit.Lbin3, Unit.Kgm3, Lbin3ToKgm3);
+            UnitConverter.RegisterConversion(Unit.Lbin3, Unit.Lbft3, Lbin3ToLbft3);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for density units.
         /// </summary>
@@ -94,7 +127,10 @@ namespace SimpleUnits
             /// </summary>
             public const double Lbin3ToLbft3 = 1727.84;
         }
+
         #endregion
+
+        #region Gram per Millimeter Conversions
 
         /// <summary>
         /// Converts a value from gram per milliliter (g/ml) to kilogram per cubic meter (kg/m³).
@@ -117,6 +153,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in pound per cubic inch.</returns>
         public static double GmlToLbin3(double value) => value * Factor.GmlToLbin3;
 
+        #endregion
+
+        #region Kilogram per Cubic Meter Conversions
+
         /// <summary>
         /// Converts a value from kilogram per cubic meter (kg/m³) to gram per milliliter (g/ml).
         /// </summary>
@@ -137,6 +177,10 @@ namespace SimpleUnits
         /// <param name="value">The value in kilogram per cubic meter.</param>
         /// <returns>The equivalent value in pound per cubic inch.</returns>
         public static double Kgm3ToLbin3(double value) => value * Factor.Kgm3ToLbin3;
+
+        #endregion
+
+        #region Cubic Foot Conversions
 
         /// <summary>
         /// Converts a value from pound per cubic foot (lb/ft³) to gram per milliliter (g/ml).
@@ -159,6 +203,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in pound per cubic inch.</returns>
         public static double Lbft3ToLbin3(double value) => value * Factor.Lbft3ToLbin3;
 
+        #endregion
+
+        #region Cubic Inch Conversions
+
         /// <summary>
         /// Converts a value from pound per cubic inch (lb/in³) to gram per milliliter (g/ml).
         /// </summary>
@@ -180,6 +228,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in pound per cubic foot.</returns>
         public static double Lbin3ToLbft3(double value) => value * Factor.Lbin3ToLbft3;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one density unit to another.
         /// </summary>
@@ -190,10 +242,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, DensityUnit from, DensityUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one density unit to another.
@@ -205,32 +254,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, DensityUnit from, DensityUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of density measurement.
-    /// </summary>
-    public enum DensityUnit
-    {
-        /// <summary>
-        /// Gram per milliliter (g/ml).
-        /// </summary>
-        Gml,
-        /// <summary>
-        /// Kilogram per cubic meter (kg/m³).
-        /// </summary>
-        Kgm3,
-        /// <summary>
-        /// Pound per cubic foot (lb/ft³).
-        /// </summary>
-        Lbft3,
-        /// <summary>
-        /// Pound per cubic inch (lb/in³).
-        /// </summary>
-        Lbin3
+        #endregion
     }
 }

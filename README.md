@@ -1,5 +1,5 @@
 # SimpleUnits
-A lightweight static class library for unit conversions in dotnet projects.
+A lightweight static class library for unit conversions in dotnet projects. This is not a comprehensive set of unit conversions but should cover a wide variety of use cases.
 
 ## Development
 - [ ] Create Nuget package
@@ -30,10 +30,10 @@ Otherwise, each class contains a convert method, which lets you plug in which un
 double barToPsi = Pressure.Convert(9.7, PressureUnit.Psi, PressureUnit.Bar);
 
 // Converting kilometers to miles
-double kmToMi = Length.Convert(71, LengthUnit.Km, LengthUnit.Mi);
+double kmToMi = Length.Convert(71, Length.Unit.Km, Length.Unit.Mi);
 
 // Converting foot pounds to newton meters
-double ftlbToNm = Torque.Convert(815, TorqueUnit.Ftlb, TorqueUnit.Nm);
+double ftlbToNm = Torque.Convert(815, Torque.Unit.Ftlb, Torque.Unit.Nm);
 ```
 
 ## Conversion factors
@@ -53,7 +53,7 @@ double inches = 12;
 double feet = inches * Length.Factor.InToFt;
 
 // Converting using the Convert method outputs 1
-feet = Length.Convert(inches, LengthUnit.Inches, LenghtUnit.Feet);
+feet = Length.Convert(inches, Length.Unit.In, Lenght.Unit.Ft);
 ```
 
 ## Double vs. Float
@@ -62,8 +62,8 @@ Each of the explicit methods only returns type double. Only the Convert method f
 double squareFeetDouble = Area.M2ToFt2(1.2);
 float squareFeetFloat = (float)Area.M2ToFt2(1.2);
 
-squareFeetDouble = Area.Convert(1.2, AreaUnit.M2, AreaUnit.Ft2);
-squareFeetFloat = Area.Convert(1.2f, AreaUnit.M2, AreaUnit.Ft2);
+squareFeetDouble = Area.Convert(1.2, Area.Unit.M2, Area.Unit.Ft2);
+squareFeetFloat = Area.Convert(1.2f, Area.Unit.M2, Area.Unit.Ft2);
 ```
 
 ## Available Units
