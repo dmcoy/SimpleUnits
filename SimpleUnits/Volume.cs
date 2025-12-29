@@ -7,86 +7,134 @@ namespace SimpleUnits
     /// </summary>
     public static class Volume
     {
+        #region Units
+
+        /// <summary>
+        /// Units of Volume measurement
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Cubic centimeters (cm³).
+            /// </summary>
+            Cm3,
+            /// <summary>
+            /// Cubic meters (m³).
+            /// </summary>
+            M3,
+            /// <summary>
+            /// Liters (ltr).
+            /// </summary>
+            Ltr,
+            /// <summary>
+            /// Cubic inches (in³).
+            /// </summary>
+            In3,
+            /// <summary>
+            /// Cubic feet (ft³).
+            /// </summary>
+            Ft3,
+            /// <summary>
+            /// US Gallons (US Gal).
+            /// </summary>
+            USGal,
+            /// <summary>
+            /// Imperial Gallons (Imp. Gal).
+            /// </summary>
+            ImpGal,
+            /// <summary>
+            /// US Barrel [oil] (US brl).
+            /// </summary>
+            USBrl
+        }
+
+        #endregion
+
+        #region Unit Registration
+
         /// <summary>
         /// Static constructor to register volume units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static Volume()
         {
             // Register Volume unit
-            UnitConverter.RegisterUnit(typeof(VolumeUnit), BaseUnit.Volume);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Volume);
 
             // cm³ conversions
-            UnitConverter.RegisterConversion(VolumeUnit.Cm3, VolumeUnit.M3, Cm3ToM3);
-            UnitConverter.RegisterConversion(VolumeUnit.Cm3, VolumeUnit.Ltr, Cm3ToLtr);
-            UnitConverter.RegisterConversion(VolumeUnit.Cm3, VolumeUnit.In3, Cm3ToIn3);
-            UnitConverter.RegisterConversion(VolumeUnit.Cm3, VolumeUnit.Ft3, Cm3ToFt3);
-            UnitConverter.RegisterConversion(VolumeUnit.Cm3, VolumeUnit.USGal, Cm3ToUSGal);
-            UnitConverter.RegisterConversion(VolumeUnit.Cm3, VolumeUnit.ImpGal, Cm3ToImpGal);
-            UnitConverter.RegisterConversion(VolumeUnit.Cm3, VolumeUnit.USBrl, Cm3ToUSBrl);
+            UnitConverter.RegisterConversion(Unit.Cm3, Unit.M3, Cm3ToM3);
+            UnitConverter.RegisterConversion(Unit.Cm3, Unit.Ltr, Cm3ToLtr);
+            UnitConverter.RegisterConversion(Unit.Cm3, Unit.In3, Cm3ToIn3);
+            UnitConverter.RegisterConversion(Unit.Cm3, Unit.Ft3, Cm3ToFt3);
+            UnitConverter.RegisterConversion(Unit.Cm3, Unit.USGal, Cm3ToUSGal);
+            UnitConverter.RegisterConversion(Unit.Cm3, Unit.ImpGal, Cm3ToImpGal);
+            UnitConverter.RegisterConversion(Unit.Cm3, Unit.USBrl, Cm3ToUSBrl);
 
             // m³ conversions
-            UnitConverter.RegisterConversion(VolumeUnit.M3, VolumeUnit.Cm3, M3ToCm3);
-            UnitConverter.RegisterConversion(VolumeUnit.M3, VolumeUnit.Ltr, M3ToLtr);
-            UnitConverter.RegisterConversion(VolumeUnit.M3, VolumeUnit.In3, M3ToIn3);
-            UnitConverter.RegisterConversion(VolumeUnit.M3, VolumeUnit.Ft3, M3ToFt3);
-            UnitConverter.RegisterConversion(VolumeUnit.M3, VolumeUnit.USGal, M3ToUSGal);
-            UnitConverter.RegisterConversion(VolumeUnit.M3, VolumeUnit.ImpGal, M3ToImpGal);
+            UnitConverter.RegisterConversion(Unit.M3, Unit.Cm3, M3ToCm3);
+            UnitConverter.RegisterConversion(Unit.M3, Unit.Ltr, M3ToLtr);
+            UnitConverter.RegisterConversion(Unit.M3, Unit.In3, M3ToIn3);
+            UnitConverter.RegisterConversion(Unit.M3, Unit.Ft3, M3ToFt3);
+            UnitConverter.RegisterConversion(Unit.M3, Unit.USGal, M3ToUSGal);
+            UnitConverter.RegisterConversion(Unit.M3, Unit.ImpGal, M3ToImpGal);
 
             // Ltr conversions
-            UnitConverter.RegisterConversion(VolumeUnit.Ltr, VolumeUnit.Cm3, LtrToCm3);
-            UnitConverter.RegisterConversion(VolumeUnit.Ltr, VolumeUnit.M3, LtrToM3);
-            UnitConverter.RegisterConversion(VolumeUnit.Ltr, VolumeUnit.In3, LtrToIn3);
-            UnitConverter.RegisterConversion(VolumeUnit.Ltr, VolumeUnit.Ft3, LtrToFt3);
-            UnitConverter.RegisterConversion(VolumeUnit.Ltr, VolumeUnit.USGal, LtrToUSGal);
-            UnitConverter.RegisterConversion(VolumeUnit.Ltr, VolumeUnit.ImpGal, LtrToImpGal);
+            UnitConverter.RegisterConversion(Unit.Ltr, Unit.Cm3, LtrToCm3);
+            UnitConverter.RegisterConversion(Unit.Ltr, Unit.M3, LtrToM3);
+            UnitConverter.RegisterConversion(Unit.Ltr, Unit.In3, LtrToIn3);
+            UnitConverter.RegisterConversion(Unit.Ltr, Unit.Ft3, LtrToFt3);
+            UnitConverter.RegisterConversion(Unit.Ltr, Unit.USGal, LtrToUSGal);
+            UnitConverter.RegisterConversion(Unit.Ltr, Unit.ImpGal, LtrToImpGal);
 
             // in³ conversions
-            UnitConverter.RegisterConversion(VolumeUnit.In3, VolumeUnit.Cm3, In3ToCm3);
-            UnitConverter.RegisterConversion(VolumeUnit.In3, VolumeUnit.M3, In3ToM3);
-            UnitConverter.RegisterConversion(VolumeUnit.In3, VolumeUnit.Ltr, In3ToLtr);
-            UnitConverter.RegisterConversion(VolumeUnit.In3, VolumeUnit.Ft3, In3ToFt3);
-            UnitConverter.RegisterConversion(VolumeUnit.In3, VolumeUnit.USGal, In3ToUSGal);
-            UnitConverter.RegisterConversion(VolumeUnit.In3, VolumeUnit.ImpGal, In3ToImpGal);
-            UnitConverter.RegisterConversion(VolumeUnit.In3, VolumeUnit.USBrl, In3ToUSBrl);
+            UnitConverter.RegisterConversion(Unit.In3, Unit.Cm3, In3ToCm3);
+            UnitConverter.RegisterConversion(Unit.In3, Unit.M3, In3ToM3);
+            UnitConverter.RegisterConversion(Unit.In3, Unit.Ltr, In3ToLtr);
+            UnitConverter.RegisterConversion(Unit.In3, Unit.Ft3, In3ToFt3);
+            UnitConverter.RegisterConversion(Unit.In3, Unit.USGal, In3ToUSGal);
+            UnitConverter.RegisterConversion(Unit.In3, Unit.ImpGal, In3ToImpGal);
+            UnitConverter.RegisterConversion(Unit.In3, Unit.USBrl, In3ToUSBrl);
 
             // ft³ conversions
-            UnitConverter.RegisterConversion(VolumeUnit.Ft3, VolumeUnit.Cm3, Ft3ToCm3);
-            UnitConverter.RegisterConversion(VolumeUnit.Ft3, VolumeUnit.M3, Ft3ToM3);
-            UnitConverter.RegisterConversion(VolumeUnit.Ft3, VolumeUnit.Ltr, Ft3ToLtr);
-            UnitConverter.RegisterConversion(VolumeUnit.Ft3, VolumeUnit.In3, Ft3ToIn3);
-            UnitConverter.RegisterConversion(VolumeUnit.Ft3, VolumeUnit.USGal, Ft3ToUSGal);
-            UnitConverter.RegisterConversion(VolumeUnit.Ft3, VolumeUnit.ImpGal, Ft3ToImpGal);
-            UnitConverter.RegisterConversion(VolumeUnit.Ft3, VolumeUnit.USBrl, Ft3ToUSBrl);
+            UnitConverter.RegisterConversion(Unit.Ft3, Unit.Cm3, Ft3ToCm3);
+            UnitConverter.RegisterConversion(Unit.Ft3, Unit.M3, Ft3ToM3);
+            UnitConverter.RegisterConversion(Unit.Ft3, Unit.Ltr, Ft3ToLtr);
+            UnitConverter.RegisterConversion(Unit.Ft3, Unit.In3, Ft3ToIn3);
+            UnitConverter.RegisterConversion(Unit.Ft3, Unit.USGal, Ft3ToUSGal);
+            UnitConverter.RegisterConversion(Unit.Ft3, Unit.ImpGal, Ft3ToImpGal);
+            UnitConverter.RegisterConversion(Unit.Ft3, Unit.USBrl, Ft3ToUSBrl);
 
             // US gal conversions
-            UnitConverter.RegisterConversion(VolumeUnit.USGal, VolumeUnit.Cm3, USGalToCm3);
-            UnitConverter.RegisterConversion(VolumeUnit.USGal, VolumeUnit.M3, USGalToM3);
-            UnitConverter.RegisterConversion(VolumeUnit.USGal, VolumeUnit.Ltr, USGalToLtr);
-            UnitConverter.RegisterConversion(VolumeUnit.USGal, VolumeUnit.In3, USGalToIn3);
-            UnitConverter.RegisterConversion(VolumeUnit.USGal, VolumeUnit.Ft3, USGalToFt3);
-            UnitConverter.RegisterConversion(VolumeUnit.USGal, VolumeUnit.ImpGal, USGalToImpGal);
-            UnitConverter.RegisterConversion(VolumeUnit.USGal, VolumeUnit.USBrl, USGalToUSBrl);
+            UnitConverter.RegisterConversion(Unit.USGal, Unit.Cm3, USGalToCm3);
+            UnitConverter.RegisterConversion(Unit.USGal, Unit.M3, USGalToM3);
+            UnitConverter.RegisterConversion(Unit.USGal, Unit.Ltr, USGalToLtr);
+            UnitConverter.RegisterConversion(Unit.USGal, Unit.In3, USGalToIn3);
+            UnitConverter.RegisterConversion(Unit.USGal, Unit.Ft3, USGalToFt3);
+            UnitConverter.RegisterConversion(Unit.USGal, Unit.ImpGal, USGalToImpGal);
+            UnitConverter.RegisterConversion(Unit.USGal, Unit.USBrl, USGalToUSBrl);
 
             // Imp gal conversions
-            UnitConverter.RegisterConversion(VolumeUnit.ImpGal, VolumeUnit.Cm3, ImpGalToCm3);
-            UnitConverter.RegisterConversion(VolumeUnit.ImpGal, VolumeUnit.M3, ImpGalToM3);
-            UnitConverter.RegisterConversion(VolumeUnit.ImpGal, VolumeUnit.Ltr, ImpGalToLtr);
-            UnitConverter.RegisterConversion(VolumeUnit.ImpGal, VolumeUnit.In3, ImpGalToIn3);
-            UnitConverter.RegisterConversion(VolumeUnit.ImpGal, VolumeUnit.Ft3, ImpGalToFt3);
-            UnitConverter.RegisterConversion(VolumeUnit.ImpGal, VolumeUnit.USGal, ImpGalToUSGal);
-            UnitConverter.RegisterConversion(VolumeUnit.ImpGal, VolumeUnit.USBrl, ImpGalToUSBrl);
+            UnitConverter.RegisterConversion(Unit.ImpGal, Unit.Cm3, ImpGalToCm3);
+            UnitConverter.RegisterConversion(Unit.ImpGal, Unit.M3, ImpGalToM3);
+            UnitConverter.RegisterConversion(Unit.ImpGal, Unit.Ltr, ImpGalToLtr);
+            UnitConverter.RegisterConversion(Unit.ImpGal, Unit.In3, ImpGalToIn3);
+            UnitConverter.RegisterConversion(Unit.ImpGal, Unit.Ft3, ImpGalToFt3);
+            UnitConverter.RegisterConversion(Unit.ImpGal, Unit.USGal, ImpGalToUSGal);
+            UnitConverter.RegisterConversion(Unit.ImpGal, Unit.USBrl, ImpGalToUSBrl);
 
             // US barrel (oil) conversions
-            UnitConverter.RegisterConversion(VolumeUnit.USBrl, VolumeUnit.Cm3, USBrlToCm3);
-            UnitConverter.RegisterConversion(VolumeUnit.USBrl, VolumeUnit.M3, USBrlToM3);
-            UnitConverter.RegisterConversion(VolumeUnit.USBrl, VolumeUnit.Ltr, USBrlToLtr);
-            UnitConverter.RegisterConversion(VolumeUnit.USBrl, VolumeUnit.In3, USBrlToIn3);
-            UnitConverter.RegisterConversion(VolumeUnit.USBrl, VolumeUnit.Ft3, USBrlToFt3);
-            UnitConverter.RegisterConversion(VolumeUnit.USBrl, VolumeUnit.USGal, USBrlToUSGal);
-            UnitConverter.RegisterConversion(VolumeUnit.USBrl, VolumeUnit.ImpGal, USBrlToImpGal);
+            UnitConverter.RegisterConversion(Unit.USBrl, Unit.Cm3, USBrlToCm3);
+            UnitConverter.RegisterConversion(Unit.USBrl, Unit.M3, USBrlToM3);
+            UnitConverter.RegisterConversion(Unit.USBrl, Unit.Ltr, USBrlToLtr);
+            UnitConverter.RegisterConversion(Unit.USBrl, Unit.In3, USBrlToIn3);
+            UnitConverter.RegisterConversion(Unit.USBrl, Unit.Ft3, USBrlToFt3);
+            UnitConverter.RegisterConversion(Unit.USBrl, Unit.USGal, USBrlToUSGal);
+            UnitConverter.RegisterConversion(Unit.USBrl, Unit.ImpGal, USBrlToImpGal);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for volume units.
         /// </summary>
@@ -316,7 +364,10 @@ namespace SimpleUnits
             /// </summary>
             public const double USBrlToImpGal = 35;
         }
+
         #endregion
+
+        #region Cubic Centimeter Conversions
 
         /// <summary>
         /// Converts a value in cubic centimeters (cm³) to cubic meters (m³).
@@ -367,6 +418,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US barrels (oil).</returns>
         public static double Cm3ToUSBrl(double value) => value * Factor.Cm3ToUSBrl;
 
+        #endregion
+
+        #region Cubic Meter Conversions
+
         /// <summary>
         /// Converts a value in cubic meters (m³) to cubic centimeters (cm³).
         /// </summary>
@@ -409,6 +464,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Imperial gallons.</returns>
         public static double M3ToImpGal(double value) => value * Factor.M3ToImpGal;
 
+        #endregion
+
+        #region Liter Conversions
+
         /// <summary>
         /// Converts a value in liters (L) to cubic centimeters (cm³).
         /// </summary>
@@ -450,6 +509,10 @@ namespace SimpleUnits
         /// <param name="value">The value in liters.</param>
         /// <returns>The equivalent value in Imperial gallons.</returns>
         public static double LtrToImpGal(double value) => value * Factor.LtrToImpGal;
+
+        #endregion
+
+        #region Cubic Inch Conversions
 
         /// <summary>
         /// Converts a value in cubic inches (in³) to cubic centimeters (cm³).
@@ -500,6 +563,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US barrels (oil).</returns>
         public static double In3ToUSBrl(double value) => value * Factor.In3ToUSBrl;
 
+        #endregion
+
+        #region Cubic Feet Conversions
+
         /// <summary>
         /// Converts a value in cubic feet (ft³) to cubic centimeters (cm³).
         /// </summary>
@@ -548,6 +615,10 @@ namespace SimpleUnits
         /// <param name="value">The value in cubic feet.</param>
         /// <returns>The equivalent value in US barrels (oil).</returns>
         public static double Ft3ToUSBrl(double value) => value * Factor.Ft3ToUSBrl;
+
+        #endregion
+
+        #region US Gallon Conversions
 
         /// <summary>
         /// Converts a value in US gallons (US gal) to cubic centimeters (cm³).
@@ -598,6 +669,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in US barrels (oil).</returns>
         public static double USGalToUSBrl(double value) => value * Factor.USGalToUSBrl;
 
+        #endregion
+
+        #region Imperial Gallon Conversions
+
         /// <summary>
         /// Converts a value in Imperial gallons (Imp gal) to cubic centimeters (cm³).
         /// </summary>
@@ -646,6 +721,10 @@ namespace SimpleUnits
         /// <param name="value">The value in Imperial gallons.</param>
         /// <returns>The equivalent value in US barrels (oil).</returns>
         public static double ImpGalToUSBrl(double value) => value * Factor.ImpGalToUSBrl;
+
+        #endregion
+
+        #region US Barrel Conversions
 
         /// <summary>
         /// Converts a value in US barrels (oil) (US brl) to cubic centimeters (cm³).
@@ -696,6 +775,10 @@ namespace SimpleUnits
         /// <returns>The equivalent value in Imperial gallons.</returns>
         public static double USBrlToImpGal(double value) => value * Factor.USBrlToImpGal;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one volume unit to another.
         /// </summary>
@@ -706,10 +789,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, VolumeUnit from, VolumeUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one volume unit to another.
@@ -721,48 +801,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, VolumeUnit from, VolumeUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of Volume measurement
-    /// </summary>
-    public enum VolumeUnit
-    {
-        /// <summary>
-        /// Cubic centimeters (cm³).
-        /// </summary>
-        Cm3,
-        /// <summary>
-        /// Cubic meters (m³).
-        /// </summary>
-        M3,
-        /// <summary>
-        /// Liters (ltr).
-        /// </summary>
-        Ltr,
-        /// <summary>
-        /// Cubic inches (in³).
-        /// </summary>
-        In3,
-        /// <summary>
-        /// Cubic feet (ft³).
-        /// </summary>
-        Ft3,
-        /// <summary>
-        /// US Gallons (US Gal).
-        /// </summary>
-        USGal,
-        /// <summary>
-        /// Imperial Gallons (Imp. Gal).
-        /// </summary>
-        ImpGal,
-        /// <summary>
-        /// US Barrel [oil] (US brl).
-        /// </summary>
-        USBrl
+        #endregion
     }
 }

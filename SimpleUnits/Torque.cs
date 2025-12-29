@@ -7,36 +7,69 @@ namespace SimpleUnits
     /// </summary>
     public static class Torque
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of torque measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Newton meters (Nm).
+            /// </summary>
+            Nm,
+            /// <summary>
+            /// Kilogram force meters (kgfm).
+            /// </summary>
+            Kgfm,
+            /// <summary>
+            /// Foot pounds (ftlb).
+            /// </summary>
+            Ftlb,
+            /// <summary>
+            /// Inch pounds (inlb).
+            /// </summary>
+            Inlb
+        }
+
+        #endregion
+
+        #region Unit Registration
+
         /// <summary>
         /// Static constructor to register torque units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static Torque()
         {
             // Register Torque unit
-            UnitConverter.RegisterUnit(typeof(TorqueUnit), BaseUnit.Torque);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Torque);
 
             // Newton meter conversions
-            UnitConverter.RegisterConversion(TorqueUnit.Nm, TorqueUnit.Kgfm, NmToKgfm);
-            UnitConverter.RegisterConversion(TorqueUnit.Nm, TorqueUnit.Ftlb, NmToFtlb);
-            UnitConverter.RegisterConversion(TorqueUnit.Nm, TorqueUnit.Inlb, NmToInlb);
+            UnitConverter.RegisterConversion(Unit.Nm, Unit.Kgfm, NmToKgfm);
+            UnitConverter.RegisterConversion(Unit.Nm, Unit.Ftlb, NmToFtlb);
+            UnitConverter.RegisterConversion(Unit.Nm, Unit.Inlb, NmToInlb);
 
             // Kilogram-force meter conversions
-            UnitConverter.RegisterConversion(TorqueUnit.Kgfm, TorqueUnit.Nm, KgfmToNm);
-            UnitConverter.RegisterConversion(TorqueUnit.Kgfm, TorqueUnit.Ftlb, KgfmToFtlb);
-            UnitConverter.RegisterConversion(TorqueUnit.Kgfm, TorqueUnit.Inlb, KgfmToInlb);
+            UnitConverter.RegisterConversion(Unit.Kgfm, Unit.Nm, KgfmToNm);
+            UnitConverter.RegisterConversion(Unit.Kgfm, Unit.Ftlb, KgfmToFtlb);
+            UnitConverter.RegisterConversion(Unit.Kgfm, Unit.Inlb, KgfmToInlb);
 
             // Foot-pound conversions
-            UnitConverter.RegisterConversion(TorqueUnit.Ftlb, TorqueUnit.Nm, FtlbToNm);
-            UnitConverter.RegisterConversion(TorqueUnit.Ftlb, TorqueUnit.Kgfm, FtlbToKgfm);
-            UnitConverter.RegisterConversion(TorqueUnit.Ftlb, TorqueUnit.Inlb, FtlbToInlb);
+            UnitConverter.RegisterConversion(Unit.Ftlb, Unit.Nm, FtlbToNm);
+            UnitConverter.RegisterConversion(Unit.Ftlb, Unit.Kgfm, FtlbToKgfm);
+            UnitConverter.RegisterConversion(Unit.Ftlb, Unit.Inlb, FtlbToInlb);
 
             // Inch-pound conversions
-            UnitConverter.RegisterConversion(TorqueUnit.Inlb, TorqueUnit.Nm, InlbToNm);
-            UnitConverter.RegisterConversion(TorqueUnit.Inlb, TorqueUnit.Kgfm, InlbToKgfm);
-            UnitConverter.RegisterConversion(TorqueUnit.Inlb, TorqueUnit.Ftlb, InlbToFtlb);
+            UnitConverter.RegisterConversion(Unit.Inlb, Unit.Nm, InlbToNm);
+            UnitConverter.RegisterConversion(Unit.Inlb, Unit.Kgfm, InlbToKgfm);
+            UnitConverter.RegisterConversion(Unit.Inlb, Unit.Ftlb, InlbToFtlb);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for torque units.
         /// </summary>
@@ -102,9 +135,10 @@ namespace SimpleUnits
             /// </summary>
             public const double InlbToFtlb = 0.083_333;
         }
+
         #endregion
 
-        // Newton meter conversions
+        #region Newton Meter Conversions
 
         /// <summary>
         /// Converts newton-meters (Nm) to kilogram-force meters (kgfm).
@@ -138,7 +172,9 @@ namespace SimpleUnits
         /// </summary>
         public static double KgfmToInlb(double value) => value * Factor.KgfmToInlb;
 
-        // Foot-pound conversions
+        #endregion
+
+        #region Foot-pound Conversions
 
         /// <summary>
         /// Converts foot-pounds (ftlb) to newton-meters (Nm).
@@ -155,7 +191,9 @@ namespace SimpleUnits
         /// </summary>
         public static double FtlbToInlb(double value) => value * Factor.FtlbToInlb;
 
-        // Inch-pound conversions
+        #endregion
+
+        #region Inch-pound Conversions
 
         /// <summary>
         /// Converts inch-pounds (inlb) to newton-meters (Nm).
@@ -172,6 +210,10 @@ namespace SimpleUnits
         /// </summary>
         public static double InlbToFtlb(double value) => value * Factor.InlbToFtlb;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one torque unit to another.
         /// </summary>
@@ -182,10 +224,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, TorqueUnit from, TorqueUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one torque unit to another.
@@ -197,32 +236,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, TorqueUnit from, TorqueUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of torque measurement.
-    /// </summary>
-    public enum TorqueUnit
-    {
-        /// <summary>
-        /// Newton meters (Nm).
-        /// </summary>
-        Nm,
-        /// <summary>
-        /// Kilogram force meters (kgfm).
-        /// </summary>
-        Kgfm,
-        /// <summary>
-        /// Foot pounds (ftlb).
-        /// </summary>
-        Ftlb,
-        /// <summary>
-        /// Inch pounds (inlb).
-        /// </summary>
-        Inlb
+        #endregion
     }
 }

@@ -7,28 +7,49 @@ namespace SimpleUnits
     /// </summary>
     public static class VolumetricGasFlow
     {
+
+        /// <summary>
+        /// Units of volumetric gas flow measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Normal meter cube per hour (Nm³/hr).
+            /// </summary>
+            Nm3hr,
+            /// <summary>
+            /// Standard cubic feet per hour (scfh).
+            /// </summary>
+            Scfh,
+            /// <summary>
+            /// Standard cubic feet per minute (scfm).
+            /// </summary>
+            Scfm
+        }
+
         /// <summary>
         /// Static constructor to register volumetric gas flow units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static VolumetricGasFlow()
         {
             // Register VolumetricGasFlow unit
-            UnitConverter.RegisterUnit(typeof(VolumetricGasFlowUnit), BaseUnit.VolumetricGasFlow);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.VolumetricGasFlow);
 
             // Nm³/hr conversions
-            UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Nm3hr, VolumetricGasFlowUnit.Scfh, Nm3hrToScfh);
-            UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Nm3hr, VolumetricGasFlowUnit.Scfm, Nm3hrToScfm);
+            UnitConverter.RegisterConversion(Unit.Nm3hr, Unit.Scfh, Nm3hrToScfh);
+            UnitConverter.RegisterConversion(Unit.Nm3hr, Unit.Scfm, Nm3hrToScfm);
 
             // scfh conversions
-            UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfh, VolumetricGasFlowUnit.Nm3hr, ScfhToNm3hr);
-            UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfh, VolumetricGasFlowUnit.Scfm, ScfhToScfm);
+            UnitConverter.RegisterConversion(Unit.Scfh, Unit.Nm3hr, ScfhToNm3hr);
+            UnitConverter.RegisterConversion(Unit.Scfh, Unit.Scfm, ScfhToScfm);
 
             // scfm conversions
-            UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfm, VolumetricGasFlowUnit.Nm3hr, ScfmToNm3hr);
-            UnitConverter.RegisterConversion(VolumetricGasFlowUnit.Scfm, VolumetricGasFlowUnit.Scfh, ScfmToScfh);
+            UnitConverter.RegisterConversion(Unit.Scfm, Unit.Nm3hr, ScfmToNm3hr);
+            UnitConverter.RegisterConversion(Unit.Scfm, Unit.Scfh, ScfmToScfh);
         }
 
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for volumetric gas flow units.
         /// </summary>
@@ -64,9 +85,10 @@ namespace SimpleUnits
             /// </summary>
             public const double ScfmToScfh = 59.992_94;
         }
+
         #endregion
 
-        // Nm³/hr conversions
+        #region Nm³/hr Conversions
 
         /// <summary>
         /// Converts normal meter cube per hour (Nm³/hr) to standard cubic feet per hour (scfh).
@@ -78,7 +100,9 @@ namespace SimpleUnits
         /// </summary>
         public static double Nm3hrToScfm(double value) => value * Factor.Nm3hrToScfm;
 
-        // scfh conversions
+        #endregion
+
+        #region SCFH Conversions
 
         /// <summary>
         /// Converts standard cubic feet per hour (scfh) to normal meter cube per hour (Nm³/hr).
@@ -90,7 +114,9 @@ namespace SimpleUnits
         /// </summary>
         public static double ScfhToScfm(double value) => value * Factor.ScfhToScfm;
 
-        // scfm conversions
+        #endregion
+
+        #region SCFM Conversions
 
         /// <summary>
         /// Converts standard cubic feet per minute (scfm) to normal meter cube per hour (Nm³/hr).
@@ -102,6 +128,10 @@ namespace SimpleUnits
         /// </summary>
         public static double ScfmToScfh(double value) => value * Factor.ScfmToScfh;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one volumetric gas flow unit to another.
         /// </summary>
@@ -112,10 +142,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, VolumetricGasFlowUnit from, VolumetricGasFlowUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one volumetric gas flow unit to another.
@@ -127,28 +154,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, VolumetricGasFlowUnit from, VolumetricGasFlowUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of volumetric gas flow measurement.
-    /// </summary>
-    public enum VolumetricGasFlowUnit
-    {
-        /// <summary>
-        /// Normal meter cube per hour (Nm³/hr).
-        /// </summary>
-        Nm3hr,
-        /// <summary>
-        /// Standard cubic feet per hour (scfh).
-        /// </summary>
-        Scfh,
-        /// <summary>
-        /// Standard cubic feet per minute (scfm).
-        /// </summary>
-        Scfm
+        #endregion
     }
 }

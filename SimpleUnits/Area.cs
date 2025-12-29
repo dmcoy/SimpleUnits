@@ -7,58 +7,99 @@ namespace SimpleUnits
     /// </summary>
     public static class Area
     {
+
+        #region Units
+
+        /// <summary>
+        /// Units of area measurement.
+        /// </summary>
+        public enum Unit
+        {
+            /// <summary>
+            /// Square millimeters (mm²).
+            /// </summary>
+            Mm2,
+            /// <summary>
+            /// Square centimeters (cm²).
+            /// </summary>
+            Cm2,
+            /// <summary>
+            /// Square meters (m²).
+            /// </summary>
+            M2,
+            /// <summary>
+            /// Square inches (in²).
+            /// </summary>
+            In2,
+            /// <summary>
+            /// Square feet (ft²).
+            /// </summary>
+            Ft2,
+            /// <summary>
+            /// Square yards (yd²).
+            /// </summary>
+            Yd2
+        }
+
+        #endregion
+
+        #region Unit Converter Registration
+
         /// <summary>
         /// Static constructor to register area units and conversions with the <see cref="UnitConverter"/>.
         /// </summary>
         static Area()
         {
             // Register Area unit
-            UnitConverter.RegisterUnit(typeof(AreaUnit), BaseUnit.Area);
+            UnitConverter.RegisterUnit(typeof(Unit), BaseUnit.Area);
 
             // mm² conversions
-            UnitConverter.RegisterConversion(AreaUnit.Mm2, AreaUnit.Cm2, Mm2ToCm2);
-            UnitConverter.RegisterConversion(AreaUnit.Mm2, AreaUnit.M2, Mm2ToM2);
-            UnitConverter.RegisterConversion(AreaUnit.Mm2, AreaUnit.In2, Mm2ToIn2);
-            UnitConverter.RegisterConversion(AreaUnit.Mm2, AreaUnit.Ft2, Mm2ToFt2);
-            UnitConverter.RegisterConversion(AreaUnit.Mm2, AreaUnit.Yd2, Mm2ToYd2);
+            UnitConverter.RegisterConversion(Unit.Mm2, Unit.Cm2, Mm2ToCm2);
+            UnitConverter.RegisterConversion(Unit.Mm2, Unit.M2, Mm2ToM2);
+            UnitConverter.RegisterConversion(Unit.Mm2, Unit.In2, Mm2ToIn2);
+            UnitConverter.RegisterConversion(Unit.Mm2, Unit.Ft2, Mm2ToFt2);
+            UnitConverter.RegisterConversion(Unit.Mm2, Unit.Yd2, Mm2ToYd2);
 
             // cm² conversions
-            UnitConverter.RegisterConversion(AreaUnit.Cm2, AreaUnit.Mm2, Cm2ToMm2);
-            UnitConverter.RegisterConversion(AreaUnit.Cm2, AreaUnit.M2, Cm2ToM2);
-            UnitConverter.RegisterConversion(AreaUnit.Cm2, AreaUnit.In2, Cm2ToIn2);
-            UnitConverter.RegisterConversion(AreaUnit.Cm2, AreaUnit.Ft2, Cm2ToFt2);
-            UnitConverter.RegisterConversion(AreaUnit.Cm2, AreaUnit.Yd2, Cm2ToYd2);
+            UnitConverter.RegisterConversion(Unit.Cm2, Unit.Mm2, Cm2ToMm2);
+            UnitConverter.RegisterConversion(Unit.Cm2, Unit.M2, Cm2ToM2);
+            UnitConverter.RegisterConversion(Unit.Cm2, Unit.In2, Cm2ToIn2);
+            UnitConverter.RegisterConversion(Unit.Cm2, Unit.Ft2, Cm2ToFt2);
+            UnitConverter.RegisterConversion(Unit.Cm2, Unit.Yd2, Cm2ToYd2);
 
             // m² conversions
-            UnitConverter.RegisterConversion(AreaUnit.M2, AreaUnit.Mm2, M2ToMm2);
-            UnitConverter.RegisterConversion(AreaUnit.M2, AreaUnit.Cm2, M2ToCm2);
-            UnitConverter.RegisterConversion(AreaUnit.M2, AreaUnit.In2, M2ToIn2);
-            UnitConverter.RegisterConversion(AreaUnit.M2, AreaUnit.Ft2, M2ToFt2);
-            UnitConverter.RegisterConversion(AreaUnit.M2, AreaUnit.Yd2, M2ToYd2);
+            UnitConverter.RegisterConversion(Unit.M2, Unit.Mm2, M2ToMm2);
+            UnitConverter.RegisterConversion(Unit.M2, Unit.Cm2, M2ToCm2);
+            UnitConverter.RegisterConversion(Unit.M2, Unit.In2, M2ToIn2);
+            UnitConverter.RegisterConversion(Unit.M2, Unit.Ft2, M2ToFt2);
+            UnitConverter.RegisterConversion(Unit.M2, Unit.Yd2, M2ToYd2);
 
             // in² conversions
-            UnitConverter.RegisterConversion(AreaUnit.In2, AreaUnit.Mm2, In2ToMm2);
-            UnitConverter.RegisterConversion(AreaUnit.In2, AreaUnit.Cm2, In2ToCm2);
-            UnitConverter.RegisterConversion(AreaUnit.In2, AreaUnit.M2, In2ToM2);
-            UnitConverter.RegisterConversion(AreaUnit.In2, AreaUnit.Ft2, In2ToFt2);
-            UnitConverter.RegisterConversion(AreaUnit.In2, AreaUnit.Yd2, In2ToYd2);
+            UnitConverter.RegisterConversion(Unit.In2, Unit.Mm2, In2ToMm2);
+            UnitConverter.RegisterConversion(Unit.In2, Unit.Cm2, In2ToCm2);
+            UnitConverter.RegisterConversion(Unit.In2, Unit.M2, In2ToM2);
+            UnitConverter.RegisterConversion(Unit.In2, Unit.Ft2, In2ToFt2);
+            UnitConverter.RegisterConversion(Unit.In2, Unit.Yd2, In2ToYd2);
 
             // ft² conversions
-            UnitConverter.RegisterConversion(AreaUnit.Ft2, AreaUnit.Mm2, Ft2ToMm2);
-            UnitConverter.RegisterConversion(AreaUnit.Ft2, AreaUnit.Cm2, Ft2ToCm2);
-            UnitConverter.RegisterConversion(AreaUnit.Ft2, AreaUnit.M2, Ft2ToM2);
-            UnitConverter.RegisterConversion(AreaUnit.Ft2, AreaUnit.In2, Ft2ToIn2);
-            UnitConverter.RegisterConversion(AreaUnit.Ft2, AreaUnit.Yd2, Ft2ToYd2);
+            UnitConverter.RegisterConversion(Unit.Ft2, Unit.Mm2, Ft2ToMm2);
+            UnitConverter.RegisterConversion(Unit.Ft2, Unit.Cm2, Ft2ToCm2);
+            UnitConverter.RegisterConversion(Unit.Ft2, Unit.M2, Ft2ToM2);
+            UnitConverter.RegisterConversion(Unit.Ft2, Unit.In2, Ft2ToIn2);
+            UnitConverter.RegisterConversion(Unit.Ft2, Unit.Yd2, Ft2ToYd2);
 
             // yd² conversions
-            UnitConverter.RegisterConversion(AreaUnit.Yd2, AreaUnit.Mm2, Yd2ToMm2);
-            UnitConverter.RegisterConversion(AreaUnit.Yd2, AreaUnit.Cm2, Yd2ToCm2);
-            UnitConverter.RegisterConversion(AreaUnit.Yd2, AreaUnit.M2, Yd2ToM2);
-            UnitConverter.RegisterConversion(AreaUnit.Yd2, AreaUnit.In2, Yd2ToIn2);
-            UnitConverter.RegisterConversion(AreaUnit.Yd2, AreaUnit.Ft2, Yd2ToFt2);
+            UnitConverter.RegisterConversion(Unit.Yd2, Unit.Mm2, Yd2ToMm2);
+            UnitConverter.RegisterConversion(Unit.Yd2, Unit.Cm2, Yd2ToCm2);
+            UnitConverter.RegisterConversion(Unit.Yd2, Unit.M2, Yd2ToM2);
+            UnitConverter.RegisterConversion(Unit.Yd2, Unit.In2, Yd2ToIn2);
+            UnitConverter.RegisterConversion(Unit.Yd2, Unit.Ft2, Yd2ToFt2);
         }
 
+        #endregion
+
         #region Conversion Factors
+
         /// <summary>
         /// Collection of conversion factors for area units.
         /// </summary>
@@ -190,7 +231,10 @@ namespace SimpleUnits
             /// </summary>
             public const double Yd2ToFt2 = 9;
         }
+
         #endregion
+
+        #region Square Millimeter Conversions
 
         /// <summary>
         /// Converts a value from square millimeters (mm²) to square centimeters (cm²).
@@ -213,6 +257,10 @@ namespace SimpleUnits
         /// </summary>
         public static double Mm2ToYd2(double value) => value * Factor.Mm2ToYd2;
 
+        #endregion
+
+        #region Square Centimeter Conversions
+
         /// <summary>
         /// Converts a value from square centimeters (cm²) to square millimeters (mm²).
         /// </summary>
@@ -233,6 +281,10 @@ namespace SimpleUnits
         /// Converts a value from square centimeters (cm²) to square yards (yd²).
         /// </summary>
         public static double Cm2ToYd2(double value) => value * Factor.Cm2ToYd2;
+
+        #endregion
+
+        #region Square Meter Conversions
 
         /// <summary>
         /// Converts a value from square meters (m²) to square millimeters (mm²).
@@ -255,6 +307,10 @@ namespace SimpleUnits
         /// </summary>
         public static double M2ToYd2(double value) => value * Factor.M2ToYd2;
 
+        #endregion
+
+        #region Square Inch Conversions
+
         /// <summary>
         /// Converts a value from square inches (in²) to square millimeters (mm²).
         /// </summary>
@@ -275,6 +331,10 @@ namespace SimpleUnits
         /// Converts a value from square inches (in²) to square yards (yd²).
         /// </summary>
         public static double In2ToYd2(double value) => value * Factor.In2ToYd2;
+
+        #endregion
+
+        #region Square Feet Conversions
 
         /// <summary>
         /// Converts a value from square feet (ft²) to square millimeters (mm²).
@@ -297,6 +357,10 @@ namespace SimpleUnits
         /// </summary>
         public static double Ft2ToYd2(double value) => value * Factor.Ft2ToYd2;
 
+        #endregion
+
+        #region Square Yard Conversions
+
         /// <summary>
         /// Converts a value from square yards (yd²) to square millimeters (mm²).
         /// </summary>
@@ -318,6 +382,10 @@ namespace SimpleUnits
         /// </summary>
         public static double Yd2ToFt2(double value) => value * Factor.Yd2ToFt2;
 
+        #endregion
+
+        #region Unit Converter
+
         /// <summary>
         /// Converts a value from one area unit to another.
         /// </summary>
@@ -328,10 +396,7 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static double Convert(double value, AreaUnit from, AreaUnit to)
-        {
-            return UnitConverter.Convert(value, from, to);
-        }
+        public static double Convert(double value, Unit from, Unit to) => UnitConverter.Convert(value, from, to);
 
         /// <summary>
         /// Converts a value from one area unit to another.
@@ -343,40 +408,8 @@ namespace SimpleUnits
         /// <exception cref="ArgumentException">
         /// Thrown if the units are not compatible or if no conversion is defined for the specified units.
         /// </exception>
-        public static float Convert(float value, AreaUnit from, AreaUnit to)
-        {
-            return (float)UnitConverter.Convert(value, from, to);
-        }
-    }
+        public static float Convert(float value, Unit from, Unit to) => (float)UnitConverter.Convert(value, from, to);
 
-    /// <summary>
-    /// Units of area measurement.
-    /// </summary>
-    public enum AreaUnit
-    {
-        /// <summary>
-        /// Square millimeters (mm²).
-        /// </summary>
-        Mm2,
-        /// <summary>
-        /// Square centimeters (cm²).
-        /// </summary>
-        Cm2,
-        /// <summary>
-        /// Square meters (m²).
-        /// </summary>
-        M2,
-        /// <summary>
-        /// Square inches (in²).
-        /// </summary>
-        In2,
-        /// <summary>
-        /// Square feet (ft²).
-        /// </summary>
-        Ft2,
-        /// <summary>
-        /// Square yards (yd²).
-        /// </summary>
-        Yd2
+        #endregion
     }
 }
