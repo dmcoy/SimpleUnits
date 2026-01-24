@@ -1,0 +1,623 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A new project generated from the default template project.">
+      
+      
+        <meta name="author" content="<your name here>">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.17">
+    
+    
+      
+        <title>Simple Units - Simple Units Wiki</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="assets/stylesheets/modern/main.d4922b3c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simple-units" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Simple Units Wiki" class="md-header__button md-logo" aria-label="Simple Units Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Simple Units Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Simple Units
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Simple Units Wiki" class="md-nav__button md-logo" aria-label="Simple Units Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    Simple Units Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-ruler-dimension-line" viewBox="0 0 24 24"><path d="M10 15v-3M14 15v-3M18 15v-3M2 8V4M22 6H2M22 8V4M6 15v-3"/><rect width="20" height="8" x="2" y="12" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Units
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-ruler-dimension-line" viewBox="0 0 24 24"><path d="M10 15v-3M14 15v-3M18 15v-3M2 8V4M22 6H2M22 8V4M6 15v-3"/><rect width="20" height="8" x="2" y="12" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to use
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting units
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion factors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion factors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-standard-conversion-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US Standard conversion factors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#double-vs-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Double vs. Float
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Units
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to use
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting units
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion factors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion factors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-standard-conversion-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        US Standard conversion factors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#double-vs-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Double vs. Float
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Units
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="simple-units">Simple Units<a class="headerlink" href="#simple-units" title="Permanent link">&para;</a></h1>
+<p>A lightweight static class library for unit conversions in dotnet projects. This is not a comprehensive set of unit conversions but should cover a wide variety of use cases.</p>
+<h2 id="how-to-use">How to use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">SimpleUnits</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="converting-units">Converting units<a class="headerlink" href="#converting-units" title="Permanent link">&para;</a></h2>
+<p>You have two options for converting units.</p>
+<p>If you know what unit you want to convert from and to, there are explicit methods in each class for doing so.
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Converting bar to psi</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">barToPsi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pressure</span><span class="p">.</span><span class="n">BarToPsi</span><span class="p">(</span><span class="mf">9.7</span><span class="p">);</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// Converting kilometers to miles</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">double</span><span class="w"> </span><span class="n">kmToMi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Length</span><span class="p">.</span><span class="n">KmToMi</span><span class="p">(</span><span class="mi">71</span><span class="p">);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// Converting foot pounds to newton meters</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kt">double</span><span class="w"> </span><span class="n">ftlbToNm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Torque</span><span class="p">.</span><span class="n">FtlbToNm</span><span class="p">(</span><span class="mi">815</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>Otherwise, each class contains a convert method, which lets you plug in which units you want to convert from and to using a unit enum available for each unit type. This is helpful in cases where you may want to dynamically pass in different arguments for your own use case.
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Converting bar to psi</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">barToPsi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pressure</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="mf">9.7</span><span class="p">,</span><span class="w"> </span><span class="n">Pressure</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Psi</span><span class="p">,</span><span class="w"> </span><span class="n">Pressure</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Bar</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">// Converting kilometers to miles</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">double</span><span class="w"> </span><span class="n">kmToMi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Length</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="n">Length</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Km</span><span class="p">,</span><span class="w"> </span><span class="n">Length</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Mi</span><span class="p">);</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Converting foot pounds to newton meters</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kt">double</span><span class="w"> </span><span class="n">ftlbToNm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Torque</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="mi">815</span><span class="p">,</span><span class="w"> </span><span class="n">Torque</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Ftlb</span><span class="p">,</span><span class="w"> </span><span class="n">Torque</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Nm</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h2 id="conversion-factors">Conversion factors<a class="headerlink" href="#conversion-factors" title="Permanent link">&para;</a></h2>
+<p>You can also retrieve each conversion factor by accessing the constant value from the Factor struct in each class (with the exception of Temperature).
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Returns the conversion factor for bar to psi (14.50326)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">barToPsiFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pressure</span><span class="p">.</span><span class="n">Factor</span><span class="p">.</span><span class="n">BarToPsi</span><span class="p">;</span>
+</span></code></pre></div></p>
+<h3 id="us-standard-conversion-factors">US Standard conversion factors<a class="headerlink" href="#us-standard-conversion-factors" title="Permanent link">&para;</a></h3>
+<p>Some US Standard conversions such as converting inches to feet uses a conversion factor that will not produce the correct output. For example converting 12 inches to feet will not equal 1 when using the conversion factor. Using the Convert method takes this into account and produces the correct output.</p>
+<p>For example
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Converting using the conversion factor outputs 0.9999960000000001</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">inches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">feet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inches</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Length</span><span class="p">.</span><span class="n">Factor</span><span class="p">.</span><span class="n">InToFt</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// Converting using the Convert method outputs 1</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">feet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Length</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">inches</span><span class="p">,</span><span class="w"> </span><span class="n">Length</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">In</span><span class="p">,</span><span class="w"> </span><span class="n">Lenght</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Ft</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h2 id="double-vs-float">Double vs. Float<a class="headerlink" href="#double-vs-float" title="Permanent link">&para;</a></h2>
+<p>Each of the explicit methods only returns type double. Only the Convert method for each class contains an overload to pass in a float value and return type float. You'll need to cast float if that's what you need when using the explicitly named methods.
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">squareFeetDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Area</span><span class="p">.</span><span class="n">M2ToFt2</span><span class="p">(</span><span class="mf">1.2</span><span class="p">);</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">squareFeetFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">Area</span><span class="p">.</span><span class="n">M2ToFt2</span><span class="p">(</span><span class="mf">1.2</span><span class="p">);</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">squareFeetDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Area</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span><span class="w"> </span><span class="n">Area</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">M2</span><span class="p">,</span><span class="w"> </span><span class="n">Area</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Ft2</span><span class="p">);</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">squareFeetFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Area</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="mf">1.2f</span><span class="p">,</span><span class="w"> </span><span class="n">Area</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">M2</span><span class="p">,</span><span class="w"> </span><span class="n">Area</span><span class="p">.</span><span class="n">Unit</span><span class="p">.</span><span class="n">Ft2</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h2 id="available-units">Available Units<a class="headerlink" href="#available-units" title="Permanent link">&para;</a></h2>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Area:<span class="w"> </span>Square<span class="w"> </span>millimeter<span class="w"> </span><span class="o">(</span>mm²<span class="o">)</span>,<span class="w"> </span>Square<span class="w"> </span>centimeter<span class="w"> </span><span class="o">(</span>cm²<span class="o">)</span>,<span class="w"> </span>Square<span class="w"> </span>meter<span class="w"> </span><span class="o">(</span>m²<span class="o">)</span>,<span class="w"> </span>Square<span class="w"> </span>kilometer<span class="w"> </span><span class="o">(</span>km²<span class="o">)</span>,<span class="w"> </span>Square<span class="w"> </span>inch<span class="w"> </span><span class="o">(</span>in²<span class="o">)</span>,<span class="w"> </span>Square<span class="w"> </span>feet<span class="w"> </span><span class="o">(</span>ft²<span class="o">)</span>,<span class="w"> </span>Square<span class="w"> </span>yard<span class="w"> </span><span class="o">(</span>yd²<span class="o">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Density:<span class="w"> </span>Gram<span class="w"> </span>per<span class="w"> </span>millimeter<span class="w"> </span><span class="o">(</span>g/ml<span class="o">)</span>,<span class="w"> </span>Kilogram<span class="w"> </span>per<span class="w"> </span>cubic<span class="w"> </span>meter<span class="w"> </span><span class="o">(</span>kg/m³<span class="o">)</span>,<span class="w"> </span>Pound<span class="w"> </span>per<span class="w"> </span>cubic<span class="w"> </span>foot<span class="w"> </span><span class="o">(</span>lb/ft³<span class="o">)</span>,<span class="w"> </span>Pound<span class="w"> </span>per<span class="w"> </span>cubic<span class="w"> </span>inch<span class="w"> </span><span class="o">(</span>lb/in³<span class="o">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Length:<span class="w"> </span>Millimeter<span class="w"> </span><span class="o">(</span>mm<span class="o">)</span>,<span class="w"> </span>Centimeter<span class="w"> </span><span class="o">(</span>cm<span class="o">)</span>,<span class="w"> </span>Meter<span class="w"> </span><span class="o">(</span>m<span class="o">)</span>,<span class="w"> </span>Kilometer<span class="w"> </span><span class="o">(</span>km<span class="o">)</span>,<span class="w"> </span>Inch<span class="w"> </span><span class="o">(</span><span class="k">in</span><span class="o">)</span>,<span class="w"> </span>Feet<span class="w"> </span><span class="o">(</span>ft<span class="o">)</span>,<span class="w"> </span>Yard<span class="w"> </span><span class="o">(</span>yd<span class="o">)</span>,<span class="w"> </span>Mile<span class="w"> </span><span class="o">(</span>mi<span class="o">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Mass:<span class="w"> </span>Gram<span class="w"> </span><span class="o">(</span>g<span class="o">)</span>,<span class="w"> </span>Kilogram<span class="w"> </span><span class="o">(</span>kg<span class="o">)</span>,<span class="w"> </span>Metric<span class="w"> </span>Tonne<span class="w"> </span><span class="o">(</span>Tonne<span class="o">)</span>,<span class="w"> </span>Short<span class="w"> </span>Ton<span class="w"> </span><span class="o">(</span>Shton<span class="o">)</span>,<span class="w"> </span>Long<span class="w"> </span>Ton<span class="w"> </span><span class="o">(</span>LTon<span class="o">)</span>,<span class="w"> </span>Pound<span class="w"> </span><span class="o">(</span>lb<span class="o">)</span>,<span class="w"> </span>Ounce<span class="w"> </span><span class="o">(</span>oz<span class="o">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Pressure:<span class="w"> </span>Bar<span class="w"> </span><span class="o">(</span>bar<span class="o">)</span>,<span class="w"> </span>pounds<span class="w"> </span>per<span class="w"> </span>square<span class="w"> </span>inch<span class="w"> </span><span class="o">(</span>psi<span class="o">)</span>,<span class="w"> </span>Pascal<span class="w"> </span><span class="o">(</span>Pa<span class="o">)</span>,<span class="w"> </span>KiloPascal<span class="w"> </span><span class="o">(</span>KPa<span class="o">)</span>,<span class="w"> </span>MegaPascal<span class="w"> </span><span class="o">(</span>MPa<span class="o">)</span>,<span class="w"> </span>Kilogram-force<span class="w"> </span>per<span class="w"> </span>square<span class="w"> </span>centimeter<span class="w"> </span><span class="o">(</span>Kgf/cm²<span class="o">)</span>,<span class="w"> </span>Millimeters<span class="w"> </span>of<span class="w"> </span>mercury<span class="w"> </span><span class="o">(</span>mmHg<span class="o">)</span>,<span class="w"> </span>Standard<span class="w"> </span>atmosphere<span class="w"> </span><span class="o">(</span>atm<span class="o">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Speed:<span class="w"> </span>Meter<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="o">(</span>m/s<span class="o">)</span>,<span class="w"> </span>Meter<span class="w"> </span>per<span class="w"> </span>minute<span class="w"> </span><span class="o">(</span>M/min<span class="o">)</span>,<span class="w"> </span>Kilometer<span class="w"> </span>per<span class="w"> </span>hour<span class="w"> </span><span class="o">(</span>Km/h<span class="o">)</span>,<span class="w"> </span>Foot<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="o">(</span>ft/s<span class="o">)</span>,<span class="w"> </span>Foot<span class="w"> </span>per<span class="w"> </span>minute<span class="w"> </span><span class="o">(</span>ft/min<span class="o">)</span>,<span class="w"> </span>Mile<span class="w"> </span>per<span class="w"> </span>hour<span class="w"> </span><span class="o">(</span>mph<span class="o">)</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Temperature:<span class="w"> </span>Celsius<span class="w"> </span><span class="o">(</span>C<span class="o">)</span>,<span class="w"> </span>Fahrenheit<span class="w"> </span><span class="o">(</span>F<span class="o">)</span>,<span class="w"> </span>Kelvin<span class="w"> </span><span class="o">(</span>K<span class="o">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Torque:<span class="w"> </span>Newton<span class="w"> </span>meter<span class="w"> </span><span class="o">(</span>Nm<span class="o">)</span>,<span class="w"> </span>Kilogram<span class="w"> </span>force<span class="w"> </span>meter<span class="w"> </span><span class="o">(</span>kgfm<span class="o">)</span>,<span class="w"> </span>Foot<span class="w"> </span>pound<span class="w"> </span><span class="o">(</span>ftlb<span class="o">)</span>,<span class="w"> </span>Inch<span class="w"> </span>pound<span class="w"> </span><span class="o">(</span>inlb<span class="o">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Volume:<span class="w"> </span>Cubic<span class="w"> </span>centimeters<span class="w"> </span><span class="o">(</span>cm³<span class="o">)</span>,<span class="w"> </span>Cubic<span class="w"> </span>meters<span class="w"> </span><span class="o">(</span>m³<span class="o">)</span>,<span class="w"> </span>Liter<span class="w"> </span><span class="o">(</span>ltr<span class="o">)</span>,<span class="w"> </span>Cubic<span class="w"> </span>inch<span class="w"> </span><span class="o">(</span>in³<span class="o">)</span>,<span class="w"> </span>Cubic<span class="w"> </span>feet<span class="w"> </span><span class="o">(</span>ft³<span class="o">)</span>,<span class="w"> </span>US<span class="w"> </span>Gallons<span class="w"> </span><span class="o">(</span>USGal<span class="o">)</span>,<span class="w"> </span>ImpGal<span class="w"> </span><span class="o">(</span>Imp.<span class="w"> </span>Gal<span class="o">)</span>,<span class="w"> </span>US<span class="w"> </span>Barrel<span class="w"> </span>oil<span class="w"> </span><span class="o">(</span>US<span class="w"> </span>brl<span class="o">)</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Volumetric<span class="w"> </span>Gas<span class="w"> </span>Flow:<span class="w"> </span>Normal<span class="w"> </span>meter<span class="w"> </span>cube<span class="w"> </span>per<span class="w"> </span>hour<span class="w"> </span><span class="o">(</span>Nm³/hr<span class="o">)</span>,<span class="w"> </span>Standard<span class="w"> </span>cubic<span class="w"> </span>feet<span class="w"> </span>per<span class="w"> </span>hour<span class="w"> </span><span class="o">(</span>scfh<span class="o">)</span>,<span class="w"> </span>Standard<span class="w"> </span>cubic<span class="w"> </span>feet<span class="w"> </span>per<span class="w"> </span>minute<span class="w"> </span><span class="o">(</span>scfm<span class="o">)</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Volumetric<span class="w"> </span>Liquid<span class="w"> </span>Flow:<span class="w"> </span>Liter<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="o">(</span>L/sec<span class="o">)</span>,<span class="w"> </span>Liter<span class="w"> </span>per<span class="w"> </span>minute<span class="w"> </span><span class="o">(</span>L/min<span class="o">)</span>,<span class="w"> </span>Meter<span class="w"> </span>cube<span class="w"> </span>per<span class="w"> </span>hour<span class="w"> </span><span class="o">(</span>m³/hr<span class="o">)</span>,<span class="w"> </span>Foot<span class="w"> </span>cube<span class="w"> </span>per<span class="w"> </span>minute<span class="w"> </span><span class="o">(</span>ft³/min<span class="o">)</span>,<span class="w"> </span>Foot<span class="w"> </span>cube<span class="w"> </span>per<span class="w"> </span>hour<span class="w"> </span><span class="o">(</span>ft³/hr<span class="o">)</span>,<span class="w"> </span>US<span class="w"> </span>gallons<span class="w"> </span>per<span class="w"> </span>minute<span class="w"> </span><span class="o">(</span>gal/min<span class="o">)</span>,<span class="w"> </span>US<span class="w"> </span>barrels<span class="w"> </span><span class="o">(</span>oil<span class="o">)</span><span class="w"> </span>per<span class="w"> </span>day<span class="w"> </span><span class="o">(</span>US<span class="w"> </span>brl/d<span class="o">)</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Devin Coy
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":".","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.8ffeb9c9.min.js"></script>
+      
+    
+  </body>
+</html>
