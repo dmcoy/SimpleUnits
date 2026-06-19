@@ -16,6 +16,7 @@
     <Title>Simple Units</Title>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <PackageTags>units; unit; convert; conversion; metric; imperial;</PackageTags>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
