@@ -12,7 +12,7 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/dmcoy/SimpleUnits</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Title>Simple Units</Title>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <PackageTags>units; unit; convert; conversion; metric; imperial;</PackageTags>
