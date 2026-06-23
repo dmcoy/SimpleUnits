@@ -1,10 +1,8 @@
 # SimpleUnits
 A lightweight static class library for unit conversions in dotnet projects. This is not a comprehensive set of unit conversions but should cover a wide variety of use cases.
 
-## Development
-- [ ] Create Nuget package
-
 ## How to use
+Everything is contained in one convenient namespace.
 ``` csharp
 using SimpleUnits;
 ```
@@ -37,7 +35,7 @@ double ftlbToNm = Torque.Convert(815, Torque.Unit.Ftlb, Torque.Unit.Nm);
 ```
 
 ## Conversion factors
-You can also retrieve each conversion factor by accessing the constant value from the Factor struct in each class (with the exception of Temperature).
+You can also retrieve each conversion factor by accessing the constant value from the `Factor` struct in each class (with the exception of Temperature).
 ``` csharp
 // Returns the conversion factor for bar to psi (14.50326)
 double barToPsiFactor = Pressure.Factor.BarToPsi;
