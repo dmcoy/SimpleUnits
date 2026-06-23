@@ -1,6 +1,17 @@
 # SimpleUnits
 A lightweight static class library for unit conversions in dotnet projects. This is not a comprehensive set of unit conversions but should cover a wide variety of use cases.
 
+## Installation
+Using terminal or command prompt
+``` bash
+dotnet add package SimpleUnits
+```
+
+Using PowerShell
+``` powershell
+Install-Package SimpleUnits
+```
+
 ## How to use
 Everything is contained in one convenient namespace.
 ``` csharp
