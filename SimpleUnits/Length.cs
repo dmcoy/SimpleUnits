@@ -297,7 +297,7 @@ namespace SimpleUnits
             /// </summary>
             public const double FtToMm = 304.8;
             /// <summary>
-            /// Conversion factor from feet (ft) to centimeters (m).
+            /// Conversion factor from feet (ft) to centimeters (cm).
             /// </summary>
             public const double FtToCm = 30.48;
             /// <summary>
@@ -305,7 +305,7 @@ namespace SimpleUnits
             /// </summary>
             public const double FtToM = 0.304_8;
             /// <summary>
-            /// Conversion factor from feet (ft) to kilometers (m).
+            /// Conversion factor from feet (ft) to kilometers (km).
             /// </summary>
             public const double FtToKm = 0.000_304_8;
             /// <summary>
@@ -326,7 +326,7 @@ namespace SimpleUnits
             /// </summary>
             public const double YdToMm = 914.4;
             /// <summary>
-            /// Conversion factor from yards (yd) to centimeters (m).
+            /// Conversion factor from yards (yd) to centimeters (cm).
             /// </summary>
             public const double YdToCm = 91.44;
             /// <summary>
@@ -334,7 +334,7 @@ namespace SimpleUnits
             /// </summary>
             public const double YdToM = 0.914_4;
             /// <summary>
-            /// Conversion factor from yards (yd) to kilometers (m).
+            /// Conversion factor from yards (yd) to kilometers (km).
             /// </summary>
             public const double YdToKm = 0.000_914;
             /// <summary>
@@ -355,7 +355,7 @@ namespace SimpleUnits
             /// </summary>
             public const double MiToMm = 1_609_344;
             /// <summary>
-            /// Conversion factor from miles (mi) to centimeters (m).
+            /// Conversion factor from miles (mi) to centimeters (cm).
             /// </summary>
             public const double MiToCm = 160_934.4;
             /// <summary>
@@ -363,7 +363,7 @@ namespace SimpleUnits
             /// </summary>
             public const double MiToM = 1_609.344;
             /// <summary>
-            /// Conversion factor from miles (mi) to kilometers (m).
+            /// Conversion factor from miles (mi) to kilometers (km).
             /// </summary>
             public const double MiToKm = 1.609_344;
             /// <summary>
@@ -385,10 +385,10 @@ namespace SimpleUnits
         #region Millimeter conversions
 
         /// <summary>
-        /// Converts a value from millimeters (mm) to centimeters (m).
+        /// Converts a value from millimeters (mm) to centimeters (cm).
         /// </summary>
         /// <param name="value">The value in millimeters (mm).</param>
-        /// <returns>The equivalent value in centimeters (m).</returns>
+        /// <returns>The equivalent value in centimeters (cm).</returns>
         public static double MmToCm(double value) => value * Factor.MmToCm;
 
         /// <summary>
@@ -399,10 +399,10 @@ namespace SimpleUnits
         public static double MmToM(double value) => value * Factor.MmToM;
 
         /// <summary>
-        /// Converts a value from millimeters (mm) to kilometers (m).
+        /// Converts a value from millimeters (mm) to kilometers (km).
         /// </summary>
         /// <param name="value">The value in millimeters (mm).</param>
-        /// <returns>The equivalent value in kilometers (m).</returns>
+        /// <returns>The equivalent value in kilometers (km).</returns>
         public static double MmToKm(double value) => value * Factor.MmToKm;
 
         /// <summary>
@@ -452,37 +452,37 @@ namespace SimpleUnits
         public static double CmToM(double value) => value * Factor.CmToM;
 
         /// <summary>
-        /// Converts a value from centimeters (cm) to kilometers (m).
+        /// Converts a value from centimeters (cm) to kilometers (km).
         /// </summary>
         /// <param name="value">The value in centimeters (m).</param>
-        /// <returns>The equivalent value in kilometers (m).</returns>
+        /// <returns>The equivalent value in kilometers (km).</returns>
         public static double CmToKm(double value) => value * Factor.CmToKm;
 
         /// <summary>
         /// Converts a value from centimeters (cm) to inches (in).
         /// </summary>
-        /// <param name="value">The value in centimeters (m).</param>
+        /// <param name="value">The value in centimeters (cm).</param>
         /// <returns>The equivalent value in inches (in).</returns>
         public static double CmToIn(double value) => value * Factor.CmToIn;
 
         /// <summary>
         /// Converts a value from centimeters (cm) to feet (ft).
         /// </summary>
-        /// <param name="value">The value in centimeters (m).</param>
+        /// <param name="value">The value in centimeters (cm).</param>
         /// <returns>The equivalent value in feet (ft).</returns>
         public static double CmToFt(double value) => value * Factor.CmToFt;
 
         /// <summary>
         /// Converts a value from centimeters (cm) to yards (yd).
         /// </summary>
-        /// <param name="value">The value in centimeters (m).</param>
+        /// <param name="value">The value in centimeters (cm).</param>
         /// <returns>The equivalent value in yards (yd).</returns>
         public static double CmToYd(double value) => value * Factor.CmToYd;
 
         /// <summary>
         /// Converts a value from centimeters (cm) to miles (mi).
         /// </summary>
-        /// <param name="value">The value in centimeters (m).</param>
+        /// <param name="value">The value in centimeters (cm).</param>
         /// <returns>The equivalent value in miles (mi).</returns>
         public static double CmToMi(double value) => value * Factor.CmToMi;
 
@@ -498,17 +498,17 @@ namespace SimpleUnits
         public static double MToMm(double value) => value * Factor.MToMm;
 
         /// <summary>
-        /// Converts a value from meters (m) to centimeters (m).
+        /// Converts a value from meters (m) to centimeters (cm).
         /// </summary>
         /// <param name="value">The value in meters (m).</param>
-        /// <returns>The equivalent value in centimeters (m).</returns>
+        /// <returns>The equivalent value in centimeters (cm).</returns>
         public static double MToCm(double value) => value * Factor.MToCm;
 
         /// <summary>
-        /// Converts a value from meters (m) to kilometers (m).
+        /// Converts a value from meters (m) to kilometers (km).
         /// </summary>
         /// <param name="value">The value in meters (m).</param>
-        /// <returns>The equivalent value in kilometers (m).</returns>
+        /// <returns>The equivalent value in kilometers (km).</returns>
         public static double MToKm(double value) => value * Factor.MToKm;
 
         /// <summary>
@@ -546,49 +546,49 @@ namespace SimpleUnits
         /// <summary>
         /// Converts a value from kilometers (km) to millimeters (mm).
         /// </summary>
-        /// <param name="value">The value in kilometers (m).</param>
+        /// <param name="value">The value in kilometers (km).</param>
         /// <returns>The equivalent value in millimeters (mm).</returns>
         public static double KmToMm(double value) => value * Factor.KmToMm;
 
         /// <summary>
         /// Converts a value from kilometers (km) to centimeters (m).
         /// </summary>
-        /// <param name="value">The value in kilometers (m).</param>
+        /// <param name="value">The value in kilometers (km).</param>
         /// <returns>The equivalent value in centimeters (m).</returns>
         public static double KmToCm(double value) => value * Factor.KmToCm;
 
         /// <summary>
         /// Converts a value from kilometers (km) to meters (m).
         /// </summary>
-        /// <param name="value">The value in kilometers (m).</param>
+        /// <param name="value">The value in kilometers (km).</param>
         /// <returns>The equivalent value in meters (m).</returns>
         public static double KmToM(double value) => value * Factor.KmToM;
 
         /// <summary>
         /// Converts a value from kilometers (km) to inches (in).
         /// </summary>
-        /// <param name="value">The value in kilometers (m).</param>
+        /// <param name="value">The value in kilometers (km).</param>
         /// <returns>The equivalent value in inches (in).</returns>
         public static double KmToIn(double value) => value * Factor.KmToIn;
 
         /// <summary>
         /// Converts a value from kilometers (km) to feet (ft).
         /// </summary>
-        /// <param name="value">The value in kilometers (m).</param>
+        /// <param name="value">The value in kilometers (km).</param>
         /// <returns>The equivalent value in feet (ft).</returns>
         public static double KmToFt(double value) => value * Factor.KmToFt;
 
         /// <summary>
         /// Converts a value from kilometers (km) to yards (yd).
         /// </summary>
-        /// <param name="value">The value in kilometers (m).</param>
+        /// <param name="value">The value in kilometers (km).</param>
         /// <returns>The equivalent value in yards (yd).</returns>
         public static double KmToYd(double value) => value * Factor.KmToYd;
 
         /// <summary>
         /// Converts a value from kilometers (km) to miles (mi).
         /// </summary>
-        /// <param name="value">The value in kilometers (m).</param>
+        /// <param name="value">The value in kilometers (km).</param>
         /// <returns>The equivalent value in miles (mi).</returns>
         public static double KmToMi(double value) => value * Factor.KmToMi;
 
@@ -604,10 +604,10 @@ namespace SimpleUnits
         public static double InToMm(double value) => value * Factor.InToMm;
 
         /// <summary>
-        /// Converts a value from inches (in) to centimeters (m).
+        /// Converts a value from inches (in) to centimeters (cm).
         /// </summary>
         /// <param name="value">The value in inches (in).</param>
-        /// <returns>The equivalent value in centimeters (m).</returns>
+        /// <returns>The equivalent value in centimeters (cm).</returns>
         public static double InToCm(double value) => value * Factor.InToCm;
 
         /// <summary>
@@ -618,10 +618,10 @@ namespace SimpleUnits
         public static double InToM(double value) => value * Factor.InToM;
 
         /// <summary>
-        /// Converts a value from inches (in) to kilometers (m).
+        /// Converts a value from inches (in) to kilometers (km).
         /// </summary>
         /// <param name="value">The value in inches (in).</param>
-        /// <returns>The equivalent value in kilometers (m).</returns>
+        /// <returns>The equivalent value in kilometers (km).</returns>
         public static double InToKm(double value) => value * Factor.InToKm;
 
         /// <summary>
@@ -657,10 +657,10 @@ namespace SimpleUnits
         public static double FtToMm(double value) => value * Factor.FtToMm;
 
         /// <summary>
-        /// Converts a value from feet (ft) to centimeters (m).
+        /// Converts a value from feet (ft) to centimeters (cm).
         /// </summary>
         /// <param name="value">The value in feet (ft).</param>
-        /// <returns>The equivalent value in centimeters (m).</returns>
+        /// <returns>The equivalent value in centimeters (cm).</returns>
         public static double FtToCm(double value) => value * Factor.FtToCm;
 
         /// <summary>
@@ -671,10 +671,10 @@ namespace SimpleUnits
         public static double FtToM(double value) => value * Factor.FtToM;
 
         /// <summary>
-        /// Converts a value from feet (ft) to kilometers (m).
+        /// Converts a value from feet (ft) to kilometers (km).
         /// </summary>
         /// <param name="value">The value in feet (ft).</param>
-        /// <returns>The equivalent value in kilometers (m).</returns>
+        /// <returns>The equivalent value in kilometers (km).</returns>
         public static double FtToKm(double value) => value * Factor.FtToKm;
 
         /// <summary>
@@ -710,10 +710,10 @@ namespace SimpleUnits
         public static double YdToMm(double value) => value * Factor.YdToMm;
 
         /// <summary>
-        /// Converts a value from yards (yd) to centimeters (m).
+        /// Converts a value from yards (yd) to centimeters (cm).
         /// </summary>
         /// <param name="value">The value in yards (yd).</param>
-        /// <returns>The equivalent value in centimeters (m).</returns>
+        /// <returns>The equivalent value in centimeters (cm).</returns>
         public static double YdToCm(double value) => value * Factor.YdToCm;
 
         /// <summary>
@@ -724,10 +724,10 @@ namespace SimpleUnits
         public static double YdToM(double value) => value * Factor.YdToM;
 
         /// <summary>
-        /// Converts a value from yards (yd) to kilometers (m).
+        /// Converts a value from yards (yd) to kilometers (km).
         /// </summary>
         /// <param name="value">The value in yards (yd).</param>
-        /// <returns>The equivalent value in kilometers (m).</returns>
+        /// <returns>The equivalent value in kilometers (km).</returns>
         public static double YdToKm(double value) => value * Factor.YdToKm;
 
         /// <summary>
@@ -763,10 +763,10 @@ namespace SimpleUnits
         public static double MiToMm(double value) => value * Factor.MiToMm;
 
         /// <summary>
-        /// Converts a value from miles (mi) to centimeters (m).
+        /// Converts a value from miles (mi) to centimeters (cm).
         /// </summary>
         /// <param name="value">The value in miles (mi).</param>
-        /// <returns>The equivalent value in centimeters (m).</returns>
+        /// <returns>The equivalent value in centimeters (cm).</returns>
         public static double MiToCm(double value) => value * Factor.MiToCm;
 
         /// <summary>
@@ -777,10 +777,10 @@ namespace SimpleUnits
         public static double MiToM(double value) => value * Factor.MiToM;
 
         /// <summary>
-        /// Converts a value from miles (mi) to kilometers (m).
+        /// Converts a value from miles (mi) to kilometers (km).
         /// </summary>
         /// <param name="value">The value in miles (mi).</param>
-        /// <returns>The equivalent value in kilometers (m).</returns>
+        /// <returns>The equivalent value in kilometers (km).</returns>
         public static double MiToKm(double value) => value * Factor.MiToKm;
 
         /// <summary>
