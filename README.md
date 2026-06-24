@@ -66,7 +66,7 @@ feet = Length.Convert(inches, Length.Unit.In, Lenght.Unit.Ft);
 ```
 
 ### Double vs. Float
-Each of the explicit methods only returns type double. The `Convert` method in each class is polymorhphic and can return type double or float. You'll need to cast float if that's what you need when using the explicitly named methods.
+Each of the explicit methods only returns type double. The `Convert` method in each class is polymorphic and can return type double or float. You'll need to cast float if that's what you need when using the explicitly named methods.
 ``` csharp
 double squareFeetDouble = Area.M2ToFt2(1.2);
 float squareFeetFloat = (float)Area.M2ToFt2(1.2);
