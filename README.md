@@ -18,7 +18,7 @@ Everything is contained in one convenient namespace.
 using SimpleUnits;
 ```
 
-## Converting units
+### Converting units
 You have two options for converting units.
 
 If you know what unit you want to convert from and to, there are explicit methods in each class for doing so.
@@ -45,7 +45,7 @@ double kmToMi = Length.Convert(71, Length.Unit.Km, Length.Unit.Mi);
 double ftlbToNm = Torque.Convert(815, Torque.Unit.Ftlb, Torque.Unit.Nm);
 ```
 
-## Conversion factors
+### Conversion factors
 You can also retrieve each conversion factor by accessing the constant value from the `Factor` struct in each class (with the exception of Temperature).
 ``` csharp
 // Returns the conversion factor for bar to psi (14.50326)
@@ -65,8 +65,8 @@ double feet = inches * Length.Factor.InToFt;
 feet = Length.Convert(inches, Length.Unit.In, Lenght.Unit.Ft);
 ```
 
-## Double vs. Float
-Each of the explicit methods only returns type double. Only the Convert method for each class contains an overload to pass in a float value and return type float. You'll need to cast float if that's what you need when using the explicitly named methods.
+### Double vs. Float
+Each of the explicit methods only returns type double. The `Convert` method in each class is polymorhphic and can return type double or float. You'll need to cast float if that's what you need when using the explicitly named methods.
 ``` csharp
 double squareFeetDouble = Area.M2ToFt2(1.2);
 float squareFeetFloat = (float)Area.M2ToFt2(1.2);
