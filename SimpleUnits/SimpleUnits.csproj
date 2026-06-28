@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
 	<PackageId>SimpleUnits</PackageId>
-	<Version>1.0.0</Version>
+	<Version>1.0.1</Version>
 	<Authors>dmcoy</Authors>
 	<Description>A lightweight static class library for unit conversion in dotnet projects.</Description>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -14,7 +14,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Title>Simple Units</Title>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>XML documentation corrections and some README typo fixes.</PackageReleaseNotes>
     <PackageTags>units; unit; convert; conversion; metric; imperial;</PackageTags>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
