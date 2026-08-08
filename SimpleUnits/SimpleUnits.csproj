@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
 	<PackageId>SimpleUnits</PackageId>
-	<Version>1.0.1</Version>
+	<Version>1.1.0</Version>
 	<Authors>dmcoy</Authors>
 	<Description>A lightweight static class library for unit conversion in dotnet projects.</Description>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -15,7 +15,7 @@
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Title>Simple Units</Title>
 	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <PackageReleaseNotes>XML documentation corrections and some README typo fixes.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added double/float extension methods for every conversion method across all unit types, added a full xUnit test suite, and fixed BaseUnitsMatch to throw a clear ArgumentException instead of a KeyNotFoundException for unregistered unit types.</PackageReleaseNotes>
     <PackageTags>units; unit; convert; conversion; metric; imperial;</PackageTags>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
