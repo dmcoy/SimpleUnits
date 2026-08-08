@@ -5,6 +5,18 @@ namespace SimpleUnits.Tests;
 
 public class UnitConverterTests
 {
+    static UnitConverterTests()
+    {
+        // Referencing Length.Unit.Mm or Mass.Unit.G below does NOT guarantee Length's
+        // or Mass's static constructor has run -- a nested enum member can be read
+        // without ever touching the enclosing class. Only calling one of their actual
+        // static methods does that. Without this, the tests below that rely on
+        // Length/Mass already being registered with UnitConverter would pass or fail
+        // depending on whether some other test class happened to run first.
+        _ = Length.MmToCm(0);
+        _ = Mass.GToKg(0);
+    }
+
     // Deliberately never registered via UnitConverter.RegisterUnit, so it can stand in
     // for "someone added a new unit class but forgot to register it" without needing to
     // touch any of the library's real unit types.
