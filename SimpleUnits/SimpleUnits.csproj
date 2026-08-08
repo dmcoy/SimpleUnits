@@ -35,4 +35,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="SimpleUnits.Tests" />
+  </ItemGroup>
+
 </Project>
