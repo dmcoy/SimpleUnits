@@ -104,10 +104,19 @@ namespace SimpleUnits
         /// <param name="fromUnit">The first unit enumeration value.</param>
         /// <param name="toUnit">The second unit enumeration value.</param>
         /// <returns><c>true</c> if both units have the same base unit; otherwise, <c>false</c>.</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown if either unit's enum type has not been registered via <see cref="RegisterUnit"/>.
+        /// </exception>
         private static bool BaseUnitsMatch(Enum fromUnit, Enum toUnit)
         {
-            BaseUnit fromBaseUnit = _unitTypeToBaseUnit[fromUnit.GetType()];
-            BaseUnit toBaseUnit = _unitTypeToBaseUnit[toUnit.GetType()];
+            if (!_unitTypeToBaseUnit.TryGetValue(fromUnit.GetType(), out var fromBaseUnit))
+            {
+                throw new ArgumentException($"Unit type: {fromUnit} is not registered");
+            }
+            if (!_unitTypeToBaseUnit.TryGetValue(toUnit.GetType(), out var toBaseUnit))
+            {
+                throw new ArgumentException($"Unit type: {toUnit} is not registered");
+            }
             return fromBaseUnit == toBaseUnit;
         }
     }
