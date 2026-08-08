@@ -630,7 +630,7 @@ namespace SimpleUnits
         /// </summary>
         /// <param name="value">The value in inches (in).</param>
         /// <returns>The equivalent value in feet (ft).</returns>
-        public static double InToFt(double value) => value * Factor.InToFt;
+        public static double InToFt(double value) => Calculate.TowardZero(value, Factor.InToFt);
 
         /// <summary>
         /// Converts a value from inches (in) to yards (yd).
