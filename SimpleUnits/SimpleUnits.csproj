@@ -14,6 +14,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Title>Simple Units</Title>
+	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <PackageReleaseNotes>XML documentation corrections and some README typo fixes.</PackageReleaseNotes>
     <PackageTags>units; unit; convert; conversion; metric; imperial;</PackageTags>
     <RepositoryType>git</RepositoryType>

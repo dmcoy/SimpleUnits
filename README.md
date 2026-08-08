@@ -45,6 +45,19 @@ double kmToMi = Length.Convert(71, Length.Unit.Km, Length.Unit.Mi);
 double ftlbToNm = Torque.Convert(815, Torque.Unit.Ftlb, Torque.Unit.Nm);
 ```
 
+### Extension methods
+Every explicit conversion method is also available as an extension method on `double` and `float`, letting you call conversions fluently off the value itself.
+```csharp
+// Converting bar to psi
+double barToPsi = 9.7.BarToPsi();
+
+// Converting kilometers to miles
+double kmToMi = 71d.KmToMi();
+
+// Converting foot pounds to newton meters
+float ftlbToNm = 815f.FtlbToNm();
+```
+
 ### Conversion factors
 You can also retrieve each conversion factor by accessing the constant value from the `Factor` struct in each class (with the exception of Temperature).
 ``` csharp
