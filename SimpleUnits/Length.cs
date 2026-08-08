@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace SimpleUnits
 {
@@ -629,7 +630,7 @@ namespace SimpleUnits
         /// </summary>
         /// <param name="value">The value in inches (in).</param>
         /// <returns>The equivalent value in feet (ft).</returns>
-        public static double InToFt(double value) => value % Factor.FtToIn == 0 ? Math.Round(value * Factor.InToFt) : value * Factor.InToFt;
+        public static double InToFt(double value) => value * Factor.InToFt;
 
         /// <summary>
         /// Converts a value from inches (in) to yards (yd).
